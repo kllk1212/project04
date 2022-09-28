@@ -111,6 +111,9 @@ button.close::after{
 }
 
 /* img ratio box */
+img{
+    max-width: 100%;
+}
 .img_r {
     position: relative;
 }
