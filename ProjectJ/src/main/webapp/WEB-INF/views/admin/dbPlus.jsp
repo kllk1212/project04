@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-</head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+	<!-- header 복붙 -->
+	<%@ include file="../includes/header.jsp" %>
 <!-- 
 	업종 외식 종류 15개 
 	
@@ -27,7 +26,7 @@
 	기타외식 O1	갯수 = 1487	pageNum = 149 
 	(고깃집,횟집 등등)
  -->
-<body>
+
 	<table>
 		<tr>
 			<td> <h1>공정거래 위원회 정보공개서 DB로 가져오기</h1> </td>
@@ -85,11 +84,5 @@
 	
 	
 	
-	
-	
-	
-	
-	
-
-</body>
-</html>
+   	<!-- footer 복붙 -->        
+	<%@ include file="../includes/footer.jsp" %>

@@ -23,5 +23,10 @@
 		select count(*) from companyInfo where c_comName like '%'||#{comName}||'%'
 	</select>
 
+	<insert id="inserStarInfo">
+		insert into starInfo(s_comTitle,s_comName) values(#{s_comTitle},#{s_comName})
+	</insert>
+
+
 
 </mapper>

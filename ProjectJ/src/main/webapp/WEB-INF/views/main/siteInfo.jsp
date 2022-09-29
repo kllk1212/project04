@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<!-- header 복붙 -->
+<%@ include file="../includes/header.jsp" %>
+	
+	<h1>사이트 소개</h1>
+	
+	
+	
+	
+	
+	
+	
+<!-- footer 복붙 -->        
+<%@ include file="../includes/footer.jsp" %>

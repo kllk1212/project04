@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.crawling.domain.CompanyDTO;
 import com.crawling.domain.FranchiseeStatusDTO;
 import com.crawling.domain.LocalSalesDTO;
+import com.projectJ.domain.StarInfoDTO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -34,7 +35,7 @@ public class CrawlingTestFix1 {
         
 		
 		try {
-			url="https://franchise.ftc.go.kr/mnu/00013/program/userRqst/view.do?firMstSn=131614";
+			url="https://franchise.ftc.go.kr/mnu/00013/program/userRqst/view.do?firMstSn=437092";
 			System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
 			ChromeOptions options = new ChromeOptions();
 			
@@ -143,6 +144,13 @@ public class CrawlingTestFix1 {
             
             
             mapper.insert(dto); // testCompany 테이블에 인서트 (회사정보)
+            
+            // 별점 테이블에 넣는 정보!!
+            StarInfoDTO starDTO = new StarInfoDTO();
+            starDTO.setS_comTitle(c_comTitle);
+            starDTO.setS_comName(c_comName);
+            
+            mapper.inserStarInfo(starDTO);
             
             
             // 공통 항목 year , zone / 배열로 넣어야하는 항목 zone / for문으로 넣어야하는 항목 franchiseeEa,aveSales,areaAveSales

@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.crawling.domain.CompanyDTO;
 import com.crawling.domain.FranchiseeStatusDTO;
 import com.crawling.domain.LocalSalesDTO;
+import com.projectJ.domain.StarInfoDTO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -183,7 +184,7 @@ public class CrawlingTestFix3 {
 		            String c_comNum = driver.findElement(By.cssSelector("#frm > div:nth-child(12) > div > table:nth-child(2) > tbody > tr:nth-child(3) > td:nth-child(3)")).getAttribute("textContent").trim();
 		            //회사이미지 - 디폴트이미지로 일단 ㅇㅇ      
 
-		            CompanyDTO dto = new CompanyDTO();
+		            CompanyDTO dto = new CompanyDTO();	            
 		            dto.setC_comNo(c_comNo);
 		            dto.setC_comTitle(c_comTitle);
 		            dto.setC_comName(c_comName);
@@ -203,6 +204,13 @@ public class CrawlingTestFix3 {
 		            
 		            
 		            mapper.insert(dto); // testCompany 테이블에 인서트 (회사정보)
+		            
+		            // 별점 테이블에 넣는 정보!!
+		            StarInfoDTO starDTO = new StarInfoDTO();
+		            starDTO.setS_comTitle(c_comTitle);
+		            starDTO.setS_comName(c_comName);
+		            
+		            mapper.inserStarInfo(starDTO);
 		            
 		            
 		            // 공통 항목 year , zone / 배열로 넣어야하는 항목 zone / for문으로 넣어야하는 항목 franchiseeEa,aveSales,areaAveSales

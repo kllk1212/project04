@@ -33,6 +33,7 @@
 	<!-- Mapper 스캔하도록 설정 -->
 	
 	<mybatis-spring:scan base-package="com.projectJ.persistence"/>
+	<mybatis-spring:scan base-package="com.crawling.persistence"/>
 	<!--
 	<mybatis-spring:scan base-package="com.crawling.persistence"/>  -->
 	
