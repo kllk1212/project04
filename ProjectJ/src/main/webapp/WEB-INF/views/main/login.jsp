@@ -9,6 +9,7 @@
 	<h1>로그인 창 페이지</h1>
 	
 	
+	
                     <div class="header_right">
                         <button type="button" id="headerBtn" onclick="location.href='../main/signup' ">회원가입</button>
                     </div>
