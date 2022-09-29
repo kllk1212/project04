@@ -15,6 +15,7 @@ public class MainController {
 	@GetMapping("main")				// 메인
 	public void mainGet() {
 		log.info("**********mainGet 진입");
+		//123
 		
 	}
 	
