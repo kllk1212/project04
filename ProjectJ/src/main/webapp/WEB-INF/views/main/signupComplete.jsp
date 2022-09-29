@@ -7,7 +7,7 @@
 <%@ include file="../includes/header.jsp" %>
 	
 	<h1>회원가입 완료 축하 페이지</h1>
-	
+	<h1>축하해요</h1>
 	
 	
 	
