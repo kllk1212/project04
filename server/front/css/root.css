@@ -1,0 +1,19 @@
+/* ========================= root(S) ==========================*/
+
+:root {
+    /* color */
+    /* --green: #246030; */
+    --green: #075d2d;
+    --leaf: #2E8B57;
+    --light: #BEDAB9;
+    --beige: #FFF2C9;
+    --black: #1E1E1E;
+    --white: #fff;
+    /* fonts */
+    --f-Noto: 'Noto Sans', sans-serif, Malgun Gothic,"맑은 고딕",AppleGothic,Dotum,"돋움",sans-serif;
+    --f-Roboto: 'Roboto', sans-serif, 'Noto Sans', sans-serif, Malgun Gothic,"맑은 고딕",AppleGothic,Dotum,"돋움",sans-serif;
+    --f-Verdana: 'Verdana', 'Noto Sans', sans-serif, Malgun Gothic,"맑은 고딕",AppleGothic,Dotum,"돋움",sans-serif;
+    /* letter-spacing: -0.125em; */
+}
+
+/* ========================= root(E) ==========================*/
