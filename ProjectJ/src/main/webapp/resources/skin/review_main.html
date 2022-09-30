@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    
+
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/main.css?v=<?=time()?>">
 
@@ -49,7 +49,7 @@
                     <div class="header_left">
                         <div class="header_logo">
                             <a href="">
-                                <img src="./img/logo.png" alt="창업나무">
+                                <img src="./img/common/logo.png" alt="창업나무">
                             </a>
                         </div>
                         <nav class="nav">
@@ -80,10 +80,53 @@
 
             <!-- ======================================== -->
             <!-- contents -->
-            <div id="contents" class="contents main page" data-id="main">
-                <!-- main -->
-                <section>
-                    <div class="section_wrap"></div>
+            <div id="contents" class="contents reviewMain page" data-id="reviewMain">
+                <section class="section s-search">
+                    <div class="layout_wrap">
+                        <div class="countBox center-f">
+                            <div class="imgBox">
+                                <img src="./img/review/map_pin.png" alt="">
+                            </div>
+                            <div class="txtBox">
+                                <span>등록되어있는 <br>
+                                    브랜드 수 : <b>800</b></span>
+                            </div>
+                        </div>
+                        <div class="searchBox">
+                            <form action="/franchise/reviewSearch" method="get">
+                                <input type="search" id="comName" name="comName" value="" placeholder="브랜드명을 입력해보세요.">
+                                <button type="submit" id="search">검색</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!-- reviewMain -->
+                <section class="section s-swiper">
+                    <div class="layout_wrap">
+                        <!-- Slider main container -->
+                        <div class="swiper reviewMain-swiper">
+                            <!-- Additional required wrapper -->
+                            <ul class="swiper-wrapper">
+                                <!-- Slides (3)-->
+                                <li class="swiper-slide">
+                                    <div class="inwrap img_r">
+
+                                    </div>
+                                </li>
+                                <li class="swiper-slide">
+                                    <div class="inwrap img_r">
+
+                                    </div>
+                                </li>
+                                <li class="swiper-slide">
+                                    <div class="inwrap img_r">
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- //swiper -->
+                    </div>
                 </section>
             </div>
             <!-- //contents -->
@@ -94,7 +137,7 @@
                 <div class="footer_wrap layout_wrap Hmax">
                     <div class="footer_left fx">
                         <div class="footer_img">
-                            <img src="./img/logoH_tree.png" alt="footer logo">
+                            <img src="./img/common/logoH_tree.png" alt="footer logo">
                         </div>
                         <address class="address">
                             <span>대표자 : Double J</span>
@@ -104,7 +147,7 @@
                     <div class="footer_right">
                         <a href="tel:02-716-1006" class="fx alc">
                             <div class="cs_img">
-                                <img src="./img/call.png" alt="고객센터">
+                                <img src="./img/common/call.png" alt="고객센터">
                             </div>
                             <div class="cs_txt">
                                 고객센터<br>
@@ -118,5 +161,31 @@
         </div>
         <!-- //container -->
     </div>
+    <script>
+        $(function(){
+            var reviewMain = new Swiper('.reviewMain-swiper', {
+                navigation: {
+                    nextEl: '.reviewMain-swiper-next',
+                    prevEl: '.reviewMain-swiper-prev'
+                },
+                speed: 1500,
+                slidesPerView: 3,
+                spaceBetween: 30,
+                slidesPerGroup: 1,
+                observer: true,
+                observeParents: true,
+                breakpoints:{
+                    769:{
+                        // slidesPerView: 2.2,
+                        // spaceBetween: 22
+                    },
+                    1025:{
+                        // slidesPerView: 3,
+                        // spaceBetween: 38.5
+                    }
+                },
+            });
+        });
+    </script>
     <!-- //wrap -->
 </body>
