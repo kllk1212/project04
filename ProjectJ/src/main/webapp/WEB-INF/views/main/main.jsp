@@ -5,14 +5,14 @@
 
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp" %>
-	
-	<h1>메인페이지</h1>
-	
-	
-	
-	
-	
-	
-	
-<!-- footer 복붙 -->        
+
+	<h1>메인페이지입니당~</h1>
+
+
+
+
+
+
+
+<!-- footer 복붙 -->
 <%@ include file="../includes/footer.jsp" %>
