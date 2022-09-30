@@ -11,7 +11,7 @@
 	</select>
 
 	<insert id="insertUserData">
-		insert into userInfo(m_id,m_pw,m_email,m_num,m_ping) values(#{m_id}',#{m_pw},#{m_email},#{m_num},#{m_ping})
+		insert into userInfo(m_id,m_pw,m_email,m_num,m_ping) values(#{m_id},#{m_pw},#{m_email},#{m_num},#{m_ping})
 	</insert>
 
 

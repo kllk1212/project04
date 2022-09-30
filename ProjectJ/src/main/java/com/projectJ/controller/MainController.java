@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.projectJ.domain.UserInfoDTO;
 import com.projectJ.service.MainService;
 
 import lombok.extern.log4j.Log4j;
@@ -63,10 +65,21 @@ public class MainController {
 	
 	
 	@PostMapping("signup") 			// 회원가입 정보 입력 후 
-	public void signupPost(UserInfoDTO userDTO) {
+	public String signupPost(UserInfoDTO userDTO) {
 		log.info("*********signupPost 진입");
 		service.insertUserData(userDTO);
 		
+		return "redirect:/main/signupComplete";
 	}
+	
+	
+	
+	
+	@GetMapping("signupComplete")
+	public void signupCompleteGet() {
+		log.info("signupComplete ***** 진입");
+	}
+	
+	
 	
 }

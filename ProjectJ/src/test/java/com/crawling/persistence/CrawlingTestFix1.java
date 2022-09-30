@@ -49,7 +49,7 @@ public class CrawlingTestFix1 {
             // 회사번호 O
             String c_comNo = driver.findElement(By.cssSelector("#frm > div:nth-child(12) > div > table:nth-child(2) > tbody > tr:nth-child(5) > td.noborder")).getAttribute("textContent").trim();
             // 상호명 O
-            String c_comTitle = driver.findElement(By.cssSelector("#frm > div:nth-child(12) > div > table:nth-child(2) > tbody > tr:nth-child(1) > td.noborder")).getAttribute("textContent").replace("상호","").trim();
+            String c_comTitle = driver.findElement(By.cssSelector("#frm > div:nth-child(12) > div > table:nth-child(2) > tbody > tr:nth-child(1) > td.noborder")).getAttribute("textContent").trim().replace("상호","").trim();
             // 영업표지 O
             log.info("**************************** 영업표지");
             String c_comName = driver.findElement(By.cssSelector("#frm > div:nth-child(12) > div > table:nth-child(2) > tbody > tr:nth-child(1) > td:nth-child(2)")).getAttribute("textContent").trim().substring(4);
@@ -126,8 +126,8 @@ public class CrawlingTestFix1 {
 
             CompanyDTO dto = new CompanyDTO();
             dto.setC_comNo(c_comNo);
-            dto.setC_comTitle(c_comTitle);
-            dto.setC_comName(c_comName);
+            dto.setC_comTitle(c_comTitle.trim());
+            dto.setC_comName(c_comName.trim());
             dto.setC_type(c_type);
             dto.setC_storeCount(c_storeCount);
             dto.setC_memberFee(c_memberFee);
@@ -147,7 +147,7 @@ public class CrawlingTestFix1 {
             
             // 별점 테이블에 넣는 정보!!
             StarInfoDTO starDTO = new StarInfoDTO();
-            starDTO.setS_comTitle(c_comTitle);
+            starDTO.setS_comTitle(c_comTitle.trim());
             starDTO.setS_comName(c_comName);
             
             mapper.inserStarInfo(starDTO);

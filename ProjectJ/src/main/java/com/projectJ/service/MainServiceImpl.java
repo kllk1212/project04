@@ -3,7 +3,7 @@ package com.projectJ.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.projectJ.controller.UserInfoDTO;
+import com.projectJ.domain.UserInfoDTO;
 import com.projectJ.persistence.MainMapper;
 
 import lombok.extern.log4j.Log4j;
@@ -29,6 +29,9 @@ public class MainServiceImpl implements MainService{
 	public int idCheck(UserInfoDTO dto) {
 		return mapper.idCheck(dto);
 	}
+
+
+
 
 	
 	

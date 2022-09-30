@@ -1,6 +1,6 @@
 package com.projectJ.persistence;
 
-import com.projectJ.controller.UserInfoDTO;
+import com.projectJ.domain.UserInfoDTO;
 
 public interface MainMapper {
 	
