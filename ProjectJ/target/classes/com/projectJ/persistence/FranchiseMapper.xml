@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.projectJ.persistence.FranchiseMapper">
+	
+
+<select id="searchResult" resultType="com.projectJ.domain.StarInfoDTO">
+select s_comName,trunc((s_5point*5+s_4point*4+s_3point*3+s_2point*2+s_1point*1)/(s_5point+s_4point+s_3point+s_2point+s_1point),2) starAvg
+from starinfo where s_comname like '%'||#{comName}||'%'
+</select>
+<!--
+<select id="searchResult" resultType="com.projectJ.domain.StarInfoDTO">
+	select * from starInfo where s_comName like '%'||#{comName}||'%' 
+</select>
+  -->
+
+<select id="searchResult2" resultType="com.projectJ.domain.ReviewSearchDTO">
+	select s.s_comName, c.c_comimg,(s.s_5point*5+s.s_4point*4+s.s_3point*3+s.s_2point*2+s.s_1point*1)/(s.s_5point+s.s_4point+s.s_3point+s.s_2point+s.s_5point) 
+from companyInfo c, starInfo s 
+where c.c_comName=s.s_comName and c.c_comName like '%'||#{comName}||'%'
+</select>
+
+
+
+</mapper>

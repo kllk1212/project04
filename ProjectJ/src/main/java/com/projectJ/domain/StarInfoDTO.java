@@ -13,6 +13,7 @@ public class StarInfoDTO {
 	private int s_4point;	// 4점 default 0
 	private int s_5point;	// 5점 default 0
 	private int readCount;	// 조회수 sysdate
+	private double starAvg; // 연습용 평균 구하기
 	
 
 }

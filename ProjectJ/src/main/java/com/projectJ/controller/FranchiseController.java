@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.projectJ.domain.ReviewSearchDTO;
 import com.projectJ.domain.StarInfoDTO;
 import com.projectJ.service.FranchiseService;
 
@@ -32,8 +33,10 @@ public class FranchiseController {
 		
 		//검색한 결과를 담은 dto 리스트 
 		List<StarInfoDTO> result =service.searchResult(comName);
+		//List<ReviewSearchDTO> result2 = service.searchResult2(comName);
 		model.addAttribute("comName", comName);
 		model.addAttribute("resultList", result);
+		//model.addAttribute("resultList2", result2);
 		
 		
 	}
