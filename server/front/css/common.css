@@ -2,8 +2,19 @@ body{
     font-family: var(--Noto);
     font-size: 1.6rem;
 }
-
-.layout_wrap{
+/* ======================= */
+/* layout */
+/* ======================= */
+#container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.contents{
+    flex-grow: 1;
+}
+.layout_wrap,
+.section_wrap{
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
