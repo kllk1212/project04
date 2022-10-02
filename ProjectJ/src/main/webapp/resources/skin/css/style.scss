@@ -1,0 +1,240 @@
+/* ======================= */
+/* header */
+/* ======================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: var(--headerH);
+    background-color: var(--green);
+
+    &_wrap {
+        display: flex;
+        justify-content: space-between;
+    }
+    /* header logo */
+    &_logo {
+        width: 100px;
+    }
+
+    &_left {
+        display: flex;
+        min-width: calc(100% - 7.4% - 170px);
+        /* 48px = 3.75% */
+    }
+    /* login & join */
+    &_right {
+        display: flex;
+        align-items: center;
+
+        button {
+            width: 17rem;
+            /* height: 4.5rem; */
+            border-radius: 2rem;
+            border: none;
+
+            &:hover {
+                font-weight: bold;
+                background-color: var(--light);
+                box-shadow: inset 0 0 2px #000;
+            }
+        }
+    }
+}
+/* menu */
+.nav {
+    padding: 0 4.687%;
+}
+
+.gnb {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    > li {
+        padding: 1rem 1.2rem;
+
+        &:hover > a::after {
+            width: 100%;
+        }
+
+        > a::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 150%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--light);
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    li {
+        &.depth > div {
+            display: none;
+            position: absolute;
+            top: 80px;
+            font-size: 1.2rem;
+        }
+
+        a {
+            position: relative;
+            /* prt */
+            display: inline-block;
+            font-weight: bold;
+            color: #fff;
+        }
+    }
+
+    .depth {
+        li+li {
+            margin-left: 2rem;
+        }
+    }
+}
+/* ======================= */
+/* footer */
+/* ======================= */
+.footer {
+    margin-top: 8rem;
+    width: 100%;
+    height: var(--footerH);
+    font-size: 1.2rem;
+    border-top: 1px solid #707070;
+
+    &_wrap {
+        max-width: 1200px;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_img {
+        width: 42px;
+        filter: grayscale(1);
+    }
+}
+/* info */
+.address {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.8rem;
+
+    span+span {
+        padding-top: 5px;
+    }
+}
+/* customer center */
+.cs_img {
+    width: 40px;
+    padding-right: 8px;
+}
+/* ======================= */
+/* review search common */
+/* ======================= */
+.s-search {
+    // background-color: #d0d0d0;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    background-color: #efefef;
+
+    > div {
+        max-width: 500px;
+    }
+
+    .countBox {
+        margin: 0 auto;
+
+        .imgBox {
+            max-width: 175px;
+        }
+    }
+
+    .txtBox {
+        padding-left: 2rem;
+    }
+
+    .searchBox {
+        padding-top: 3rem;
+    }
+
+    #comSel {
+        width: 23%;
+    }
+
+    #comName {
+        width: 55%;
+    }
+
+    #search {
+        width: 20%;
+    }
+}
+/* ======================= */
+/* review main */
+/* ======================= */
+.s-swiper{
+    position: relative;
+    &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-color: #efefef;
+    }
+    .inwrap{
+
+        &:after{
+            padding-top: 75%;
+        }
+    }
+    .swiper-slide{
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: inset 0 0 3px #d0d0d0;
+    }
+    .swiper-button-prev,
+    .swiper-button-next{
+        color: var(--green);
+        transition: color .2s ease-in-out;
+        &:hover{
+            color: var(--light);
+        }
+    }
+    .swiper-button-prev{
+        left: -60px;
+    }
+    .swiper-button-next{
+        right: -60px;
+    }
+}
+.brand{
+    text-align: center;
+    &_name{
+        padding-top: 28px;
+        font-size: 2rem;
+    }
+    &_rate{
+        padding-top: 15px;
+        font-size: 1.6rem;
+    }
+    &_img{
+        width: 150px;
+        background: url('../img/common/brand_img_default.png') no-repeat center/cover;
+        border-radius: 50%;
+        border: 1px solid #d0d0d0;
+    }
+}
+/* ======================= */
+/* sign up */
+/* ======================= */
+#signupForm{
+    margin: 0 auto;
+    max-width: 600px;
+}

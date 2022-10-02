@@ -12,9 +12,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    
+
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./css/main.css?v=<?=time()?>">
+    <link rel="stylesheet" href="../css/main.css?v=<?=time()?>">
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -23,8 +23,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="./js/jquery.cookie.js"></script>
-    <script defer src="./js/common.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script defer src="../js/common.js"></script>
 
     <!-- <script src="https://www.youtube.com/player_api"></script> -->
 
@@ -49,7 +49,7 @@
                     <div class="header_left">
                         <div class="header_logo">
                             <a href="">
-                                <img src="./img/logo.png" alt="창업나무">
+                                <img src="../img/common/logo.png" alt="창업나무">
                             </a>
                         </div>
                         <nav class="nav">
@@ -78,15 +78,46 @@
             </header>
             <!-- //header -->
 
-            <!-- ======================================== -->
-            <!-- contents -->
-            <div id="contents" class="contents main page" data-id="main">
-                <!-- main -->
-                <section>
-                    <div class="section_wrap"></div>
-                </section>
-            </div>
-            <!-- //contents -->
+            <section class="section s-signup">
+                <form id="signupForm" action="signup" method="post">
+                    <h2>회원가입</h2>
+                    <table>
+                        <tr>
+                            <th>아이디</th>
+                            <td>
+                                <input type="text" name="m_id" id="m_id" required>
+                                <span id="idCheck">사용할 수 없는 아이디입니다.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>비밀번호</th>
+                            <td>
+                                <input type="text" name="m_pw">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>이메일</th>
+                            <td>
+                                <input type="text" name="m_email">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>휴대폰번호</th>
+                            <td>
+                                <input type="text" name="m_num">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>sms 수신여부</th>
+                            <td>
+                                유용한 창업정보를 sms로 받겠습니다
+                                <input type="checkbox" name="m_ping" />
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="submit">회원가입완료</button>
+                </form>
+            </section>
 
             <!-- ======================================== -->
             <!-- footer -->
@@ -94,7 +125,7 @@
                 <div class="footer_wrap layout_wrap Hmax">
                     <div class="footer_left fx">
                         <div class="footer_img">
-                            <img src="./img/logoH_tree.png" alt="footer logo">
+                            <img src="../img/common/logoH_tree.png" alt="footer logo">
                         </div>
                         <address class="address">
                             <span>대표자 : Double J</span>
@@ -104,7 +135,7 @@
                     <div class="footer_right">
                         <a href="tel:02-716-1006" class="fx alc">
                             <div class="cs_img">
-                                <img src="./img/call.png" alt="고객센터">
+                                <img src="../img/common/call.png" alt="고객센터">
                             </div>
                             <div class="cs_txt">
                                 고객센터<br>

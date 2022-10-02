@@ -30,6 +30,15 @@ input, select, button{
     border-radius: 1rem;
     transition: all .2s ease-in-out;
 }
+input, select{
+    padding: 0 10px;
+}
+/* ::-webkit-input-placeholder{padding: 0 10px;}
+:-ms-input-placeholder{padding: 0 10px;}
+::placeholder{padding: 0 10px;} */
+button{
+    background-color: var(--white);
+}
 button:hover {
     font-weight: bold;
     background-color: var(--light);
