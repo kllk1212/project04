@@ -6,21 +6,56 @@
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp" %>
 	
-	
-	<h1>리뷰 메인페이지 기업의 이름을 끌고 와야함 s_comName</h1>
-	
-	<div>
-		<form action="/franchise/reviewSearch" method="get">
-			<table>
-				<tr>
-					<td>
-						찾기 : <input type="text" name="comName">
-						<input type="submit" value="검색">
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
+            <!-- contents -->
+            <div id="contents" class="contents reviewMain page" data-id="reviewMain">
+                <section class="section s-search">
+                    <div class="layout_wrap">
+                        <div class="countBox center-f">
+                            <div class="imgBox">
+                                <img src="/resources/skin/img/review/map_pin.png" alt="">
+                            </div>
+                            <div class="txtBox">
+                                <span>등록되어있는 <br>
+                                    브랜드 수 : <b>800</b></span>
+                            </div>
+                        </div>
+                        <div class="searchBox">
+                            <form action="/franchise/reviewSearch" method="get">
+                                <input type="search" id="comName" name="comName" value="" placeholder="브랜드명을 입력해보세요.">
+                                <button type="submit" id="search">검색</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!-- reviewMain -->
+                <section class="section s-swiper">
+                    <div class="layout_wrap">
+                        <!-- Slider main container -->
+                        <div class="swiper reviewMain-swiper">
+                            <!-- Additional required wrapper -->
+                            <ul class="swiper-wrapper">
+                                <!-- Slides (3)-->
+                                <li class="swiper-slide">
+                                    <div class="inwrap img_r">
+
+                                    </div>
+                                </li>
+                                <li class="swiper-slide">
+                                    <div class="inwrap img_r">
+
+                                    </div>
+                                </li>
+                                <li class="swiper-slide">
+                                    <div class="inwrap img_r">
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- //swiper -->
+                    </div>
+                </section>
+            </div>
 	
 	
 	
