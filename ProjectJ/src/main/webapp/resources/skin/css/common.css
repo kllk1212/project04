@@ -1,22 +1,29 @@
-body{
+body {
     font-family: var(--Noto);
     font-size: 1.6rem;
     --headerH: 100px;
     --footerH: 80px;
 }
+
 /* ======================= */
 /* layout */
 /* ======================= */
-#container{
+#container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-.contents{
+
+#container section:nth-of-type(1) {
+    padding-top: 8rem;
+}
+
+.contents {
     flex-grow: 1;
 }
+
 .layout_wrap,
-.section_wrap{
+.section_wrap {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
