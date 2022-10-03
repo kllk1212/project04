@@ -83,39 +83,44 @@
                     <h2>회원가입</h2>
                     <table>
                         <tr>
-                            <th>아이디</th>
+                            <th class="fx alc jsb">
+                                아이디
+                                <span id="idCheck"></span>
+                            </th>
                             <td>
-                                <input type="text" name="m_id" id="m_id" required>
-                                <span id="idCheck">사용할 수 없는 아이디입니다.</span>
+                                <input type="text" name="m_id" id="m_id" required placeholder="아이디를 입력해주세요">
                             </td>
                         </tr>
                         <tr>
                             <th>비밀번호</th>
                             <td>
-                                <input type="text" name="m_pw">
+                                <input type="password" name="m_pw" required placeholder="비밀번호를 입력해주세요">
                             </td>
                         </tr>
                         <tr>
                             <th>이메일</th>
                             <td>
-                                <input type="text" name="m_email">
+                                <input type="email" name="m_email" required placeholder="이메일 주소를 입력해주세요 (Namu@naver.com)">
                             </td>
                         </tr>
                         <tr>
                             <th>휴대폰번호</th>
                             <td>
-                                <input type="text" name="m_num">
+                                <input type="number" name="m_num" required placeholder="'-' 없이 입력해주세요 (01012341234)">
                             </td>
                         </tr>
                         <tr>
-                            <th>sms 수신여부</th>
+                            <th class="dn">sms수신여부</th>
                             <td>
-                                유용한 창업정보를 sms로 받겠습니다
-                                <input type="checkbox" name="m_ping" />
+                                <label for="m_ping" class="agree fx alc">
+                                    <b>* 유용한 창업정보를 sms로 받겠습니다</b>
+                                    <input type="checkbox" id="m_ping" name="m_ping">
+                                    <span class="chkbox"></span>
+                                </label>
                             </td>
                         </tr>
                     </table>
-                    <button type="submit">회원가입완료</button>
+                    <button type="submit">가입하기</button>
                 </form>
             </section>
 
