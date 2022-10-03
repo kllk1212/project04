@@ -238,7 +238,7 @@
 /* sign up */
 /* ======================= */
 #signupForm{
-    max-width: 385px;
+    width: 385px;
     text-align: center;
     table{
         margin: 0 auto;
@@ -259,10 +259,11 @@
     font-size: 1.2rem;
 }
 /* ======================= */
-/* login */
+/* login, signupComplete */
 /* ======================= */
-.s-login{
-    max-width: 420px;
+.s-login,
+.s-signupComplete{
+    width: 420px;
     padding-bottom: 4rem;
     margin: 0 auto;
 }
@@ -290,5 +291,22 @@
     button{
         margin-left: 1.5rem;
         width: 10rem;
+    }
+}
+
+.s-signupComplete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+        width: 300px;
+    }
+    h2{
+        position: relative;
+        padding-top: 1rem;
+        &:after{
+            top: 0;
+            right: -10px;
+        }
     }
 }
