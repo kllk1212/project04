@@ -31,10 +31,12 @@
   /* height: 4.5rem; */
   border-radius: 2rem;
   border: none;
+  background-color: var(--white);
+  color: var(--black);
 }
 .header_right button:hover {
-  font-weight: bold;
   background-color: var(--light);
+  color: var(--white);
   box-shadow: inset 0 0 2px #000;
 }
 
@@ -124,7 +126,6 @@
 /* review search common */
 /* ======================= */
 .s-search {
-  padding-top: 8rem;
   padding-bottom: 4rem;
   background-color: #efefef;
 }
@@ -216,7 +217,27 @@
 /* ======================= */
 #signupForm {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 385px;
+  text-align: center;
+  margin: 0 auto;
+}
+#signupForm table {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 2rem;
+}
+#signupForm tr {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 2rem;
+}
+#signupForm td {
+  padding-top: 1rem;
+}
+
+#idCheck {
+  font-size: 1.2rem;
 }
 
 /*# sourceMappingURL=style.css.map */
