@@ -11,7 +11,7 @@
 	<form action="/franchise/reviewSearch" method="get">
 		<table>
 			<tr>
-				<td><a>${comName}(으)로 검색한 결과입니다.</a></td>
+				<td><a>${paging.comName}(으)로 검색한 결과입니다.</a></td>
 			</tr>
 			<tr>
 				<td>
@@ -21,6 +21,11 @@
 		</table>
 	</form>
 </div>
+
+
+
+<div>
+
 	<table>
 	<tr>
 		<td>상호명</td>
@@ -40,11 +45,27 @@
 	</c:forEach>
 	</table>
 
-<div>
 
 
 </div>
-
+	<div style="display: block; text-align: center;">		
+		<c:if test="${paging.startPage != 1 }">
+			<a href="/franchise/reviewSearch?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">&lt;</a>
+		</c:if>
+		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+			<c:choose>
+				<c:when test="${p == paging.nowPage }">
+					<b>${p }</b>
+				</c:when>
+				<c:when test="${p != paging.nowPage }">
+					<a href="/franchise/reviewSearch?nowPage=${p }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">${p }</a>
+				</c:when>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${paging.endPage != paging.lastPage}">
+			<a href="/franchise/reviewSearch?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">&gt;</a>
+		</c:if>
+	</div>
 
 
 

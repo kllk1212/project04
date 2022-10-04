@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.projectJ.domain.PagingVO;
 import com.projectJ.domain.ReviewSearchDTO;
 import com.projectJ.domain.StarInfoDTO;
 import com.projectJ.persistence.FranchiseMapper;
@@ -25,12 +26,19 @@ public class FranchiseServiceImpl implements FranchiseService{
 		return mapper.searchResult(comName);
 	}
 
-	@Override
-	public List<ReviewSearchDTO> searchResult2(String comName) {
-		
-		return mapper.searchResult2(comName);
-	}
 
 	
+	@Override
+	public int countSearch(String comName) {
+		
+		return mapper.countSearch(comName);
+	}
+
+	@Override
+	public List<StarInfoDTO> searchResultTest(PagingVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.searchResultTest(vo);
+	}
+
 	
 }

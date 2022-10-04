@@ -38,42 +38,45 @@
 	}
 </script>
 
-<div>
-	<form action="signup" method="post">
-		<table border="1" align="center" width="500" height="500">
-			<tr>
-				<td colspan="4" height="100" align="center">회원가입</td>
-			</tr>
-			<tr>
-				<td>아이디 : <input type="text" name="m_id" id="m_id" required>
-				<span id="idCheck"></span>
-				</td>
-			</tr>
-			<tr>
-				<td>비밀번호 : <input type="text" name="m_pw">
-				</td>
-			</tr>
-			<tr>
-				<td>이메일 : <input type="text" name="m_email">
-				</td>
-			</tr>
-			<tr>
-				<td>휴대폰번호 : <input type="text" name="m_num">
-				</td>
-			</tr>
-			<tr>
-				<td style="width:33%;background-color:black;">유용한 창업정보를 sms로 받겠습니다 <input type="checkbox" name="m_ping" />
-				</td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="회원가입완료" checked="checked" >
-				</td>
-			</tr>
-
-		</table>
-	</form>
+<div id="contents" class="contents signup page center-f"
+	data-id="signup">
+	<section class="section s-signup">
+		<form id="signupForm" action="/main/signupComplete" method="post">
+			<h2>회원가입</h2>
+			<table>
+				<tr>
+					<th class="fx alc jsb">아이디 <span id="idCheck"></span>
+					</th>
+					<td><input type="text" name="m_id" id="m_id" required
+						placeholder="아이디를 입력해주세요"></td>
+				</tr>
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="password" name="m_pw" required
+						placeholder="비밀번호를 입력해주세요"></td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td><input type="email" name="m_email" required
+						placeholder="이메일 주소를 입력해주세요 (Namu@naver.com)"></td>
+				</tr>
+				<tr>
+					<th>휴대폰번호</th>
+					<td><input type="number" name="m_num" required
+						placeholder="'-' 없이 입력해주세요 (01012341234)"></td>
+				</tr>
+				<tr>
+					<th class="dn">sms수신여부</th>
+					<td><label for="m_ping" class="agree fx alc"> <b>*
+								유용한 창업정보를 sms로 받겠습니다</b> <input type="checkbox" id="m_ping"
+							name="m_ping"> <span class="chkbox"></span>
+					</label></td>
+				</tr>
+			</table>
+			<button type="submit">가입하기</button>
+		</form>
+	</section>
 </div>
-
 
 
 

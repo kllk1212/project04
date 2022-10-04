@@ -24,5 +24,19 @@ where c.c_comName=s.s_comName and c.c_comName like '%'||#{comName}||'%'
 </select>
 
 
+<select id="countSearch" resultType="int">
+<!-- select count(*) from starinfo where s_comname like '%'||#{comName}||'%'  대소문자구분x버전-->
+	select count(*) from starinfo where upper(s_comname) like upper('%'||#{comName}||'%')
+</select>
+
+<!-- 대소문자변환 -->
+<select id="searchResultTest" resultType="com.projectJ.domain.StarInfoDTO">
+	SELECT * FROM (SELECT ROWNUM RN, A.* FROM (
+select s_comName,trunc((s_5point*5+s_4point*4+s_3point*3+s_2point*2+s_1point*1)/(s_5point+s_4point+s_3point+s_2point+s_1point),2) starAvg
+from starinfo where upper(s_comname) like upper('%'||#{comName}||'%')) A) WHERE RN BETWEEN #{start} AND #{end}
+</select>
+
+
+
 
 </mapper>

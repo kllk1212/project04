@@ -75,7 +75,7 @@ public class MainController {
 	
 	
 	
-	@GetMapping("signupComplete")
+	@PostMapping("signupComplete")
 	public void signupCompleteGet() {
 		log.info("signupComplete ***** 진입");
 	}
