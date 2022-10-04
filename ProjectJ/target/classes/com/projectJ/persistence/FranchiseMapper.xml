@@ -23,20 +23,54 @@ from companyInfo c, starInfo s
 where c.c_comName=s.s_comName and c.c_comName like '%'||#{comName}||'%'
 </select>
 
-
+<!-- 리뷰기능만 시작 -->
 <select id="countSearch" resultType="int">
 <!-- select count(*) from starinfo where s_comname like '%'||#{comName}||'%'  대소문자구분x버전-->
 	select count(*) from starinfo where upper(s_comname) like upper('%'||#{comName}||'%')
 </select>
-
 <!-- 대소문자변환 -->
 <select id="searchResultTest" resultType="com.projectJ.domain.StarInfoDTO">
 	SELECT * FROM (SELECT ROWNUM RN, A.* FROM (
 select s_comName,trunc((s_5point*5+s_4point*4+s_3point*3+s_2point*2+s_1point*1)/(s_5point+s_4point+s_3point+s_2point+s_1point),2) starAvg
 from starinfo where upper(s_comname) like upper('%'||#{comName}||'%')) A) WHERE RN BETWEEN #{start} AND #{end}
 </select>
+<select id="starInfoRead" resultType="com.projectJ.domain.StarInfoDTO">
+	select * from starInfo where s_comName=#{comName}
+</select>
+<select id="starAvg" resultType="double">
+	select trunc((s_5point*5+s_4point*4+s_3point*3+s_2point*2+s_1point*1)/(s_5point+s_4point+s_3point+s_2point+s_1point),2)
+from starinfo where s_comname=#{comName}
+
+</select>
+<select id="starCount" resultType="int">
+	select s_5point+s_4point+s_3point+s_2point+s_1point from starinfo where s_comname=#{comName}
+</select>
 
 
+<select id="starWriteCheck" resultType="int">
+	select count(*) from starUser where s_comName=#{s_comName} and s_id=#{s_id}
+</select>
+<insert id="insertStarReview">
+	insert into starUser values(#{s_comTitle},#{s_comName},#{s_id},#{s_savePoint},#{s_comment},sysdate)
+</insert>
 
+<update id="starPointPlus1">
+	update starinfo set s_1point+1 where s_comName=#{comName};
+</update>
+<update id="starPointPlus2">
+	update starinfo set s_2point+1 where s_comName=#{comName};
+</update>
+<update id="starPointPlus3">
+	update starinfo set s_3point+1 where s_comName=#{comName};
+</update>
+<update id="starPointPlus4">
+	update starinfo set s_4point+1 where s_comName=#{comName};
+</update>
+<update id="starPointPlus5">
+	update starinfo set s_5point+1 where s_comName=#{comName};
+</update>
+
+
+<!-- 리뷰기능만 끝-->
 
 </mapper>

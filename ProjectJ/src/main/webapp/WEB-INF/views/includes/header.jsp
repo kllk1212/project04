@@ -5,7 +5,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- 10월 4일 한글깨져서 헤더 주석
     <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+      -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     <title>창업나무</title>
@@ -73,9 +76,16 @@
                             </ul>
                         </nav>
                     </div>
+                    <%if(session.getAttribute("user_id")==null){%>
                     <div class="header_right">
                         <button type="button" id="headerBtn" onclick="location.href='../main/login' ">로그인 및 회원가입</button>
                     </div>
+                    <%}else{%>
+                    <div class="header_right">
+                        <button type="button" id="headerBtn"><%=session.getAttribute("user_id") %>님</button>
+                        <button type="button" id="headerBtn" onclick="location.href='../main/logout'">로그아웃</button>
+                    </div>
+                    <%} %>
                 </div>
             </header>
             <!-- //header -->

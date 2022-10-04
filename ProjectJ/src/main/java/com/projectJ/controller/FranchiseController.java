@@ -1,17 +1,24 @@
 package com.projectJ.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.projectJ.domain.PagingVO;
+import com.projectJ.domain.SciptUtils;
 import com.projectJ.domain.StarInfoDTO;
+import com.projectJ.domain.StarUserDTO;
 import com.projectJ.service.FranchiseService;
 
 import lombok.extern.log4j.Log4j;
@@ -59,7 +66,56 @@ public class FranchiseController {
 
 	}
 	
+	@GetMapping("reviewDetail")
+	public void reviewDetailGet(@RequestParam("comName") String comName,Model model) {
+		StarInfoDTO starInfoOne = service.starInfoRead(comName);	// 한개의 별점기업정보
+		Double starAvg = service.starAvg(comName);	// 별 총점평균 구하기
+		int starCount = service.starCount(comName);	// 별점 남긴 인원 수 구하기
+		
+		model.addAttribute("starInfoOne", starInfoOne);
+		model.addAttribute("starAvg", starAvg);
+		model.addAttribute("starCount", starCount);
+	}
+	
+	@GetMapping("reviewWrite")
+	public void reviewWriteGet(@RequestParam("comName")String comName,Model model) {
+		StarInfoDTO starInfoOne = service.starInfoRead(comName);	// 한개의 별점기업정보
+		Double starAvg = service.starAvg(comName);	// 별 총점평균 구하기
+		int starCount = service.starCount(comName);	// 별점 남긴 인원 수 구하기
+		
+		model.addAttribute("starInfoOne", starInfoOne);
+		model.addAttribute("starAvg", starAvg);
+		model.addAttribute("starCount", starCount);		
+	}
+	
+	@PostMapping("reviewWritePro")
+	public void reviewWriteProPost(StarUserDTO dto,HttpServletResponse response,HttpServletRequest request) throws IOException {
+		log.info(dto);
+		
+		int result = service.starWriteCheck(dto);	//같은기업 같은아이디 글썼는지 중복체크 (별점글쓰기전 체크)
+		
+		//String url ="?comName=" + dto.getS_comName();// 전페이지로 돌아가기 위한 url 값 저장하기
+		if(result == 1) {
+			
+			//SciptUtils.alertAndBackPage(response, "이전페이지로 돌아갑니다");
+			//한글깨짐 발생
+			//SciptUtils.alertAndMovePage(response, "같은 기업엔 한번만 글을 작성할 수 있습니다.","/franchise/reviewDetail?comName="+dto.getS_comName());
+			SciptUtils.alertAndMovePage(response, "같은 기업엔 한번만 글을 작성할 수 있습니다.","/franchise/reviewMain");
+		}else {
+			service.insertStarReview(dto);
+			
+			log.info("***********dto.getS_savePoint() : " + dto.getS_savePoint());
+			int point = dto.getS_savePoint(); //유저가 준점수 여깄음!!!
+			service.starPointPlus(point,dto.getS_comName());
 
+
+			//service.starPointPlus();
+			SciptUtils.alertAndMovePage(response, "리뷰작성완료.","/franchise/reviewMain");
+		}
+		
+	}
+	
+	
 	
 	@GetMapping("incomeCalcMain")
 	public void incomCalcMainGet() {		

@@ -38,7 +38,10 @@
 			</td>
 			<td>
 				${comNameList.starAvg }
-				</td>
+			</td>
+			<td>
+				<button type="button" onclick="location.href='/franchise/reviewDetail?comName=${comNameList.s_comName}' ">자세히보기</button>
+			</td>
 		</tr>
 
 
