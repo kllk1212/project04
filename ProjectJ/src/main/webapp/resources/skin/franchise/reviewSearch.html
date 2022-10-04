@@ -80,7 +80,8 @@
 
             <!-- ======================================== -->
             <!-- contents -->
-            <div id="contents" class="contents reviewMain page" data-id="reviewMain">
+            <div id="contents" class="contents reviewSearch page" data-id="reviewSearch">
+
                 <section class="section s-search">
                     <div class="layout_wrap pt-B">
                         <div class="countBox center-f">
@@ -99,103 +100,119 @@
                                     <option value="chicken">치킨</option>
                                     <option value="pizza">피자</option>
                                 </select>
-                                <input type="search" id="comName" name="comName" value="" placeholder="브랜드명을 입력해보세요.">
+                                <input type="search" id="comName" name="comName" value="${comName}" placeholder="브랜드명을 입력해보세요.">
                                 <button type="submit" id="search">검색</button>
                             </form>
                         </div>
                     </div>
                 </section>
-                <!-- reviewMain -->
-                <section class="section s-swiper">
-                    <div class="layout_wrap pr">
-                        <!-- Slider main container -->
-                        <div class="swiper reviewMain-swiper">
-                            <!-- Additional required wrapper -->
-                            <ul class="swiper-wrapper">
-                                <!-- Slides (3) repeat-->
-                                <li class="swiper-slide">
-                                    <a href="#" class="inwrap img_r">
-                                        <div class="brand center-t">
-                                            <div class="brand_img img_r">
-                                            </div>
-                                            <div class="brand_name">
-                                                피자마루1
-                                                <div class="brand_rate">4.8점</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="swiper-slide">
-                                    <a href="#" class="inwrap img_r">
-                                        <div class="brand center-t">
-                                            <div class="brand_img img_r">
-                                            </div>
-                                            <div class="brand_name">
-                                                피자마루2
-                                                <div class="brand_rate">4.8점</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="swiper-slide">
-                                    <a href="#" class="inwrap img_r">
-                                        <div class="brand center-t">
-                                            <div class="brand_img img_r">
-                                            </div>
-                                            <div class="brand_name">
-                                                피자마루3
-                                                <div class="brand_rate">4.8점</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
 
-                                <li class="swiper-slide">
-                                    <a href="#" class="inwrap img_r">
-                                        <div class="brand center-t">
-                                            <div class="brand_img img_r">
-                                            </div>
-                                            <div class="brand_name">
-                                                피자마루4
-                                                <div class="brand_rate">4.8점</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="swiper-slide">
-                                    <a href="#" class="inwrap img_r">
-                                        <div class="brand center-t">
-                                            <div class="brand_img img_r">
-                                            </div>
-                                            <div class="brand_name">
-                                                피자마루5
-                                                <div class="brand_rate">4.8점</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="swiper-slide">
-                                    <a href="#" class="inwrap img_r">
-                                        <div class="brand center-t">
-                                            <div class="brand_img img_r">
-                                            </div>
-                                            <div class="brand_name">
-                                                피자마루6
-                                                <div class="brand_rate">4.8점</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                <!-- review search -->
+                <section class="section s-reviewSearch">
+                    <div class="layout_wrap center-f fdc">
+                        <h2 class="pb-A fwn">
+                            <b class="fc-leaf">${paging.comName} </b>(으)로 검색한 결과입니다.
+                        </h2>
+                        <div class="brandlist">
+                            <table>
+                                <tr class="thead">
+                                    <th class="name tc">상호명</th>
+                                    <th class="ave">별점</th>
+                                </tr>
+                                <c:forEach var="comNameList" items="${resultList}" varStatus="status">
+                                    <!-- <tr>
+                                        <td>
+                                            ${comNameList.s_comName }
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                ${comNameList.starAvg }
+                                            </span>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
 
-                            </ul>
+
+                                </c:forEach>
+                            </table>
+
+                            <div class="pagination tc">
+                                <c:if test="${paging.startPage != 1 }">
+                                    <a href="/franchise/reviewSearch?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">&lt;</a>
+                                </c:if>
+                                <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+                                    <c:choose>
+                                        <c:when test="${p == paging.nowPage }">
+                                            <b>${p }</b>
+                                        </c:when>
+                                        <c:when test="${p != paging.nowPage }">
+                                            <a href="/franchise/reviewSearch?nowPage=${p }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">${p }</a>
+                                        </c:when>
+                                    </c:choose>
+                                </c:forEach>
+                                <c:if test="${paging.endPage != paging.lastPage}">
+                                    <a href="/franchise/reviewSearch?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">&gt;</a>
+                                </c:if>
+                            </div>
                         </div>
-                        <div class="swiper-button">
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-                        <!-- //swiper -->
                     </div>
                 </section>
+
             </div>
             <!-- //contents -->
 
@@ -229,33 +246,5 @@
         </div>
         <!-- //container -->
     </div>
-    <script>
-        $(function(){
-            var reviewMain = new Swiper('.reviewMain-swiper', {
-                navigation: {
-                    nextEl: '.s-swiper .swiper-button-next',
-                    prevEl: '.s-swiper .swiper-button-prev'
-                },
-                autoplay: true,
-                loop: true,
-                speed: 1500,
-                slidesPerView: 3,
-                spaceBetween: 30,
-                slidesPerGroup: 1,
-                observer: true,
-                observeParents: true,
-                breakpoints:{
-                    769:{
-                        // slidesPerView: 2.2,
-                        // spaceBetween: 22
-                    },
-                    1025:{
-                        // slidesPerView: 3,
-                        // spaceBetween: 38.5
-                    }
-                },
-            });
-        });
-    </script>
     <!-- //wrap -->
 </body>

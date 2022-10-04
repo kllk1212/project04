@@ -9,6 +9,12 @@ a{
     color: inherit;
 }
 
+.fc-green{color: var(--green) !important;}
+.fc-leaf{color: var(--leaf) !important;}
+.fc-light{color: var(--light) !important;}
+.fc-black{color: var(--black) !important;}
+.fc-white{color: var(--white) !important;}
+
 /* ======================= */
 /* layout */
 /* ======================= */
@@ -109,6 +115,7 @@ input[type="checkbox"]{
 }
 
 button {
+    padding: 0 2rem;
     border: none;
     color: #fff;
     background-color: var(--green);
@@ -127,7 +134,13 @@ form input{
 }
 form > button{
     width: 10rem;
-    margin-top: 4rem;
     border: none;
-
 }
+
+.signup form > button ,
+.login form > button {
+    margin-top: 4rem;
+}
+
+/* review stars */
+.starBox

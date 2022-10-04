@@ -123,11 +123,10 @@
 }
 
 /* ======================= */
-/* review search common */
+/* review common : Search input box section */
 /* ======================= */
 .s-search {
   padding-bottom: 4rem;
-  background-color: #efefef;
 }
 .s-search > div {
   max-width: 500px;
@@ -155,7 +154,7 @@
 }
 
 /* ======================= */
-/* review main */
+/* reviewMain */
 /* ======================= */
 .s-swiper {
   position: relative;
@@ -168,7 +167,6 @@
   left: 0;
   width: 100%;
   height: 50%;
-  background-color: #efefef;
 }
 .s-swiper .inwrap:after {
   padding-top: 75%;
@@ -210,6 +208,40 @@
   background: url("../img/common/brand_img_default.png") no-repeat center/cover;
   border-radius: 50%;
   border: 1px solid #d0d0d0;
+}
+
+/* ======================= */
+/* reviewSearch */
+/* ======================= */
+.s-reviewSearch table {
+  width: 500px;
+}
+.s-reviewSearch table .name {
+  width: 70%;
+  text-align: left;
+}
+.s-reviewSearch table .ave {
+  width: 30%;
+  text-align: center;
+}
+.s-reviewSearch table tr:not(.thead) {
+  border-top: 1px solid #d0d0d0;
+}
+.s-reviewSearch table tr:nth-of-type(2) {
+  border-top: none;
+}
+.s-reviewSearch table th, .s-reviewSearch table td {
+  padding: 10px;
+}
+.s-reviewSearch table th {
+  border-bottom: 1px ridge var(--green);
+}
+.s-reviewSearch table td span {
+  position: relative;
+  left: -5px;
+}
+.s-reviewSearch table td img {
+  width: 18px;
 }
 
 /* ======================= */

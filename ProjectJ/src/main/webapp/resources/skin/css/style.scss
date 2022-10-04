@@ -136,13 +136,12 @@
     padding-right: 8px;
 }
 /* ======================= */
-/* review search common */
+/* review common : Search input box section */
 /* ======================= */
 .s-search {
-    // background-color: #d0d0d0;
     // padding-top: 8rem;
     padding-bottom: 4rem;
-    background-color: #efefef;
+    // background-color: #efefef;
 
     > div {
         max-width: 500px;
@@ -162,6 +161,13 @@
 
     .searchBox {
         padding-top: 3rem;
+        //
+        // form{
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: space-between;
+        // }
+
     }
 
     #comSel {
@@ -177,7 +183,7 @@
     }
 }
 /* ======================= */
-/* review main */
+/* reviewMain */
 /* ======================= */
 .s-swiper{
     position: relative;
@@ -189,7 +195,7 @@
         left: 0;
         width: 100%;
         height: 50%;
-        background-color: #efefef;
+        // background-color: #efefef;
     }
     .inwrap{
 
@@ -232,6 +238,46 @@
         background: url('../img/common/brand_img_default.png') no-repeat center/cover;
         border-radius: 50%;
         border: 1px solid #d0d0d0;
+    }
+}
+/* ======================= */
+/* reviewSearch */
+/* ======================= */
+.s-reviewSearch{
+    table{
+        width: 500px;
+        .name{
+            width: 70%;
+            text-align: left;
+        }
+        .ave{
+            width: 30%;
+            text-align: center;
+        }
+        tr:not(.thead){
+            border-top: 1px solid #d0d0d0;
+        }
+        tr:nth-of-type(2){
+            border-top: none;
+        }
+        th,td{
+            padding: 10px;
+        }
+        th{
+            border-bottom: 1px ridge var(--green);
+        }
+        td{
+            // &+td{
+            //     border-top: 1px solid #d0d0d0;
+            // }
+            span{
+                position: relative;
+                left: -5px;
+            }
+            img{//star
+                width: 18px;
+            }
+        }
     }
 }
 /* ======================= */
