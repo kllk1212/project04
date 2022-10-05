@@ -8,7 +8,7 @@
 
 <div id="contents" class="contents login page center-f" data-id="login">
 	<section class="section s-login">
-		<form id="loginForm" action="" method="post">
+		<form id="loginForm" action="/main/login" method="post">
 			<h2>
 				<img src="/resources/skin/img/login/logo_paint.png" alt="로그인로고">
 			</h2>

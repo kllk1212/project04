@@ -32,6 +32,13 @@ public class MainServiceImpl implements MainService{
 
 
 
+	@Override
+	public int idPwCheck(UserInfoDTO dto) {
+		return mapper.idPwCheck(dto);
+	}
+
+
+
 
 	
 	

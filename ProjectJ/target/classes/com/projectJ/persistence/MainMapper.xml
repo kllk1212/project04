@@ -14,7 +14,9 @@
 		insert into userInfo(m_id,m_pw,m_email,m_num,m_ping) values(#{m_id},#{m_pw},#{m_email},#{m_num},#{m_ping})
 	</insert>
 
-
+	<select id="idPwCheck" resultType="int">
+		select count(*) from userInfo where m_id=#{m_id} and m_pw=#{m_pw}
+	</select>
 
 
 </mapper>
