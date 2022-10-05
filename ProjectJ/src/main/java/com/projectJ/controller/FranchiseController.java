@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.projectJ.domain.LocalSalesDTO;
 import com.projectJ.domain.PagingVO;
 import com.projectJ.domain.SciptUtils;
 import com.projectJ.domain.StarInfoDTO;
@@ -132,6 +133,20 @@ public class FranchiseController {
 	@RequestMapping(value ="/incomeCalcMain", method = RequestMethod.GET)
 	public void incomCalcMainGet() {		
 		log.info("incomeCalcMain get방식 진입");
+	}
+	
+	@RequestMapping(value ="/testCalc", method = RequestMethod.GET)
+	public void testCalc() {		
+		log.info("test get방식 진입");
+	}
+	
+	@GetMapping("incomeCalcResult")
+	public void incomeCalcResultGet(@RequestParam("valueById") String comName,LocalSalesDTO dto,Model model) {
+		log.info("incomeCalcReslt get방식 진입");
+		log.info("*******************지역명 : "+dto.getL_areaName());
+		
+		model.addAttribute("comName", comName);
+		
 	}
 
 	

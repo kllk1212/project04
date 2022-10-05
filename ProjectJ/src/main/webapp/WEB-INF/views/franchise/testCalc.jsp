@@ -5,7 +5,7 @@
 
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp" %>
-	
+<script type="text/javascript" src="/resources/skin/jquery.twbsPagination.min.js"></script>
 	<h1>월 매출예상 계산기</h1>
 	<script>
 
@@ -15,7 +15,9 @@
 		let search = $("#search").val();
 		let comNameListDiv = $("#comNameList");
 		console.log(search); // 여기까지 담김
-			
+
+
+		    
 			$.ajax({
 				type: "GET",
 				url: "/search/searchData",
@@ -32,10 +34,11 @@
 						
 						str+= "<tr><td>"+ result[i].s_comName +"</td><td>";
 						str+= "<label class='agree fx alc' id='"+ result[i].s_comName +"'>";
-						str+= "<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
+						str+= "<input type='checkbox' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
 						//str+= "<tr><td>"+ result[i].s_comName +"<button type='button' id='resultCheckBtn'>선택</button></td></tr>"
 					}
 					comNameListDiv.html(str); // table에 tr td 넣기
+					
 					
 				},
 				error: function(e) {
@@ -46,7 +49,7 @@
 				}
 			}); //ajax					
 		}); // $("#searchBtn").		
-	
+
 
 	}); // $(document).
 	
@@ -54,16 +57,9 @@
 	    document.querySelectorAll(`input[type=checkbox]`)
 	        .forEach(el => el.checked = false);
 	    target.checked = true;
-		var valueById = $(".resultBtn").val(); // 체크한 상호의 value 값 담김
-		console.log(".resultBtn 벨류값 : " +valueById );
-		let resultForm = $("#resultForm");
-		let str="";
-		str="<input type='hidden' name='"+ valueById  +"' value='"+valueById  +"'>";
-		$("#resultForm").find('table').append(str);
 	}
 	
 	</script>
-	
 		<table>
 			<tr>
 				<td>
@@ -76,11 +72,10 @@
 				<!-- 검색한 결과값이 담길 테이블 -->
 			</table>
 		</div>
-		
+
 	</br></br>
 	
-	<form action="/franchise/incomeCalcResult" method="get" id="resultForm">
-	
+	<form action="/franchise/incomeCalcResult" method="get">
 		<table>
 			<tr>
 				<td>
