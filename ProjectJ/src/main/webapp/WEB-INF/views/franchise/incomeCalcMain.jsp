@@ -10,7 +10,6 @@
 	<script>
 	$(document).ready(function() {
 		
-		
 		$("#searchBtn").on("click",function(e){
 		let search = $("#search").val();
 		let comNameListDiv = $("#comNameList");
@@ -25,20 +24,30 @@
 					console.log("요청 성공!!!!!");
 					console.log(result);
 					let str= "";
-					for(let i = 0; i < result.length; i++){
-						str+= "<div>"+ result[i].s_comName +"</div>"
+					for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
+						str+= "<tr><td>"+ result[i].s_comName +"</td><td>";
+						str+= "<label class='agree fx alc' id='"+ result[i].s_comName +"'>";
+						str+= "<input type='checkbox' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></td></tr></label>";
+						//str+= "<tr><td>"+ result[i].s_comName +"<button type='button' id='resultCheckBtn'>선택</button></td></tr>"
 					}
-					comNameListDiv.html(str);
+					comNameListDiv.html(str); // table에 tr td 넣기
+					
+					
 				},
 				error: function(e) {
 	            	console.log("요청 에러......");
 	                console.log(e);
 				}
-			}); //ajax
-			
-			
-		}); // $("#searchBtn").
+			}); //ajax					
+		}); // $("#searchBtn").		
+
 	}); // $(document).
+	
+	function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트 
+	    document.querySelectorAll(`input[type=checkbox]`)
+	        .forEach(el => el.checked = false);
+	    target.checked = true;
+	}
 	
 	
 	</script>
@@ -50,18 +59,20 @@
 				</td>
 			</tr>
 		</table>
-		<div id="comNameList">
-			<div>회사명 : </div>
+		<div>
+			<table id="comNameList">
+
+			</table>
 		</div>
 		
 	</br></br>
 	
-	<form action="" method="get">
+	<form action="incomeCalcResult" method="get">
 		<table>
 			<tr>
 				<td>
-					희망지역 : 				
-					<select class="selbox" name="지역">
+					<a>희망지역</a>			
+					<select class="selbox" name="l_areaName">
 					    <option value="" disabled>지역선택</option>
 					    <option value="서울">서울</option>
 					    <option value="부산">부산</option>
@@ -83,8 +94,8 @@
 					</select>
 				</td>
 				<td>
-					희망평수 : 
-					<select class="selbox" name="평수">
+					<a>희망평수</a>
+					<select class="selbox" name="areaAvgSales">
 						<option value="" disabled>선택</option>
 						<option value="5">5평</option>
 						<option value="6">6평</option>
@@ -112,7 +123,7 @@
 			<tr>
 				<td>
 					<a>인건비</a>
-					<select class="selbox" name="인건비">
+					<select class="selbox" name="workPayMonth">
 						<option value="" disabled>선택</option>
 						<option value="50">50만원</option>
 						<option value="100">100만원</option>
@@ -123,7 +134,7 @@
 				</td>
 				<td>
 					<a>기타비용</a>
-					<select class="selbox" name="기타비용">
+					<select class="selbox" name="ectPay">
 						<option value="" disabled>선택</option>
 						<option value="50">50만원</option>
 						<option value="100">100만원</option>
@@ -134,7 +145,7 @@
 				</td>
 				<td>
 					<a>매출대비원가율</a>
-					<select class="selbox" name="기타비용">
+					<select class="selbox" name="payRatio">
 						<option value="" disabled>선택</option>
 						<option value="10">10%</option>
 						<option value="20%">20%</option>
@@ -143,6 +154,9 @@
 						<option value="direct">직접입력</option>
 					</select>					
 				</td>
+			</tr>
+			<tr>
+				<td> <button type="submit">결과조회</button> </td>
 			</tr>
 		</table>
 	</form>
