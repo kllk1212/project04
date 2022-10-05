@@ -110,7 +110,7 @@
                 <!-- review search -->
                 <section class="section s-reviewSearch">
                     <div class="layout_wrap center-f fdc">
-                        <h2 class="pb-A fwn">
+                        <h2 class="pb-B fwn">
                             <b class="fc-light">${paging.comName} </b>(으)로 검색한 결과입니다.
                         </h2>
                         <div class="brandlist">
@@ -193,7 +193,9 @@
 
                             <div class="pagination tc">
                                 <c:if test="${paging.startPage != 1 }">
-                                    <a href="/franchise/reviewSearch?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">&lt;</a>
+                                    <a href="/franchise/reviewSearch?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">
+                                        &lt;
+                                    </a>
                                 </c:if>
                                 <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
                                     <c:choose>
@@ -206,7 +208,7 @@
                                     </c:choose>
                                 </c:forEach>
                                 <c:if test="${paging.endPage != paging.lastPage}">
-                                    <a href="/franchise/reviewSearch?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">&gt;</a>
+                                    <a href="/franchise/reviewSearch?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}" class="next">&gt;</a>
                                 </c:if>
                             </div>
                         </div>

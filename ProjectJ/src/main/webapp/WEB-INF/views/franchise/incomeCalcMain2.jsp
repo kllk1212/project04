@@ -8,8 +8,10 @@
 
 	<h1>월 매출예상 계산기</h1>
 	<script>
-
 	$(document).ready(function() {
+
+        let tmpDatebase = new Object();
+        let nowPage = 1;
 
 		$("#searchBtn").on("click",function(e){
 		let search = $("#search").val();
@@ -24,39 +26,38 @@
 				success: function(result){
 					console.log("요청 성공!!!!!");
 					console.log(result);
-					console.log(result.length);
-					let str= "";
-					str += "<tr><td><a> 검색된 결과 수 : "+result.length +"</a></td></tr>";
 
+                    tmpDatabase2 = new Object();
+                    j = 0;
+                    for(i=0; i<result.length; i++){
+                        tmpDatabase2[j] = result[i];
+                        if(tmpDatabase2.length==5){
+                            tmpDatebase[parseInt(((i+1)/5)-1)] = tmpDatabase2;
+                            tmpDatabase2 = new Object();
+                            j=0;
+                        }else{
+                            j++;
+                        }
+                        //tmpDatebase[i] = {}
+                    }
+
+					let str= "";
 					for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
-						
 						str+= "<tr><td>"+ result[i].s_comName +"</td><td>";
 						str+= "<label class='agree fx alc' id='"+ result[i].s_comName +"'>";
-						str+= "<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
+						str+= "<input type='checkbox' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></td></tr></label>";
 						//str+= "<tr><td>"+ result[i].s_comName +"<button type='button' id='resultCheckBtn'>선택</button></td></tr>"
 					}
 					comNameListDiv.html(str); // table에 tr td 넣기
-<<<<<<< HEAD
-					
-=======
 
 
->>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 				},
 				error: function(e) {
 	            	console.log("요청 에러......");
 	                console.log(e);
-	                str += "<tr><td><a> 검색된 결과가 없습니다</a></td></tr>";
-	                comNameListDiv.html(str); // table에 tr td 넣기
 				}
-<<<<<<< HEAD
-			}); //ajax					
-		}); // $("#searchBtn").		
-	
-=======
 			}); //ajax
 		}); // $("#searchBtn").
->>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 
 	}); // $(document).
 
@@ -64,21 +65,11 @@
 	    document.querySelectorAll(`input[type=checkbox]`)
 	        .forEach(el => el.checked = false);
 	    target.checked = true;
-		var valueById = $(".resultBtn").val(); // 체크한 상호의 value 값 담김
-		console.log(".resultBtn 벨류값 : " +valueById );
-		let resultForm = $("#resultForm");
-		let str="";
-		str="<input type='hidden' name='"+ valueById  +"' value='"+valueById  +"'>";
-		$("#resultForm").find('table').append(str);
 	}
-<<<<<<< HEAD
-	
-=======
 
 
->>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 	</script>
-	
+
 		<table>
 			<tr>
 				<td>
@@ -87,20 +78,14 @@
 			</tr>
 		</table>
 		<div>
-			<table id="comNameList"> 
-				<!-- 검색한 결과값이 담길 테이블 -->
+			<table id="comNameList">
+
 			</table>
 		</div>
 
 	</br></br>
-<<<<<<< HEAD
-	
-	<form action="/franchise/incomeCalcResult" method="get" id="resultForm">
-	
-=======
 
 	<form action="incomeCalcResult" method="get">
->>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 		<table>
 			<tr>
 				<td>
@@ -128,7 +113,7 @@
 				</td>
 				<td>
 					<a>희망평수</a>
-					<select class="selbox" name="area">
+					<select class="selbox" name="areaAvgSales">
 						<option value="" disabled>선택</option>
 						<option value="5">5평</option>
 						<option value="6">6평</option>
@@ -143,7 +128,7 @@
 				</td>
 				<td>
 					<a>월세</a>
-					<select class="selbox" name="monthlyRent">
+					<select class="selbox" name="월세">
 						<option value="" disabled>선택</option>
 						<option value="50">50만원</option>
 						<option value="100">100만원</option>
