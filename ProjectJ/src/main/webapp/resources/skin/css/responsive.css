@@ -1,0 +1,17 @@
+@media only screen and (max-width: 1152px) {
+  body {
+    --headerH: 120px;
+  }
+  .nav {
+    font-size: 1.8rem;
+  }
+  .header_right button {
+    width: 15rem;
+    font-size: 1.4rem;
+  }
+  .header_logo {
+    width: 165px;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */
