@@ -3,11 +3,16 @@
 :root {
     /* color */
     /* --green: #246030; */
-    --green: #075d2d;
+    /* --green: #075d2d;
     --leaf: #2E8B57;
-    --light: #BEDAB9;
+    --light: #BEDAB9; */
     --beige: #FFF2C9;
-    --black: #1E1E1E;
+
+    --blue: #286FA7;
+    --light: #3883BB;
+    --sky: #B5CBDD;
+
+    --black: #3E3B3B;
     --white: #fff;
     /* fonts */
     --f-Noto: 'Noto Sans', sans-serif, Malgun Gothic,"맑은 고딕",AppleGothic,Dotum,"돋움",sans-serif;

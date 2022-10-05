@@ -6,16 +6,17 @@
   justify-content: space-between;
   width: 100%;
   height: var(--headerH);
-  background-color: var(--green);
+  border-bottom: 1px solid var(--black);
   /* header logo */
   /* login & join */
 }
 .header_wrap {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 .header_logo {
-  width: 100px;
+  width: 282px;
 }
 .header_left {
   display: flex;
@@ -27,22 +28,21 @@
   align-items: center;
 }
 .header_right button {
-  width: 17rem;
-  /* height: 4.5rem; */
-  border-radius: 2rem;
+  width: 20rem;
+  height: 5rem;
+  border-radius: 2.5rem;
   border: none;
-  background-color: var(--white);
-  color: var(--black);
+  font-size: 1.8rem;
 }
 .header_right button:hover {
-  background-color: var(--light);
+  background-color: var(--sky);
   color: var(--white);
   box-shadow: inset 0 0 2px #000;
 }
 
 /* menu */
 .nav {
-  padding: 0 4.687%;
+  font-size: 2.2rem;
 }
 
 .gnb {
@@ -64,7 +64,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--light);
+  background-color: var(--sky);
   transition: all 0.2s ease-in-out;
 }
 .gnb li.depth > div {
@@ -78,7 +78,6 @@
   /* prt */
   display: inline-block;
   font-weight: bold;
-  color: #fff;
 }
 .gnb .depth li + li {
   margin-left: 2rem;
@@ -91,7 +90,6 @@
   margin-top: 8rem;
   width: 100%;
   height: var(--footerH);
-  font-size: 1.2rem;
   border-top: 1px solid #707070;
 }
 .footer_wrap {
@@ -120,6 +118,9 @@
 .cs_img {
   width: 40px;
   padding-right: 8px;
+}
+.cs_img img {
+  filter: hue-rotate(105deg);
 }
 
 /* ======================= */
@@ -178,12 +179,12 @@
 }
 .s-swiper .swiper-button-prev,
 .s-swiper .swiper-button-next {
-  color: var(--green);
+  color: var(--blue);
   transition: color 0.2s ease-in-out;
 }
 .s-swiper .swiper-button-prev:hover,
 .s-swiper .swiper-button-next:hover {
-  color: var(--light);
+  color: var(--sky);
 }
 .s-swiper .swiper-button-prev {
   left: -60px;
@@ -234,7 +235,7 @@
   padding: 10px;
 }
 .s-reviewSearch table th {
-  border-bottom: 1px ridge var(--green);
+  border-bottom: 1px ridge var(--blue);
 }
 .s-reviewSearch table td span {
   position: relative;
