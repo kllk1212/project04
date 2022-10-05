@@ -32,7 +32,6 @@
 	<form class="mb-3" action="/franchise/reviewWritePro" name="myform" id="myform" method="post">
 		<input type="hidden" name="s_comTitle"  value="${starInfoOne.s_comTitle}">
 		<input type="hidden" name="s_comName" value="${starInfoOne.s_comName}">
-		<input type="hidden" name="s_comName" value="${starInfoOne.s_comName}">
 
 		<input type="hidden" name="s_id" value='${user_id }'>
 		<fieldset>

@@ -11,11 +11,11 @@
 select s_comName,trunc((s_5point*5+s_4point*4+s_3point*3+s_2point*2+s_1point*1)/(s_5point+s_4point+s_3point+s_2point+s_1point),2) starAvg
 from starinfo where s_comname like '%'||#{comName}||'%'
 </select>
-<!--
-<select id="searchResult" resultType="com.projectJ.domain.StarInfoDTO">
+
+<select id="searchResultAjax" resultType="com.projectJ.domain.StarInfoDTO">
 	select * from starInfo where s_comName like '%'||#{comName}||'%' 
 </select>
-  -->
+
 
 <select id="searchResult2" resultType="com.projectJ.domain.ReviewSearchDTO">
 	select s.s_comName, c.c_comimg,(s.s_5point*5+s.s_4point*4+s.s_3point*3+s.s_2point*2+s.s_1point*1)/(s.s_5point+s.s_4point+s.s_3point+s.s_2point+s.s_5point) 
@@ -55,19 +55,19 @@ from starinfo where s_comname=#{comName}
 </insert>
 
 <update id="starPointPlus1">
-	update starinfo set s_1point+1 where s_comName=#{comName};
+	update starinfo set s_1point=s_1point+1 where s_comName=#{comName}
 </update>
 <update id="starPointPlus2">
-	update starinfo set s_2point+1 where s_comName=#{comName};
+	update starinfo set s_2point+1 where s_comName=#{comName}
 </update>
 <update id="starPointPlus3">
-	update starinfo set s_3point+1 where s_comName=#{comName};
+	update starinfo set s_3point+1 where s_comName=#{comName}
 </update>
 <update id="starPointPlus4">
-	update starinfo set s_4point+1 where s_comName=#{comName};
+	update starinfo set s_4point+1 where s_comName=#{comName}
 </update>
 <update id="starPointPlus5">
-	update starinfo set s_5point+1 where s_comName=#{comName};
+	update starinfo set s_5point+1 where s_comName=#{comName}
 </update>
 
 

@@ -5,6 +5,11 @@
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp"%>
 
+<script>
+	let msg = '${msg}';
+	console.log(msg);
+</script>
+
 <div>
 	<table>
 		<tr>

@@ -25,32 +25,29 @@
 
 
 <div>
-
+	
 	<table>
-	<tr>
-		<td>상호명</td>
-		<td>별점</td>
-	</tr>
-	<c:forEach var="comNameList" items="${resultList}" varStatus="status">
 		<tr>
-			<td>
-				${comNameList.s_comName }
-			</td>
-			<td>
-				${comNameList.starAvg }
-			</td>
-			<td>
-				<button type="button" onclick="location.href='/franchise/reviewDetail?comName=${comNameList.s_comName}' ">자세히보기</button>
-			</td>
+			<td>상호명</td>
+			<td>별점</td>
 		</tr>
-
-
-	</c:forEach>
+		<c:forEach var="comNameList" items="${resultList}" varStatus="status">
+			<tr>
+				<td>
+					${comNameList.s_comName }
+				</td>
+				<td>
+					${comNameList.starAvg }
+				</td>
+				<td>
+					<button type="button" onclick="location.href='/franchise/reviewDetail?comName=${comNameList.s_comName}' ">자세히보기</button>
+				</td>
+			</tr>
+		</c:forEach>
 	</table>
-
-
-
 </div>
+
+
 	<div style="display: block; text-align: center;">		
 		<c:if test="${paging.startPage != 1 }">
 			<a href="/franchise/reviewSearch?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">&lt;</a>

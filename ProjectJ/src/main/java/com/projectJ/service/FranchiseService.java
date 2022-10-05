@@ -9,6 +9,7 @@ import com.projectJ.domain.StarUserDTO;
 public interface FranchiseService {
 
 	public List<StarInfoDTO> searchResult(String comName); 
+	
 	public List<StarInfoDTO> searchResultTest(PagingVO vo); // 검색결과 리스트에 담기 대소문자 기능
 	
 	
@@ -26,4 +27,6 @@ public interface FranchiseService {
 	public void starPointPlus(int point,String comName);
 	
 	
+	
+	public List<StarInfoDTO> searchResultAjax(String comName); // ajax 검색용 s
 }

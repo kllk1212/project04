@@ -64,6 +64,11 @@ public class FranchiseServiceImpl implements FranchiseService{
 		if(point==4) {mapper.starPointPlus4(point, comName);}
 		if(point==5) {mapper.starPointPlus5(point, comName);}
 	}
+	@Override
+	public List<StarInfoDTO> searchResultAjax(String comName) {
+		
+		return mapper.searchResultAjax(comName);
+	}
 
 	
 }

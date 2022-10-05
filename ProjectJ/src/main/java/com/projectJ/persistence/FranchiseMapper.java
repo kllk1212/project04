@@ -2,6 +2,8 @@ package com.projectJ.persistence;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.projectJ.domain.PagingVO;
 import com.projectJ.domain.StarInfoDTO;
 import com.projectJ.domain.StarUserDTO;
@@ -22,11 +24,13 @@ public interface FranchiseMapper {
 	
 	public int starWriteCheck(StarUserDTO dto);	// 같은기업 같은아이디 글썼는지 중복체크 (별점글쓰기전 체크)
 	public void insertStarReview(StarUserDTO dto); // 별점리뷰 글작성
-	public void starPointPlus1(int point,String comName);
+	public void starPointPlus1(@Param("point") int point, @Param("comName") String comName);
 	public void starPointPlus2(int point,String comName);
 	public void starPointPlus3(int point,String comName);
 	public void starPointPlus4(int point,String comName);
 	public void starPointPlus5(int point,String comName);
+	
+	public List<StarInfoDTO> searchResultAjax(String comName);  // ajax용
 	
 	
 }
