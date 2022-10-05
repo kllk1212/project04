@@ -10,6 +10,9 @@
 	<script>
 	$(document).ready(function() {
 
+        let tmpDatebase = new Object();
+        let nowPage = 1;
+
 		$("#searchBtn").on("click",function(e){
 		let search = $("#search").val();
 		let comNameListDiv = $("#comNameList");
@@ -23,6 +26,21 @@
 				success: function(result){
 					console.log("요청 성공!!!!!");
 					console.log(result);
+
+                    tmpDatabase2 = new Object();
+                    j = 0;
+                    for(i=0; i<result.length; i++){
+                        tmpDatabase2[j] = result[i];
+                        if(tmpDatabase2.length==5){
+                            tmpDatebase[parseInt(((i+1)/5)-1)] = tmpDatabase2;
+                            tmpDatabase2 = new Object();
+                            j=0;
+                        }else{
+                            j++;
+                        }
+                        //tmpDatebase[i] = {}
+                    }
+
 					let str= "";
 					for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
 						str+= "<tr><td>"+ result[i].s_comName +"</td><td>";

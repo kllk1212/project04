@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    <title>창업나무</title>
+
+    <!-- <link rel="icon" href="/{=favicon}" -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/main.css?v=<?=time()?>">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script defer src="../js/common.js"></script>
+
+    <!-- <script src="https://www.youtube.com/player_api"></script> -->
+
+
+</head>
+<!-- ============================================================================= -->
+<!-- ============================================================================= -->
+
+<!-- 마우스드래그금지 -->
+<!-- <body ondragstart="return false" onselectstart="return false"> -->
+
+<body>
+    <h1 id="Homepage" class="bld">창업나무 홈페이지</h1>
+    <!-- wrap -->
+    <div id="wrap">
+        <!-- container -->
+        <div id="container">
+            <!-- ======================================== -->
+            <!-- header -->
+            <header id="header" class="header">
+                <div class="header_wrap layout_wrap">
+                    <div class="header_left">
+                        <div class="header_logo">
+                            <a href="">
+                                <img src="../img/common/logo.png" alt="창업나무">
+                            </a>
+                        </div>
+                        <nav class="nav center-t">
+                            <ul id="gnb" class="gnb">
+                                <li><a href="">홈</a></li>
+                                <li class="depth">
+                                    <a href="">프렌차이즈 정보</a>
+                                    <div>
+                                        <ul class="fx">
+                                            <li><a href="#">기업평점/리뷰</a></li>
+                                            <li><a href="#">순위</a></li>
+                                            <li><a href="#">분석기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="">예상매출 계산기</a></li>
+                                <li><a href="">사이트 소개</a></li>
+                                <li><a href="">QnA</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header_right">
+                        <button type="button" id="headerBtn">로그인 및 회원가입</button>
+                    </div>
+                </div>
+            </header>
+            <!-- //header -->
+
+	<h1>월 매출예상 계산기</h1>
+	<script>
+	// $(document).ready(function() {
+    //
+	// 	$("#searchBtn").on("click",function(e){
+	// 	let search = $("#search").val();
+	// 	let comNameListDiv = $("#comNameList");
+	// 	console.log(search); // 여기까지 담김
+    //
+	// 		$.ajax({
+	// 			type: "GET",
+	// 			url: "/search/searchData",
+	// 			data: {"comName" : $("#search").val() },
+	// 			contentType: "application/json;charset=utf-8",
+	// 			success: function(result){
+	// 				console.log("요청 성공!!!!!");
+	// 				console.log(result);
+	// 				let str= "";
+	// 				for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
+	// 					str+= "<tr class='swiper-wrapper'><td class='swiper-slide'>"+ result[i].s_comName +"</td><td>";
+	// 					str+= "<label class='agree fx alc' id='"+ result[i].s_comName +"'>";
+	// 					str+= "<input type='checkbox' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
+	// 					//str+= "<tr><td>"+ result[i].s_comName +"<button type='button' id='resultCheckBtn'>선택</button></td></tr>"
+	// 				}
+	// 				comNameListDiv.html(str); // table에 tr td 넣기
+    //
+    //
+	// 			},
+	// 			error: function(e) {
+	//             	console.log("요청 에러......");
+	//                 console.log(e);
+	// 			}
+	// 		}); //ajax
+	// 	}); // $("#searchBtn").
+    //
+	// }); // $(document).
+
+	function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트
+	    document.querySelectorAll(`input[type=checkbox]`)
+	        .forEach(el => el.checked = false);
+	    target.checked = true;
+	}
+
+    $(function(){
+        // setTimeout(function(){
+            var comNameList = new Swiper('.comNameList-swiper', {
+                pagination: {
+                    el: '.comNameList-pagination',
+                    type: 'fraction',
+                },
+                // direction: 'vertical',
+                speed: 1500,
+                slidesPerView: 10,
+                // spaceBetween: 30,
+                slidesPerGroup: 10,
+                observer: true,
+                observeParents: true,
+                breakpoints:{
+                    769:{
+                        // slidesPerView: 2.2,
+                        // spaceBetween: 22
+                    },
+                    1025:{
+                        // slidesPerView: 3,
+                        // spaceBetween: 38.5
+                    }
+                },
+            });
+
+        // }, 3000);
+
+    });
+
+
+	</script>
+
+		<table>
+			<tr>
+				<td>
+					검색 : <input type="text" name="comName" value="${comName }" id="search"> <button id="searchBtn" type="submit">검색하기</button>
+				</td>
+			</tr>
+		</table>
+		<div class="">
+			<div id="comNameList" class="comNameList-swiper swiper">
+                <ul class="swiper-wrapper">
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class='swiper-slide'>
+                        <div class=''>brand</div>
+                        <div>
+                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
+                                <span class='chkbox'></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <div class="swiper-pagination comNameList-pagination"></div>
+			</div>
+		</div>
+
+	</br></br>
+
+	<form action="incomeCalcResult" method="get">
+		<table>
+			<tr>
+				<td>
+					<a>희망지역</a>
+					<select class="selbox" name="l_areaName">
+					    <option value="" disabled>지역선택</option>
+					    <option value="서울">서울</option>
+					    <option value="부산">부산</option>
+					    <option value="대구">대구</option>
+					    <option value="인천">인천</option>
+					    <option value="광주">광주</option>
+					    <option value="대전">대전</option>
+					    <option value="울산">울산</option>
+					    <option value="세종">세종</option>
+					    <option value="경기">경기</option>
+					    <option value="강원">강원</option>
+					    <option value="충북">충북</option>
+					    <option value="충남">충남</option>
+					    <option value="전북">전북</option>
+					    <option value="전남">전남</option>
+					    <option value="경북">경북</option>
+					    <option value="경남">경남</option>
+					    <option value="제주">제주</option>
+					</select>
+				</td>
+				<td>
+					<a>희망평수</a>
+					<select class="selbox" name="areaAvgSales">
+						<option value="" disabled>선택</option>
+						<option value="5">5평</option>
+						<option value="6">6평</option>
+						<option value="8">7평</option>
+						<option value="9">8평</option>
+						<option value="10">9평</option>
+						<option value="11">10평</option>
+						<option value="12">11평</option>
+						<option value="13">12평</option>
+						<option value="direct">직접입력</option>
+					</select>
+				</td>
+				<td>
+					<a>월세</a>
+					<select class="selbox" name="월세">
+						<option value="" disabled>선택</option>
+						<option value="50">50만원</option>
+						<option value="100">100만원</option>
+						<option value="200">200만원</option>
+						<option value="250">250만원</option>
+						<option value="direct">직접입력</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a>인건비</a>
+					<select class="selbox" name="workPayMonth">
+						<option value="" disabled>선택</option>
+						<option value="50">50만원</option>
+						<option value="100">100만원</option>
+						<option value="200">200만원</option>
+						<option value="250">250만원</option>
+						<option value="direct">직접입력</option>
+					</select>
+				</td>
+				<td>
+					<a>기타비용</a>
+					<select class="selbox" name="ectPay">
+						<option value="" disabled>선택</option>
+						<option value="50">50만원</option>
+						<option value="100">100만원</option>
+						<option value="200">200만원</option>
+						<option value="250">250만원</option>
+						<option value="direct">직접입력</option>
+					</select>
+				</td>
+				<td>
+					<a>매출대비원가율</a>
+					<select class="selbox" name="payRatio">
+						<option value="" disabled>선택</option>
+						<option value="10">10%</option>
+						<option value="20%">20%</option>
+						<option value="30%">30%</option>
+						<option value="40%">40%</option>
+						<option value="direct">직접입력</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td> <button type="submit">결과조회</button> </td>
+			</tr>
+		</table>
+	</form>
+
+
+<script>
+
+</script>
+
+<!-- footer 복붙 -->
+<%@ include file="../includes/footer.jsp" %>
