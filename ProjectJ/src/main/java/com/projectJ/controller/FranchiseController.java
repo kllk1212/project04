@@ -134,6 +134,10 @@ public class FranchiseController {
 	public void incomCalcMainGet() {		
 		log.info("incomeCalcMain get방식 진입");
 	}
+	@RequestMapping(value ="/incomeCalcMain2", method = RequestMethod.GET)
+	public void incomCalcMainGet2() {		
+		log.info("incomeCalcMain get방식 진입");
+	}
 	
 	@RequestMapping(value ="/testCalc", method = RequestMethod.GET)
 	public void testCalc() {		

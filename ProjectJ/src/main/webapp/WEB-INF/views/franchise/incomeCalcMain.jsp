@@ -5,17 +5,16 @@
 
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp" %>
-
+	
 	<h1>월 매출예상 계산기</h1>
 	<script>
-
 	$(document).ready(function() {
-
+		
 		$("#searchBtn").on("click",function(e){
 		let search = $("#search").val();
 		let comNameListDiv = $("#comNameList");
 		console.log(search); // 여기까지 담김
-
+			
 			$.ajax({
 				type: "GET",
 				url: "/search/searchData",
@@ -27,7 +26,6 @@
 					console.log(result.length);
 					let str= "";
 					str += "<tr><td><a> 검색된 결과 수 : "+result.length +"</a></td></tr>";
-
 					for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
 						
 						str+= "<tr><td>"+ result[i].s_comName +"</td><td>";
@@ -36,12 +34,7 @@
 						//str+= "<tr><td>"+ result[i].s_comName +"<button type='button' id='resultCheckBtn'>선택</button></td></tr>"
 					}
 					comNameListDiv.html(str); // table에 tr td 넣기
-<<<<<<< HEAD
 					
-=======
-
-
->>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 				},
 				error: function(e) {
 	            	console.log("요청 에러......");
@@ -49,18 +42,12 @@
 	                str += "<tr><td><a> 검색된 결과가 없습니다</a></td></tr>";
 	                comNameListDiv.html(str); // table에 tr td 넣기
 				}
-<<<<<<< HEAD
 			}); //ajax					
 		}); // $("#searchBtn").		
 	
-=======
-			}); //ajax
-		}); // $("#searchBtn").
->>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
-
 	}); // $(document).
-
-	function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트
+	
+	function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트 
 	    document.querySelectorAll(`input[type=checkbox]`)
 	        .forEach(el => el.checked = false);
 	    target.checked = true;
@@ -71,12 +58,7 @@
 		str="<input type='hidden' name='"+ valueById  +"' value='"+valueById  +"'>";
 		$("#resultForm").find('table').append(str);
 	}
-<<<<<<< HEAD
 	
-=======
-
-
->>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 	</script>
 	
 		<table>
@@ -91,20 +73,15 @@
 				<!-- 검색한 결과값이 담길 테이블 -->
 			</table>
 		</div>
-
+		
 	</br></br>
-<<<<<<< HEAD
 	
 	<form action="/franchise/incomeCalcResult" method="get" id="resultForm">
 	
-=======
-
-	<form action="incomeCalcResult" method="get">
->>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 		<table>
 			<tr>
 				<td>
-					<a>희망지역</a>
+					<a>희망지역</a>			
 					<select class="selbox" name="l_areaName">
 					    <option value="" disabled>지역선택</option>
 					    <option value="서울">서울</option>
@@ -196,8 +173,7 @@
 
 
 <script>
-
 </script>
-
-<!-- footer 복붙 -->
+	
+<!-- footer 복붙 -->        
 <%@ include file="../includes/footer.jsp" %>
