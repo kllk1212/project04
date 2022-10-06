@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.projectJ.domain.LocalSalesDTO;
 import com.projectJ.domain.PagingVO;
 import com.projectJ.domain.ReviewSearchDTO;
 import com.projectJ.domain.StarInfoDTO;
@@ -68,6 +69,12 @@ public class FranchiseServiceImpl implements FranchiseService{
 	public List<StarInfoDTO> searchResultAjax(String comName) {
 		
 		return mapper.searchResultAjax(comName);
+	}
+	
+	@Override
+	public LocalSalesDTO getCalcDB(String comName ,String areaName) { // 계산기 결과 가져오기
+
+		return mapper.getCalcDB(comName,areaName);
 	}
 
 	

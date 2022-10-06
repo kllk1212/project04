@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.projectJ.domain.LocalSalesDTO;
 import com.projectJ.domain.PagingVO;
 import com.projectJ.domain.StarInfoDTO;
 import com.projectJ.domain.StarUserDTO;
@@ -31,6 +32,8 @@ public interface FranchiseMapper {
 	public void starPointPlus5(int point,String comName);
 	
 	public List<StarInfoDTO> searchResultAjax(String comName);  // ajax용
+	
+	public LocalSalesDTO getCalcDB(@Param("comName") String comName,@Param("areaName") String areaName); // 계산기 결과 가져오기
 	
 	
 }

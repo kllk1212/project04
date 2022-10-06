@@ -138,18 +138,44 @@ public class FranchiseController {
 	public void incomCalcMainGet2() {		
 		log.info("incomeCalcMain get방식 진입");
 	}
+	@RequestMapping(value ="/incomeCalcMainAll", method = RequestMethod.GET)
+	public void incomCalcMainAllGet() {		
+		log.info("incomeCalcMain get방식 진입");
+	}
 	
 	@RequestMapping(value ="/testCalc", method = RequestMethod.GET)
 	public void testCalc() {		
 		log.info("test get방식 진입");
 	}
 	
+	// 희망평수 size 월세 monthlyRent 인건비 workPayMonth
+	// 기타비용 ectPay 매출대비 원가율 payRatio
 	@GetMapping("incomeCalcResult")
-	public void incomeCalcResultGet(@RequestParam("valueById") String comName,LocalSalesDTO dto,Model model) {
-		log.info("incomeCalcReslt get방식 진입");
-		log.info("*******************지역명 : "+dto.getL_areaName());
+	public void incomeCalcResultGet(Model model,@RequestParam("comName") String comName,@RequestParam("areaName") String areaName,
+			@RequestParam("size") int size,@RequestParam("monthlyRent") int monthlyRent,@RequestParam("workPayMonth") int workPayMonth,
+			@RequestParam("payRatio") int payRatio, @RequestParam("etcPay") int etcPay
+			) {
 		
-		model.addAttribute("comName", comName);
+		log.info("incomeCalcReslt get방식 진입");
+		log.info("*******************회사명 : "+comName);
+		log.info("*******************지역명 : "+areaName);
+		LocalSalesDTO result= service.getCalcDB(comName,areaName);
+		model.addAttribute("result", result);
+		
+		log.info("************************유저가 고른 평수 : "+size);
+		int monthAvgSales = (result.getL_areaAvgSales()*1000)/12; // 1평당 한달 평균 매출 
+		log.info("************************1평당 평균매출 / 12개월  : "+monthAvgSales);
+				
+		int monthSales = (monthAvgSales * size)/10000; // 평수 * 1평당 한달 평균 매출 = 총 (월)매출
+		model.addAttribute("monthSales", monthSales);
+		
+		int monthSales_payRatio = monthSales - (int)(monthSales*((double)payRatio/100.0)); // 총(월) 매출 - 총매출대비원가율 
+		log.info("************************ 총(월) 매출 - 총매출대비원가율  : " + monthSales_payRatio);
+		model.addAttribute("monthSales_payRatio", monthSales_payRatio);
+		
+		log.info("*************** 기타비용 etcPay : ");
+		int netIncome = monthSales_payRatio - monthlyRent - etcPay - workPayMonth; // 순이익!! (모든걸 뺸) 
+		model.addAttribute("netIncome", netIncome);
 		
 	}
 
