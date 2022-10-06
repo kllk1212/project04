@@ -22,16 +22,64 @@
 				contentType: "application/json;charset=utf-8",
 				success: function(result){
 					console.log("요청 성공!!!!!");
+<<<<<<< HEAD
 					console.log(result);
 					console.log(result.length);
+=======
+					console.log(typeof(result));
+					console.log(nowPage);
+
+					 tmpDatabase2 = new Object();
+	                    j = 0;
+	                    for(i=0; i<result.length; i++){
+	                        tmpDatabase2[j] = result[i].s_comName;
+	                        if(Object.keys(tmpDatabase2).length==5){
+	                        	//console.log(i+'if');
+	                        	//console.log(tmpDatabase2);
+	                        	//console.log(tmpDatabase);
+
+	                            tmpDatabase[parseInt(((i+1)/5)-1)] = tmpDatabase2;
+
+	                            tmpDatabase2 = new Object();
+	                           // console.log(j+'if');
+	                            j=0;
+	                           // console.log('if');
+	                        }else{
+	                            j++;
+	                           // console.log(j+'else');
+	                           // console.log('else');
+	                        }
+	                        //tmpDatebase[0] = {tmpDatebase2[0],tmpDatebase2[1],tmpDatebase2[2],tmpDatebase2[3],tmpDatebase2[4]}
+	                        //tmpDatebase[1] = {tmpDatebase2[5],tmpDatebase2[6],tmpDatebase2[7],tmpDatebase2[8],tmpDatebase2[9]}
+	                    }
+
+					console.log(tmpDatabase[0][0]);
+					console.log(tmpDatabase[0][1]);
+					console.log(tmpDatabase[0][2]);
+					console.log("*******************");
+                    //console.log(tmpDatabase[1]);
+					//console.log(tmpDatabase);
+>>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 					let str= "";
+<<<<<<< HEAD
 					str += "<tr><td><a> 검색된 결과 수 : "+result.length +"</a></td></tr>";
 					for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
 						
 						str+= "<tr><td>"+ result[i].s_comName +"</td><td>";
 						str+= "<label class='agree fx alc' id='"+ result[i].s_comName +"'>";
 						str+= "<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
+=======
+
+					for(let i = 0; i < Object.keys(tmpDatabase2).length; i++){ //result.length 일단 5개까지만
+						str+= "<tr><td>"+ tmpDatabase[0][i] +"</td><td>";
+						str+= "<label class='agree fx alc' id='"+ tmpDatabase[0][i] +"'>";
+						str+= "<input type='checkbox' class='resultBtn' id='"+ tmpDatabase[0][i] +"' name='"+tmpDatabase[0][i]+"'onclick='clickCheck(this)''><span class='chkbox'></span></td></tr></label>";
+>>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 						//str+= "<tr><td>"+ result[i].s_comName +"<button type='button' id='resultCheckBtn'>선택</button></td></tr>"
+<<<<<<< HEAD
+=======
+						// for()
+>>>>>>> branch 'main' of https://github.com/kllk1212/project04.git
 					}
 					comNameListDiv.html(str); // table에 tr td 넣기
 					
