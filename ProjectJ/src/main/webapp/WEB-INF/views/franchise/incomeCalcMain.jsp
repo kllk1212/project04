@@ -121,64 +121,30 @@
 						<option value="direct">직접입력</option>
 					</select>
 				</td>
-				<td>
-					<a>월세</a>
-					<select class="selbox" name="monthlyRent">
-						<option value="" disabled>선택</option>
-						<option value="50">50만원</option>
-						<option value="100">100만원</option>
-						<option value="200">200만원</option>
-						<option value="250">250만원</option>
-						<option value="300">300만원</option>
-						<option value="400">400만원</option>
-						<option value="500">500만원</option>
-						<option value="direct">직접입력</option>
-					</select>
-				</td>
 			</tr>
 			<tr>
 				<td>
-					<a>인건비</a>
-					<select class="selbox" name="workPayMonth">
-						<option value="" disabled>선택</option>
-						<option value="50">50만원</option>
-						<option value="100">100만원</option>
-						<option value="200">200만원</option>
-						<option value="250">250만원</option>
-						<option value="300">300만원</option>
-						<option value="400">400만원</option>
-						<option value="500">500만원</option>
-						<option value="direct">직접입력</option>
-					</select>
+					<a>임대료</a>
+					<input type="number" name="monthlyRent">
 				</td>
+			<tr>
+				<td>
+					<a>직원 급여</a>
+					<input type="number" name="workPayMonth">
+				</td>
+			</tr>
 				<td>
 					<a>기타비용</a>
-					<select class="selbox" name="etcPay">
-						<option value="" disabled>선택</option>
-						<option value="50">50만원</option>
-						<option value="100">100만원</option>
-						<option value="200">200만원</option>
-						<option value="250">250만원</option>
-						<option value="300">300만원</option>
-						<option value="400">400만원</option>
-						<option value="500">500만원</option>
-						<option value="direct">직접입력</option>
-					</select>
+					<input type="number" name="etcPay">
 				</td>
+			<tr>
 				<td>
 					<a>매출대비원가율</a>
-					<select class="selbox" name="payRatio">
-						<option value="" disabled>선택</option>
-						<option value="10">10%</option>
-						<option value="20">20%</option>
-						<option value="30">30%</option>
-						<option value="40">40%</option>
-						<option value="direct">직접입력</option>
-					</select>
+					<input type="number" name="payRatio">
 				</td>
 			</tr>
 			<tr>
-				<td> <button type="submit">결과조회</button>  <button type="button" onclick="window.location='/franchise/incomeCalcMainAll'">계산기 2개로 비교하기</button> </td>
+				<td> <button type="submit">결과조회</button>  <button type="button">초기화</button></td>
 			</tr>
 		</table>
 	</form>

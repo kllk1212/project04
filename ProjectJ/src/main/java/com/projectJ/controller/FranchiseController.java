@@ -148,11 +148,12 @@ public class FranchiseController {
 		log.info("test get방식 진입");
 	}
 	
-	// 희망평수 size 월세 monthlyRent 인건비 workPayMonth
-	// 기타비용 ectPay 매출대비 원가율 payRatio
+	// 희망평수 size 희망지역 areaName 검색한프랜차이즈 comName  -> 이건 DB에 넣기위한거임~
+	// 원가 payRatio 인건비 workPayMonth  임대료 monthlyRent 관리비 ectPay 판매 수수료 salesFee
+
 	@GetMapping("incomeCalcResult")
-	public void incomeCalcResultGet(Model model,@RequestParam("comName") String comName,@RequestParam("areaName") String areaName,
-			@RequestParam("size") int size,@RequestParam("monthlyRent") int monthlyRent,@RequestParam("workPayMonth") int workPayMonth,
+	public void incomeCalcResultGet(Model model,@RequestParam("comName") String comName,@RequestParam("areaName") String areaName,@RequestParam("size") int size,
+			@RequestParam("monthlyRent") int monthlyRent,@RequestParam("workPayMonth") int workPayMonth,
 			@RequestParam("payRatio") int payRatio, @RequestParam("etcPay") int etcPay
 			) {
 		

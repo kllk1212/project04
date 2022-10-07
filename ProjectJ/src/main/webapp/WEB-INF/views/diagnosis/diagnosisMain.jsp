@@ -64,9 +64,11 @@
 		</form>
 	</div>
 	<div>
-		<table style="height: auto;" id="comNameList"> 
-			<!-- 검색한 결과값이 담길 테이블 -->
-		</table>
+		<form action="/diagnosis/diagnosisResult">
+			<table style="height: auto;" id="comNameList"> 
+				<!-- 검색한 결과값이 담길 테이블 -->
+			</table>
+		</form>
 	</div>
 	
 	
@@ -97,9 +99,9 @@
 						str+= "<tr><td>"+ result[i].l_comName +"</td><td>";
 						str+= "<label class='agree fx alc'>";	// 수정한거
 						//str+= "<label class='agree fx alc' id='"+ result[i].l_comName +"'>"; 원래꺼
-						str+= "<input type='checkbox' value='"+ result[i].l_comName +"' class='resultBtn' id='"+ result[i].l_comName +"' name='"+result[i].l_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
+						str+= "<input type='checkbox' value='"+ result[i].l_comName +"' class='resultBtn' id='"+ result[i].l_comName +"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
 					}
-					str +="<td><input type='text' name='comName'><button type='submit'>(으)로 상세검색</button></td>";
+					str +="<td><input type='text' name='comName' class='inputTrigger'><button type='submit'>(으)로 상세검색</button></td>";
 					comNameListDiv.html(str); // table에 tr td 넣기
 					
 				},
@@ -110,13 +112,7 @@
 	                comNameListDiv.html(str); // table에 tr td 넣기
 				}
 			}); //ajax				
-		});// $("#searchBtn") 서치버튼 클릭시 !
-		/*
-		$(".comName").on("click",function(e){
-			let dd = $("#comName").val();
-			log.info(dd);
-		});*/
-		
+		});// $("#searchBtn") 서치버튼 클릭시 !		
 	});//$(document). 시작부분
 	function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트 
 	    document.querySelectorAll(`input[type=checkbox]`)
@@ -127,15 +123,8 @@
 		    let result = event.target.value;
 			console.log(result);
 			$('input[name=comName').attr('value',result);
-		    
 		}
-
-
 	}
 	</script>
-	
-	
-	
-	
 <!-- footer 복붙 -->        
 <%@ include file="../includes/footer.jsp" %>
