@@ -66,7 +66,7 @@ public class FranchiseServiceImpl implements FranchiseService{
 		if(point==5) {mapper.starPointPlus5(point, comName);}
 	}
 	@Override
-	public List<StarInfoDTO> searchResultAjax(String comName) {
+	public List<StarInfoDTO> searchResultAjax(String comName) { // 계산기 창에서 쓰는 !!!
 		
 		return mapper.searchResultAjax(comName);
 	}
@@ -76,6 +76,8 @@ public class FranchiseServiceImpl implements FranchiseService{
 
 		return mapper.getCalcDB(comName,areaName);
 	}
+	
+	
 
 	
 }

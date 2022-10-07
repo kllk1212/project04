@@ -28,10 +28,10 @@ public interface FranchiseService {
 	public void starPointPlus(int point,String comName);
 	
 	
-	public List<StarInfoDTO> searchResultAjax(String comName); // ajax 검색용 s
-	
 	// 계산기 service
 	public LocalSalesDTO getCalcDB(String comName,String areaName); // 계산기 결과 가져오기
+
+	public List<StarInfoDTO> searchResultAjax(String comName);  // ajax용
 	
 	
 	

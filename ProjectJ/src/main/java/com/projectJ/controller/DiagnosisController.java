@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.projectJ.service.DiagnosisService;
 
@@ -20,7 +21,11 @@ public class DiagnosisController {
 	@GetMapping("diagnosisMain")
 	public void diagnosisMainGet() {
 		log.info("diagnosisMainGet 진입 ***********");
-		
+	}
+	@GetMapping("diagnosisResult")
+	public void diagnosisResultGet(@RequestParam("comName") String comName) {
+		log.info("diagnosisResultGet 진입 ***********");
+		log.info("**********************************comName : "+comName);
 	}
 
 }
