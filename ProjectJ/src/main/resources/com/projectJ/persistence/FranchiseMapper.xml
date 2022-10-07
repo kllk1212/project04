@@ -13,7 +13,7 @@ from starinfo where s_comname like '%'||#{comName}||'%'
 </select>
 
 <select id="searchResultAjax" resultType="com.projectJ.domain.StarInfoDTO">
-	select * from starInfo where s_comName like '%'||#{comName}||'%' 
+	select * from starInfo where upper(s_comname) like upper('%'||#{comName}||'%') 
 </select>
 
 
@@ -72,5 +72,13 @@ from starinfo where s_comname=#{comName}
 
 
 <!-- 리뷰기능만 끝-->
+
+
+<!-- 계산기 기능 시작 -->
+
+<select id="getCalcDB" resultType="com.projectJ.domain.LocalSalesDTO">
+	select * from localSales where l_comName=#{comName} and l_areaName=#{areaName}
+</select>
+
 
 </mapper>

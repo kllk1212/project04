@@ -66,7 +66,8 @@
                                         <ul class="fx">
                                             <li><a href="../franchise/reviewMain">기업평점/리뷰</a></li>
                                             <li><a href="../franchise/rankMain">순위</a></li>
-                                            <li><a href="#">분석기</a></li>
+                                            <li><a href="../map/mapSearchMain"">지도</a></li>
+                                            <li><a href="../diagnosis/diagnosisMain">분석</a></li>
                                         </ul>
                                     </div>
                                 </li>

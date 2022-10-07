@@ -62,7 +62,9 @@
 	}
 	
 	</script>
-		<div>
+	<div class="fx">
+	<div>
+		<div style="background-color:gold; padding:10px; margin: 0 auto; width:300px; height: auto;">
 		<table>
 			<tr>
 				<td>
@@ -76,7 +78,24 @@
 				<!-- 검색한 결과값이 담길 테이블 -->
 			</table>
 		</div>
-		
+	</div>
+	<div>
+		<div style="background-color:gold; padding:10px; margin: 0 auto; width:300px; height: auto;">
+		<table>
+			<tr>
+				<td>
+					검색 : <input placeholder="되도록 정확한 기업명을 입력해주세요" type="text" name="comName" value="${comName }" id="search"> <button id="searchBtn" type="submit">검색하기</button>
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div>
+			<table style="background-color:gold; padding:10px; margin: 0 auto; width:300px; height: auto;" id="comNameList"> 
+				<!-- 검색한 결과값이 담길 테이블 -->
+			</table>
+		</div>
+	</div>	
+	</div>
 	</br></br>
 	
 	<form action="/franchise/incomeCalcResult" method="get" id="resultForm">
@@ -178,7 +197,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td> <button type="submit">결과조회</button>  <button type="button" onclick="window.location='/franchise/incomeCalcMainAll'">계산기 2개로 비교하기</button> </td>
+				<td> <button type="submit">결과조회</button> </td>
 			</tr>
 		</table>
 	</form>
