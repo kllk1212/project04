@@ -15,8 +15,8 @@
 			<div class="fx jsb">
 				<div class="inputBox fx fdc">
 					<input type="text" name="m_id" id="m_id" required
-						placeholder="아이디를 입력해주세요"> <input type="password"
-						name="m_pw" required placeholder="비밀번호를 입력해주세요">
+						placeholder="아이디를 입력해주세요">
+					<input type="password" class="inputTrigger" name="m_pw" required placeholder="비밀번호를 입력해주세요">
 				</div>
 				<div class="btnBox">
 					<button type="submit">로그인</button>
