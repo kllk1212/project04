@@ -339,4 +339,15 @@
   border-radius: 10px;
 }
 
+#resultForm input[type=number] {
+  position: relative;
+}
+#resultForm .unit-money {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  right: 12px;
+  color: #999;
+}
+
 /*# sourceMappingURL=style.css.map */

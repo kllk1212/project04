@@ -21,5 +21,9 @@ $(function(){
         }
     });
 
+    $('#resultForm input[type="number"]').each(function(){
+        $(this).closest('td').addClass('pr');
+        $(this).after('<span class="unit-money">만원</span>');
+    })
 
 });
