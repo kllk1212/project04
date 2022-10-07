@@ -33,19 +33,22 @@
 		<td>지역 : ${param.areaName}</td>
 	</tr>
 	<tr>
-		<td>월세 : ${param.monthlyRent }</td>
-	</tr>
-	<tr>
 		<td>희망평수 : ${param.size}</td>
 	</tr>
 	<tr>
-		<td>인건비 : ${param.workPayMonth}</td>
+		<td>원가 : ${param.payRatio}</td>
 	</tr>
 	<tr>
-		<td>기타비용 : ${param.etcPay}</td>
+		<td>직원 급여 : ${param.workPayMonth}</td>
 	</tr>
 	<tr>
-		<td>매출대비원가율 : ${param.payRatio}</td>
+		<td>월세 : ${param.monthlyRent }</td>
+	</tr>
+	<tr>
+		<td>관리비 : ${param.etcPay}</td>
+	</tr>
+	<tr>
+		<td>판매수수료 : ${param.salesFee}</td>
 	</tr>
 </table>
 <table>

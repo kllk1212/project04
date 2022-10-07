@@ -79,8 +79,7 @@
 		
 	</br></br>
 	
-	<form action="/franchise/incomeCalcResult" method="get" id="resultForm">
-	
+	<form>
 		<table>
 			<tr>
 				<td>
@@ -110,47 +109,33 @@
 					<a>희망평수</a>
 					<select class="selbox" name="size">
 						<option value="" disabled>선택</option>
-						<option value="5">5평</option>
-						<option value="6">6평</option>
-						<option value="8">7평</option>
-						<option value="9">8평</option>
-						<option value="10">9평</option>
-						<option value="11">10평</option>
-						<option value="12">11평</option>
-						<option value="13">12평</option>
-						<option value="direct">직접입력</option>
+						<option value="1">1평</option><option value="2">2평</option><option value="3">3평</option><option value="4">4평</option><option value="5">5평</option>
+						<option value="6">6평</option><option value="7">7평</option><option value="8">8평</option><option value="9">9평</option><option value="10">10평</option>
+						<option value="11">11평</option><option value="12">12평</option><option value="13">13평</option><option value="14">14평</option><option value="15">15평</option>
+						<option value="16">16평</option><option value="17">17평</option><option value="18">18평</option><option value="19">19평</option><option value="20">20평</option>
+						<option value="21">21평</option><option value="22">22평</option><option value="23">23평</option><option value="24">24평</option><option value="25">25평</option>
 					</select>
 				</td>
 			</tr>
+		</table>
+	</form>
+
+	<form action="/franchise/incomeCalcResult" method="get" id="resultForm">	
+		<table>
 			<tr>
-				<td>
-					<a>원가</a>
-					<input type="number" name="payRatio">
-				</td>
+				<td><a>원가</a><input type="number" name="payRatio"></td>
 			</tr>
 			<tr>
-				<td>
-					<a>직원 급여</a>
-					<input type="number" name="workPayMonth">
-				</td>
+				<td><a>직원 급여</a><input type="number" name="workPayMonth"></td>
 			</tr>
 			<tr>
-				<td>
-					<a>임대료</a>
-					<input type="number" name="monthlyRent">
-				</td>
+				<td><a>임대료</a><input type="number" name="monthlyRent"></td>
 			</tr>
-			<tr>	
-				<td>
-					<a>관리비</a>
-					<input type="number" name="etcPay">
-				</td>
+			<tr>
+				<td><a>관리비</a><input type="number" name="etcPay"></td>
 			<tr>
 			<tr>	
-				<td>
-					<a>판매수수료</a>
-					<input type="number" name="salesFee">
-				</td>
+				<td><a>판매수수료</a><input type="number" name="salesFee"></td>
 			<tr>
 				<td> <button type="submit">결과조회</button>  <button type="button">초기화</button></td>
 			</tr>
