@@ -5,7 +5,7 @@
 
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp" %>
-	
+
 <script>
 	let l_areaAvgSales = "${result.l_areaAvgSales}";
 	let l_year = "${result.l_year}";
@@ -107,5 +107,5 @@
 
 
 
-<!-- footer 복붙 -->        
+<!-- footer 복붙 -->
 <%@ include file="../includes/footer.jsp" %>

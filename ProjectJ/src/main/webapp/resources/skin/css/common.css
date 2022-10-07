@@ -14,12 +14,14 @@ a{
 .fc-sky{color: var(--sky) !important;}
 .fc-black{color: var(--black) !important;}
 .fc-white{color: var(--white) !important;}
-
+.bg-gray{background-color: #f9f9f9 !important;}
 /* ======================= */
 /* layout */
 /* ======================= */
 .pt-A{padding-top: 4rem;}
 .pb-A{padding-bottom: 4rem;}
+.pl-A{padding-left: 4rem;}
+.pr-A{padding-right: 4rem;}
 .pt-B{padding-top: 8rem;}
 .pb-B{padding-bottom: 8rem;}
 
