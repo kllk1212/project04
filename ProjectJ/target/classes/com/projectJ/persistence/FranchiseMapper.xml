@@ -80,5 +80,14 @@ from starinfo where s_comname=#{comName}
 	select * from localSales where l_comName=#{comName} and l_areaName=#{areaName}
 </select>
 
+<select id="getIncomeCalcDB" resultType="com.projectJ.domain.IncomeCalcDataDTO">
+	select * from incomeCalcData where i_type=#{type}
+</select>
+
+
+
+
+
+
 
 </mapper>

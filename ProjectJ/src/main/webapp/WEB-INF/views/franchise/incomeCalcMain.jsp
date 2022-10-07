@@ -44,7 +44,38 @@
 				}
 			}); //ajax					
 		}); // $("#searchBtn").		
-	
+		$("#getBtn").on("click",function(e){
+			let size = $("#size").val();
+			let areaName = $("#areaName").val();
+			let comName= $("input:checkbox[class=resultBtn]:checked").val();
+			
+			//let comNameListDiv = $("#comNameList");
+			console.log(search); // 여기까지 담김
+				
+				$.ajax({
+					type: "GET",
+					url: "/search/getResultSales",
+					data: {"size" : size, "areaName" : areaName,"comName" : comName },
+					contentType: "application/json;charset=utf-8",
+					success: function(data){
+						console.log("요청 성공!!!!!");
+						console.log(data);
+						$("#resultSales").val(data.resultSalesSize);
+						$("#payRatio").val(Math.floor((data.i_payRatio/100)*data.resultSalesSize));
+						$("#workPayMonth").val(Math.floor((data.i_workPayMonth/100)*data.resultSalesSize));
+						$("#monthlyRent").val(Math.floor((data.i_monthlyRent/100)*data.resultSalesSize));
+						$("#etcPay").val(Math.floor((data.i_etcPay/100)*data.resultSalesSize));
+						$("#salesFee").val(Math.floor((data.i_salesFee/100)*data.resultSalesSize));
+						
+						$("#realResult").val(data.resultSalesSize - Math.floor((data.i_payRatio/100)*data.resultSalesSize) - Math.floor((data.i_workPayMonth/100)*data.resultSalesSize) - Math.floor((data.i_monthlyRent/100)*data.resultSalesSize) - Math.floor((data.i_etcPay/100)*data.resultSalesSize) - Math.floor((data.i_salesFee/100)*data.resultSalesSize));						
+					},
+					error: function(e) {
+		            	console.log("요청 에러......");
+		                console.log(e);
+					}
+				});			
+			
+		});  // $("#getBtn")
 	}); // $(document).
 	
 	function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트 
@@ -59,7 +90,9 @@
 		let str="";
 		str="<input type='hidden' id='hidden' name='comName' value='"+valueById  +"'>";
 		$("#resultForm").find('table').append(str);
+		$("#getResultSalesForm").find('table').append(str);
 	}
+	
 	
 	</script>
 		<div>
@@ -79,12 +112,12 @@
 		
 	</br></br>
 	
-	<form>
+	<form id="getResultSalesForm">
 		<table>
 			<tr>
 				<td>
 					<a>희망지역</a>			
-					<select class="selbox" name="areaName">
+					<select class="selbox" name="areaName" id="areaName">
 					    <option value="" disabled>지역선택</option>
 					    <option value="서울">서울</option>
 					    <option value="부산">부산</option>
@@ -107,7 +140,7 @@
 				</td>
 				<td>
 					<a>희망평수</a>
-					<select class="selbox" name="size">
+					<select class="selbox" name="size" id="size">
 						<option value="" disabled>선택</option>
 						<option value="1">1평</option><option value="2">2평</option><option value="3">3평</option><option value="4">4평</option><option value="5">5평</option>
 						<option value="6">6평</option><option value="7">7평</option><option value="8">8평</option><option value="9">9평</option><option value="10">10평</option>
@@ -116,6 +149,7 @@
 						<option value="21">21평</option><option value="22">22평</option><option value="23">23평</option><option value="24">24평</option><option value="25">25평</option>
 					</select>
 				</td>
+				<td><button type="button" id="getBtn">매출가져오기</button> </td>
 			</tr>
 		</table>
 	</form>
@@ -123,21 +157,28 @@
 	<form action="/franchise/incomeCalcResult" method="get" id="resultForm">	
 		<table>
 			<tr>
-				<td><a>원가</a><input type="number" name="payRatio"></td>
+				<td><a>예상 총매출 </a><input type="number" name="resultSales" id="resultSales"></td>
 			</tr>
 			<tr>
-				<td><a>직원 급여</a><input type="number" name="workPayMonth"></td>
+				<td><a>원가</a><input type="number" name="payRatio" id="payRatio"></td>
 			</tr>
 			<tr>
-				<td><a>임대료</a><input type="number" name="monthlyRent"></td>
+				<td><a>직원 급여</a><input type="number" name="workPayMonth" id="workPayMonth"></td>
 			</tr>
 			<tr>
-				<td><a>관리비</a><input type="number" name="etcPay"></td>
+				<td><a>임대료</a><input type="number" name="monthlyRent" id="monthlyRent"></td>
+			</tr>
 			<tr>
-			<tr>	
-				<td><a>판매수수료</a><input type="number" name="salesFee"></td>
+				<td><a>관리비</a><input type="number" name="etcPay" id="etcPay"></td>
 			<tr>
-				<td> <button type="submit">결과조회</button>  <button type="button">초기화</button></td>
+			<tr>
+				<td><a>판매수수료</a><input type="number" name="salesFee" id="salesFee"></td>
+			</tr>
+			<tr>
+				<td> 순이익 (월)<input type="number" id="realResult"/> </td>
+			</tr>		
+			<tr>
+				<td> <button type="submit">무슨버튼?</button>  <button type="button">초기화</button></td>
 			</tr>
 		</table>
 	</form>

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.JsonObject;
 import com.projectJ.domain.CompanyDTO;
+import com.projectJ.domain.IncomeCalcDataDTO;
 import com.projectJ.domain.LocalSalesDTO;
 import com.projectJ.domain.StarInfoDTO;
 import com.projectJ.service.DiagnosisService;
@@ -36,7 +37,7 @@ public class SearchController {
 	private DiagnosisService serviceDia;
 	
 	@RequestMapping(value = "/searchData",method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody // 계산기 검색할때씀!!
+	@ResponseBody // 계산기 상호명검색할때씀!!
 	public ResponseEntity<List<StarInfoDTO>> searchData(@RequestParam("comName") String comName) throws Exception{
 		
 		log.info("************comName  : " + comName); // ajax로 보낸 comName 잘가져옴
@@ -49,6 +50,29 @@ public class SearchController {
 		return new ResponseEntity<List<StarInfoDTO>>(result,HttpStatus.OK);
 		
 	}
+	@RequestMapping(value = "/getResultSales",method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody // 계산기 - 회사명 + 지역명 가지고 와서 1평당 총매출 가져온 후 평수랑 곱해서 리턴해주기
+	public ResponseEntity<IncomeCalcDataDTO> getResultSales(@RequestParam("comName") String comName,
+			@RequestParam("areaName") String areaName,@RequestParam("size")int size) throws Exception{
+		log.info("************comName  : " + comName); // ajax로 보낸 comName 잘가져옴
+		LocalSalesDTO resultSales = service.getCalcDB(comName, areaName); //companyInfo DB 에서 1평당매출 가져오기!!!!
+		// 희망평수 size 희망지역 areaName 검색한프랜차이즈 comName  -> 이건 DB에 넣기위한거임~
+		// 원가 payRatio 인건비 workPayMonth  임대료 monthlyRent 관리비 ectPay 판매 수수료 salesFee
+		
+		int resultSalesSize = resultSales.getL_areaAvgSales() * size /120; // 평수 * 1평당매출 / 12개월
+		IncomeCalcDataDTO incomeCalcData = service.getIncomeCalcDB(resultSales.getL_type()); // 타입명(치킨) 주고  원가 인건비 임대료... 등 가져오기
+		incomeCalcData.setResultSalesSize(resultSalesSize);
+		
+		
+		//return new ResponseEntity<Integer>(resultSalesSize,HttpStatus.OK);
+		return new ResponseEntity<IncomeCalcDataDTO>(incomeCalcData,HttpStatus.OK);
+		
+	}
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value = "/searchDataConstraint",method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody // 조건검색 할때씀!!
