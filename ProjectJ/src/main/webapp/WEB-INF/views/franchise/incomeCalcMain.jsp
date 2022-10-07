@@ -124,25 +124,33 @@
 			</tr>
 			<tr>
 				<td>
-					<a>임대료</a>
-					<input type="number" name="monthlyRent">
+					<a>원가</a>
+					<input type="number" name="payRatio">
 				</td>
+			</tr>
 			<tr>
 				<td>
 					<a>직원 급여</a>
 					<input type="number" name="workPayMonth">
 				</td>
 			</tr>
+			<tr>
 				<td>
-					<a>기타비용</a>
+					<a>임대료</a>
+					<input type="number" name="monthlyRent">
+				</td>
+			</tr>
+			<tr>	
+				<td>
+					<a>관리비</a>
 					<input type="number" name="etcPay">
 				</td>
 			<tr>
+			<tr>	
 				<td>
-					<a>매출대비원가율</a>
-					<input type="number" name="payRatio">
+					<a>판매수수료</a>
+					<input type="number" name="salesFee">
 				</td>
-			</tr>
 			<tr>
 				<td> <button type="submit">결과조회</button>  <button type="button">초기화</button></td>
 			</tr>
