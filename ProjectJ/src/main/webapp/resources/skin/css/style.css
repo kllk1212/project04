@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ======================= */
 /* header */
 /* ======================= */
@@ -128,9 +129,6 @@
 /* ======================= */
 .s-search {
   padding-bottom: 4rem;
-}
-.s-search > div {
-  max-width: 500px;
 }
 .s-search .countBox {
   margin: 0 auto;
@@ -300,7 +298,6 @@
 
 .joinTxt button {
   margin-left: 1.5rem;
-  width: 10rem;
 }
 
 .s-signupComplete {
@@ -341,6 +338,8 @@
 
 #resultForm input[type=number] {
   position: relative;
+  padding-right: 45px;
+  text-align: right;
 }
 #resultForm .unit-money {
   position: absolute;
@@ -348,6 +347,93 @@
   top: 50%;
   right: 12px;
   color: #999;
+  transform: translateY(-50%);
+}
+
+.calcMain .s-search {
+  min-height: 472px;
+  padding-top: 4rem !important;
+  margin-top: 4rem;
+  border: 2px solid #eee;
+  border-radius: 30px;
+}
+.calcMain .s-search #search {
+  width: 78%;
+}
+.calcMain .s-search #searchBtn {
+  width: 20%;
+}
+.calcMain .commentBox {
+  padding-bottom: 2rem;
+  color: #999;
+}
+.calcMain .commentBox p:before {
+  content: "✓ ";
+  display: inline-block;
+  margin-right: 7px;
+  color: var(--red);
+  font-weight: bold;
+}
+.calcMain .commentBox p + p {
+  padding-top: 1rem;
+}
+.calcMain .imgBox {
+  filter: hue-rotate(205deg);
+}
+.calcMain .searchBox {
+  padding-top: 0;
+}
+.calcMain #comNameList {
+  display: none;
+  width: 100%;
+  max-width: 500px;
+  font-size: 2rem;
+}
+.calcMain td {
+  padding-bottom: 1rem;
+}
+.calcMain td:first-of-type {
+  width: 80%;
+}
+.calcMain td:last-of-type {
+  padding-right: 10px;
+}
+.calcMain tr:last-of-type td {
+  padding-bottom: 0;
+}
+.calcMain .listCount td {
+  padding-bottom: 2rem;
+}
+.calcMain .outerWrap {
+  display: none;
+}
+.calcMain .outerWrap > div {
+  display: flex;
+  justify-content: space-between;
+}
+.calcMain .outerWrap form {
+  padding: 4rem 2rem 3rem;
+  margin: 0 auto;
+  width: 49%;
+  border: 2px solid #eee;
+  border-radius: 30px;
+}
+.calcMain .outerWrap h3 {
+  font-size: 2rem;
+  max-width: 65%;
+}
+.calcMain .outerWrap h3 span {
+  font-size: 2.8rem;
+}
+.calcMain #getResultSalesForm .line {
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+}
+.calcMain #getResultSalesForm .selbox {
+  margin: 1.5rem 0 2rem;
+  min-width: 17rem;
 }
 
 /*# sourceMappingURL=style.css.map */

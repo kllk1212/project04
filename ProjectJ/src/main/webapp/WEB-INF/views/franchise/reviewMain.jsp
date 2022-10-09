@@ -9,23 +9,25 @@
 <!-- contents -->
 <div id="contents" class="contents reviewMain page" data-id="reviewMain">
 	<section class="section s-search">
-		<div class="layout_wrap">
+		<h2 class="tc pb-A">브랜드 리뷰 검색하기</h2>
+		<div class="layout_wrap pt-B">
 			<div class="countBox center-f">
 				<div class="imgBox">
-					<img src="../img/review/map_pin.png" alt="">
+					<img src="../img/review/map_pin.gif" alt="">
 				</div>
 				<div class="txtBox">
-					<span>등록되어있는 <br> 브랜드 수 : <b>800</b></span>
+					<span>등록되어있는 <br>
+						브랜드 수 : <b>800</b></span>
 				</div>
 			</div>
 			<div class="searchBox">
-				<form action="/franchise/reviewSearch" method="get">
+				<form action="/franchise/reviewSearch" method="get" class="fx jsb alc">
 					<select id="comSel" class="comSel designSel" name="comSel">
 						<option value="all" selected>전체</option>
 						<option value="chicken">치킨</option>
 						<option value="pizza">피자</option>
-					</select> <input type="search" id="comName" name="comName" value=""
-						placeholder="브랜드명을 입력해보세요.">
+					</select>
+					<input type="search" id="comName" name="comName" value="" placeholder="브랜드명을 입력해보세요.">
 					<button type="submit" id="search">검색</button>
 				</form>
 			</div>

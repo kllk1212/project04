@@ -78,384 +78,292 @@
             </header>
             <!-- //header -->
 
-	<h1>월 매출예상 계산기</h1>
-	<script>
-	// $(document).ready(function() {
-    //
-	// 	$("#searchBtn").on("click",function(e){
-	// 	let search = $("#search").val();
-	// 	let comNameListDiv = $("#comNameList");
-	// 	console.log(search); // 여기까지 담김
-    //
-	// 		$.ajax({
-	// 			type: "GET",
-	// 			url: "/search/searchData",
-	// 			data: {"comName" : $("#search").val() },
-	// 			contentType: "application/json;charset=utf-8",
-	// 			success: function(result){
-	// 				console.log("요청 성공!!!!!");
-	// 				console.log(result);
-	// 				let str= "";
-	// 				for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
-	// 					str+= "<tr class='swiper-wrapper'><td class='swiper-slide'>"+ result[i].s_comName +"</td><td>";
-	// 					str+= "<label class='agree fx alc' id='"+ result[i].s_comName +"'>";
-	// 					str+= "<input type='checkbox' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
-	// 					//str+= "<tr><td>"+ result[i].s_comName +"<button type='button' id='resultCheckBtn'>선택</button></td></tr>"
-	// 				}
-	// 				comNameListDiv.html(str); // table에 tr td 넣기
-    //
-    //
-	// 			},
-	// 			error: function(e) {
-	//             	console.log("요청 에러......");
-	//                 console.log(e);
-	// 			}
-	// 		}); //ajax
-	// 	}); // $("#searchBtn").
-    //
-	// }); // $(document).
+    <script>
+	$(document).ready(function() {
+
+		$("#searchBtn").on("click",function(e){
+
+        // 처음 가이드멘트랑 이미지 숨기기
+        $('#guide').hide();
+        // 검색값 fadein 효과로 나타나기
+        $('#comNameList').fadeIn();
+
+		let search = $("#search").val();
+		let comNameListDiv = $("#comNameList");
+		console.log(search); // 여기까지 담김
+
+			$.ajax({
+				type: "GET",
+				url: "/search/searchData",
+				data: {"comName" : $("#search").val() },
+				contentType: "application/json;charset=utf-8",
+				success: function(result){
+					console.log("요청 성공!!!!!");
+					console.log(result);
+					console.log(result.length);
+					let str= "";
+					str += "<tr><td><span class='commentBox'> 검색된 결과 수 : "+result.length +"</span></td></tr>";
+					for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
+
+						str+= "<tr><td>"+ result[i].s_comName +"</td><td>";
+						str+= "<label class='agree fx alc je' id='"+ result[i].s_comName +"'>";
+						str+= "<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
+						//str+= "<tr><td>"+ result[i].s_comName +"<button type='button' id='resultCheckBtn'>선택</button></td></tr>"
+					}
+					comNameListDiv.html(str); // table에 tr td 넣기
+
+				},
+				error: function(e) {
+	            	console.log("요청 에러......");
+	                console.log(e);
+	                str += "<tr><td><a> 검색된 결과가 없습니다</a></td></tr>";
+	                comNameListDiv.html(str); // table에 tr td 넣기
+				}
+			}); //ajax
+		}); // $("#searchBtn").
+		$("#getBtn").on("click",function(e){
+			let size = $("#size").val();
+			let areaName = $("#areaName").val();
+			let comName= $("input:checkbox[class=resultBtn]:checked").val();
+
+			//let comNameListDiv = $("#comNameList");
+			console.log(search); // 여기까지 담김
+
+				$.ajax({
+					type: "GET",
+					url: "/search/getResultSales",
+					data: {"size" : size, "areaName" : areaName,"comName" : comName },
+					contentType: "application/json;charset=utf-8",
+					success: function(data){
+						console.log("요청 성공!!!!!");
+						console.log(data);
+						$("#resultSales").val(data.resultSalesSize);
+						$("#payRatio").val(Math.floor((data.i_payRatio/100)*data.resultSalesSize));
+						$("#workPayMonth").val(Math.floor((data.i_workPayMonth/100)*data.resultSalesSize));
+						$("#monthlyRent").val(Math.floor((data.i_monthlyRent/100)*data.resultSalesSize));
+						$("#etcPay").val(Math.floor((data.i_etcPay/100)*data.resultSalesSize));
+						$("#salesFee").val(Math.floor((data.i_salesFee/100)*data.resultSalesSize));
+
+						$("#realResult").val(data.resultSalesSize - Math.floor((data.i_payRatio/100)*data.resultSalesSize) - Math.floor((data.i_workPayMonth/100)*data.resultSalesSize) - Math.floor((data.i_monthlyRent/100)*data.resultSalesSize) - Math.floor((data.i_etcPay/100)*data.resultSalesSize) - Math.floor((data.i_salesFee/100)*data.resultSalesSize));
+					},
+					error: function(e) {
+		            	console.log("요청 에러......");
+		                console.log(e);
+					}
+				});
+
+		});  // $("#getBtn")
+
+
+
+        if($("input:checkbox[class=resultBtn]:checked").val() !== ""){
+            console.log('cpzm');
+        }
+
+	}); // $(document).
 
 	function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트
 	    document.querySelectorAll(`input[type=checkbox]`)
 	        .forEach(el => el.checked = false);
 	    target.checked = true;
+		$("#hidden").remove();// 기존의 히든태그가 있다면 삭제 (중복히든태그문제 해결)
+		var valueById = $("input:checkbox[class=resultBtn]:checked").val(); // 체크한 상호의 value 값 담김
+		//var valueById = $(".resultBtn").val(); // 체크한 상호의 value 값 담김
+		console.log(".resultBtn 벨류값 : " +valueById );
+		let resultForm = $("#resultForm");
+		let str="";
+		str="<input type='hidden' id='hidden' name='comName' value='"+valueById  +"'>";
+		$("#resultForm").find('table').append(str);
+		$("#getResultSalesForm").find('table').append(str);
 	}
-
-    $(function(){
-        // setTimeout(function(){
-            var comNameList = new Swiper('.comNameList-swiper', {
-                pagination: {
-                    el: '.comNameList-pagination',
-                    type: 'fraction',
-                },
-                // direction: 'vertical',
-                speed: 1500,
-                slidesPerView: 10,
-                // spaceBetween: 30,
-                slidesPerGroup: 10,
-                observer: true,
-                observeParents: true,
-                breakpoints:{
-                    769:{
-                        // slidesPerView: 2.2,
-                        // spaceBetween: 22
-                    },
-                    1025:{
-                        // slidesPerView: 3,
-                        // spaceBetween: 38.5
-                    }
-                },
-            });
-
-        // }, 3000);
-
-    });
 
 
 	</script>
+    <div id="contents" class="contents calc calcMain page" data-id="calc">
 
-		<table>
-			<tr>
-				<td>
-					검색 : <input type="text" name="comName" value="${comName }" id="search"> <button id="searchBtn" type="submit">검색하기</button>
-				</td>
-			</tr>
-		</table>
-		<div class="">
-			<div id="comNameList" class="comNameList-swiper swiper">
-                <ul class="swiper-wrapper">
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                    <li class='swiper-slide'>
-                        <div class=''>brand</div>
-                        <div>
-                            <label class='agree fx alc' id='brand'><input type='checkbox' class='resultBtn' id='brand' name='"brand"'onclick='clickCheck(this)''>
-                                <span class='chkbox'></span>
-                            </label>
-                        </div>
-                    </li>
-                </ul>
-                <div class="swiper-pagination comNameList-pagination"></div>
-			</div>
-		</div>
+        <h2 class="pt-B tc">월 매출예상 계산기</h2>
+        <div class="layout_wrap pt-B">
 
-	</br></br>
+            <section class="section s-search">
+                <div class="searchBox center-m">
+                    <input placeholder="기업명을 입력해주세요" type="text" name="comName" value="" id="search">
+                    <!-- <input placeholder="되도록 정확한 기업명을 입력해주세요" type="text" name="comName" value="${comName }" id="search"> -->
+                    <button id="searchBtn" type="submit">검색</button>
+                </div>
+                <div id="guide" class="guide center-m pt-A">
+                    <div class="commentBox">
+                        <p>정확한 기업명을 입력해주세요.</p>
+                        <p>선택한 기업명의 <i class="fc-red">매출예상 데이터</i>를 볼 수 있어요.</p>
+                    </div>
+                    <div class="imgBox">
+                        <img src="../img/calc/graphAni.gif" alt="">
+                    </div>
+                </div>
+                <table id="comNameList" class="center-m mt-A">
+    				<!-- 검색한 결과값이 담길 테이블 -->
+                    <!-- <tr><td><a> 검색된 결과 수 : "+result.length +"</a></td></tr>
+                    <tr>
+                        <td>"+ result[i].s_comName +"</td>
+                        <td>
+    						<label class='agree fx alc' id='"+ result[i].s_comName +"'>
+    						<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"'name='"+result[i].s_comName+"'onclick='clickCheck(this)'>
+                            <span class='chkbox'></span></label>
+                        </td>
+                    </tr> -->
+                    <tr class="listCount"><td><span> 검색된 결과 수 : 3</span></td></tr>
+                    <tr>
+                        <td>도미노피자</td>
+                        <td>
+    						<label class='agree fx alc je' id='도미노피자'>
+        						<input type='checkbox' value='도미노피자' class='resultBtn' id='도미노피자'name='도미노피자' onclick='clickCheck(this)'>
+                                <span class='chkbox'></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>도미노하이</td>
+                        <td>
+    						<label class='agree fx alc je' id='도미노하이'>
+        						<input type='checkbox' value='도미노하이' class='resultBtn' id='도미노하이'name='도미노하이' onclick='clickCheck(this)'>
+                                <span class='chkbox'></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>도미노랄라</td>
+                        <td>
+    						<label class='agree fx alc je' id='도미노랄라'>
+        						<input type='checkbox' value='도미노랄라' class='resultBtn' id='도미노랄라'name='도미노랄라' onclick='clickCheck(this)'>
+                                <span class='chkbox'></span>
+                            </label>
+                        </td>
+                    </tr>
+    			</table>
+            </section>
+        </div>
+        <!-- //layout_wrap -->
 
-	<form action="incomeCalcResult" method="get">
-		<table>
-			<tr>
-				<td>
-					<a>희망지역</a>
-					<select class="selbox" name="l_areaName">
-					    <option value="" disabled>지역선택</option>
-					    <option value="서울">서울</option>
-					    <option value="부산">부산</option>
-					    <option value="대구">대구</option>
-					    <option value="인천">인천</option>
-					    <option value="광주">광주</option>
-					    <option value="대전">대전</option>
-					    <option value="울산">울산</option>
-					    <option value="세종">세종</option>
-					    <option value="경기">경기</option>
-					    <option value="강원">강원</option>
-					    <option value="충북">충북</option>
-					    <option value="충남">충남</option>
-					    <option value="전북">전북</option>
-					    <option value="전남">전남</option>
-					    <option value="경북">경북</option>
-					    <option value="경남">경남</option>
-					    <option value="제주">제주</option>
-					</select>
-				</td>
-				<td>
-					<a>희망평수</a>
-					<select class="selbox" name="areaAvgSales">
-						<option value="" disabled>선택</option>
-						<option value="5">5평</option>
-						<option value="6">6평</option>
-						<option value="8">7평</option>
-						<option value="9">8평</option>
-						<option value="10">9평</option>
-						<option value="11">10평</option>
-						<option value="12">11평</option>
-						<option value="13">12평</option>
-						<option value="direct">직접입력</option>
-					</select>
-				</td>
-				<td>
-					<a>월세</a>
-					<select class="selbox" name="월세">
-						<option value="" disabled>선택</option>
-						<option value="50">50만원</option>
-						<option value="100">100만원</option>
-						<option value="200">200만원</option>
-						<option value="250">250만원</option>
-						<option value="direct">직접입력</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a>인건비</a>
-					<select class="selbox" name="workPayMonth">
-						<option value="" disabled>선택</option>
-						<option value="50">50만원</option>
-						<option value="100">100만원</option>
-						<option value="200">200만원</option>
-						<option value="250">250만원</option>
-						<option value="direct">직접입력</option>
-					</select>
-				</td>
-				<td>
-					<a>기타비용</a>
-					<select class="selbox" name="ectPay">
-						<option value="" disabled>선택</option>
-						<option value="50">50만원</option>
-						<option value="100">100만원</option>
-						<option value="200">200만원</option>
-						<option value="250">250만원</option>
-						<option value="direct">직접입력</option>
-					</select>
-				</td>
-				<td>
-					<a>매출대비원가율</a>
-					<select class="selbox" name="payRatio">
-						<option value="" disabled>선택</option>
-						<option value="10">10%</option>
-						<option value="20%">20%</option>
-						<option value="30%">30%</option>
-						<option value="40%">40%</option>
-						<option value="direct">직접입력</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td> <button type="submit">결과조회</button> </td>
-			</tr>
-		</table>
-	</form>
+        <section class="outerWrap pt-A">
+            <div class="layout_wrap">
+                <form id="getResultSalesForm">
+                    <div class="fx jsb alc">
+                        <h3>선택한 프렌차이즈는 <br><span class="fc-red">도미노피자</span> 입니다</h3>
+                        <button type="button" id="getBtn">매출가져오기</button>
+                    </div>
+                    <i class="line mt-A mb-A"></i>
+                    <div>
+                        <h4>희망지역을 선택해주세요</h4>
+                        <select class="selbox" name="areaName" id="areaName">
+                            <option value="서울" selected>서울</option>
+                            <option value="부산">부산</option>
+                            <option value="대구">대구</option>
+                            <option value="인천">인천</option>
+                            <option value="광주">광주</option>
+                            <option value="대전">대전</option>
+                            <option value="울산">울산</option>
+                            <option value="세종">세종</option>
+                            <option value="경기">경기</option>
+                            <option value="강원">강원</option>
+                            <option value="충북">충북</option>
+                            <option value="충남">충남</option>
+                            <option value="전북">전북</option>
+                            <option value="전남">전남</option>
+                            <option value="경북">경북</option>
+                            <option value="경남">경남</option>
+                            <option value="제주">제주</option>
+                        </select>
+                        <div class="commentBox Pb0">
+                            <p>국내 시/도 기준으로 선택 가능합니다.</p>
+                            <p>실제 창업 조건과 운영 환경에 따라 오차가 발생할 수 있습니다.</p>
+                            <p>감가상각, 세금(부가가치세·종합소득세), 점주 인건비를 고려하지 않습니다.</p>
+                        </div>
+                    </div>
+                    <i class="line mt-A mb-A"></i>
+                    <div>
+                        <h4>희망평수를 선택해주세요</h4>
+                        <select class="selbox" name="size" id="size">
+                            <option value="1">1평</option>
+                            <option value="2">2평</option>
+                            <option value="3">3평</option>
+                            <option value="4">4평</option>
+                            <option value="5">5평</option>
+
+                            <option value="6">6평</option>
+                            <option value="7">7평</option>
+                            <option value="8">8평</option>
+                            <option value="9">9평</option>
+                            <option value="10">10평</option>
+
+                            <option value="11">11평</option>
+                            <option value="12" selected>12평</option>
+                            <option value="13">13평</option>
+                            <option value="14">14평</option>
+                            <option value="15">15평</option>
+
+                            <option value="16">16평</option>
+                            <option value="17">17평</option>
+                            <option value="18">18평</option>
+                            <option value="19">19평</option>
+                            <option value="20">20평</option>
+
+                            <option value="21">21평</option>
+                            <option value="22">22평</option>
+                            <option value="23">23평</option>
+                            <option value="24">24평</option>
+                            <option value="25">25평</option>
+                        </select>
+                        <div class="commentBox Pb0">
+                            <p>1평 기준 최대 25평까지 선택할 수 있습니다.</p>
+                            <p>실제 창업 조건과 운영 환경에 따라 오차가 발생할 수 있습니다.</p>
+                            <p>업종별 평균 예상 매출과 지출 비용은 double J 가 조사한 내용입니다.</p>
+                        </div>
+                    </div>
+                </form>
+
+            	<form action="/franchise/incomeCalcResult" method="get" id="resultForm">
+            		<table>
+            			<tr>
+                            <th>예상 총매출</th>
+            				<td>
+                                <input type="number" name="resultSales" id="resultSales">
+                            </td>
+            			</tr>
+            			<tr>
+                            <th>원가</th>
+            				<td><input type="number" name="payRatio" id="payRatio"></td>
+            			</tr>
+            			<tr>
+                            <th>직원 급여</th>
+            				<td><input type="number" name="workPayMonth" id="workPayMonth"></td>
+            			</tr>
+            			<tr>
+                            <th>임대료</th>
+            				<td><input type="number" name="monthlyRent" id="monthlyRent"></td>
+            			</tr>
+            			<tr>
+                            <th>관리비</th>
+            				<td><input type="number" name="etcPay" id="etcPay"></td>
+            			<tr>
+            			<tr>
+                            <th>판매수수료</th>
+            				<td><input type="number" name="salesFee" id="salesFee"></td>
+            			</tr>
+            			<tr>
+                            <th>순이익 (월)</th>
+            				<td><input type="number" id="realResult"/> </td>
+            			</tr>
+            			<tr>
+            				<td> <button type="submit">무슨버튼?</button>  <button type="button">초기화</button></td>
+            			</tr>
+            		</table>
+            	</form>
+
+            </div>
+        </section>
+        <!-- //outerWrap -->
+    </div>
+
+
 
 
 <script>

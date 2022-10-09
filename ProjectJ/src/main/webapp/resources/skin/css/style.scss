@@ -1,3 +1,8 @@
+@mixin designBorderbox{
+    border: 2px solid #eee;
+    border-radius: 30px;
+}
+
 /* ======================= */
 /* header */
 /* ======================= */
@@ -152,14 +157,15 @@
 /* ======================= */
 /* review common : Search input box section */
 /* ======================= */
+
 .s-search {
     // padding-top: 8rem;
     padding-bottom: 4rem;
     // background-color: #efefef;
 
-    > div {
-        max-width: 500px;
-    }
+    // > div {
+    //     max-width: 500px;
+    // }
 
     .countBox {
         margin: 0 auto;
@@ -350,7 +356,6 @@
 .joinTxt{
     button{
         margin-left: 1.5rem;
-        width: 10rem;
     }
 }
 
@@ -400,6 +405,8 @@
 #resultForm{
     input[type="number"]{
         position: relative;
+        padding-right: 45px;
+        text-align: right;
     }
 
     .unit-money{
@@ -408,5 +415,99 @@
         top: 50%;
         right: 12px;
         color: #999;
+        transform: translateY(-50%);
+    }
+}
+
+.calcMain{
+    // 그래프 이미지 검색박스
+    .s-search{
+        min-height: 472px;
+        padding-top: 4rem !important;
+        margin-top: 4rem;
+        @include designBorderbox;
+        #search{
+            width: 78%;
+        }
+        #searchBtn{
+            width: 20%;
+        }
+    }
+    .commentBox{
+        padding-bottom: 2rem;
+        color: #999;
+        p{
+            &:before{
+                content: "✓ ";
+                display: inline-block;
+                margin-right: 7px;
+                color: var(--red);
+                font-weight: bold;
+            }
+            &+p{
+                padding-top: 1rem;
+            }
+        }
+    }
+    .imgBox{
+        filter: hue-rotate(205deg);
+    }
+    .searchBox{
+        padding-top: 0;
+    }
+    #comNameList{
+        display: none;
+        width: 100%;
+        max-width: 500px;
+        font-size: 2rem;
+    }
+    td{
+        padding-bottom: 1rem;
+        &:first-of-type{
+            width: 80%;
+        }
+        &:last-of-type{
+            padding-right: 10px;
+        }
+    }
+    tr:last-of-type td{
+        padding-bottom: 0;
+    }
+    .listCount td{
+        padding-bottom: 2rem;
+    }
+
+    // 정보 입력 라인박스
+    .outerWrap{
+        // display: none;
+        >div{
+            display: flex;
+            justify-content: space-between;
+        }
+        form{
+            padding: 4rem 2rem 3rem;
+            margin: 0 auto;
+            width: 49%;
+            @include designBorderbox;
+        }
+        h3{
+            font-size: 2rem;
+            max-width: 65%;
+            span{
+                font-size: 2.8rem;
+            }
+        }
+    }
+    #getResultSalesForm{
+        .line{
+            display: inline-block;
+            width: 100%;
+            height: 1px;
+            background-color: #eee;
+        }
+        .selbox{
+            margin: 1.5rem 0 2rem;
+            min-width: 17rem;
+        }
     }
 }
