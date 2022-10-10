@@ -26,6 +26,11 @@
                     </div>
                 </div>
             </footer>
+            <div class="mini-footer">
+                <p>이 데이터는 창업나무에서 출력된 자료입니다.</p>
+                <p>실제 창업 조건과 운영 환경에 따라 오차가 발생할 수 있습니다.</p>
+            </div>
+            <div class="overlay"></div>
             <!-- //footer -->
         </div>
         <!-- //container -->
