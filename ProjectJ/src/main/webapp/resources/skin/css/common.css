@@ -84,12 +84,18 @@ select, button {
     transition: all .2s ease-in-out;
 }
 
+/* placeholder */
 ::-webkit-input-placeholder{font-size:2rem;}
 :-ms-input-placeholder{font-size:2rem;}
 ::placeholder{font-size:2rem;}
 .signup ::-webkit-input-placeholder{font-size:1.6rem;}
 .signup :-ms-input-placeholder{font-size:1.6rem;}
 .signup ::placeholder{font-size:1.6rem;}
+
+/* select */
+select{
+    background: transparent url('../img/common/select.png') no-repeat calc(100% - 15px)/10px;
+}
 
 input[type="text"],
 input[type="search"],
