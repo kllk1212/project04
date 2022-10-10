@@ -54,7 +54,8 @@
                     <div class="header_left">
                         <div class="header_logo">
                             <a href="../main/main">
-                                <img src="/resources/skin/img/common/logo.png" alt="창업나무">
+                                <img src="../img/common/logo.png" alt="창업나무" class="vP">
+                                <img src="../img/common/logoH_tree.png" alt="창업나무" class="vT">
                             </a>
                         </div>
                         <nav class="nav">
@@ -66,7 +67,7 @@
                                         <ul class="fx">
                                             <li><a href="../franchise/reviewMain">기업평점/리뷰</a></li>
                                             <li><a href="../franchise/rankMain">순위</a></li>
-                                            <li><a href="../map/mapSearchMain"">지도</a></li>
+                                            <li><a href="../map/mapSearchMain">지도</a></li>
                                             <li><a href="../diagnosis/diagnosisMain">조건검색</a></li>
                                         </ul>
                                     </div>
@@ -79,7 +80,7 @@
                     </div>
                     <%if(session.getAttribute("user_id")==null){%>
                     <div class="header_right">
-                        <button type="button" id="headerBtn" onclick="location.href='../main/login' ">로그인 및 회원가입</button>
+                        <button type="button" id="headerBtn" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
                     </div>
                     <%}else{%>
                     <div class="header_right">
