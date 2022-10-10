@@ -1,4 +1,6 @@
-@media only screen and (max-width: 1152px) {
+.vT{display: none;}
+
+@media only screen and (max-width: 1200px) {
     body{
         --headerH: 120px;
     }
@@ -6,10 +8,29 @@
         font-size: 1.8rem;
     }
     .header_right button{
-        width: 15rem;
+        // width: 15rem;
+        font-size: 1.4rem;
+    }
+
+    .header_logo{
+        width: 165px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .vP{display: none;}
+    .vT{display: inline-block;}
+
+    body{
+        --headerH: 100px;
         font-size: 1.4rem;
     }
     .header_logo{
-        width: 165px;
+        width: 70px;
+    }
+    .gnb > li > a::after{
+        top: 125%;
+    }
+    .gnb li.depth > div{
+        line-height: 48px;
     }
 }
