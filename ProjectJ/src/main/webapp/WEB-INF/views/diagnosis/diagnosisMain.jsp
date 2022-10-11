@@ -5,11 +5,11 @@
 
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp" %>
-	
 
-	<h1> 프랜차이즈 조건으로 검색? 찾기? 추천?? </h1>
+	<h1 id="titleConstraint"> 프랜차이즈 찾기</h1>
 	</br></br></br>
-	<div>
+
+	<div id="constraintDiv"><!-- Constraint 제약이라는 뜻이라함  -->
 		<form method="get">
 			<table>
 				<tr>
@@ -50,10 +50,9 @@
 					<td>
 						<a>조건선택</a>
 						<select class="selbox" name="constraint" id="constraint"><!--제약조건 -->
-						    <option value="" disabled>조건선택</option>
+						    <option value="" disabled>****조건선택****</option>
 						    <option value="1">매출높은순</option>
 						    <option value="2">점포많은순</option>
-						    <option value="3">가맹부담비낮은순</option>
 						</select>
 					</td>
 					<td>
@@ -70,10 +69,14 @@
 			</table>
 		</form>
 	</div>
+
+
 	
 	
 	<script>
 	$(document).ready(function(){
+		
+		// 선택완료 버튼 클릭시
 		$("#searchBtn").on("click",function(e){
 			let type = $("#type").val();
 			let areaName = $("#areaName").val();
@@ -101,7 +104,7 @@
 						//str+= "<label class='agree fx alc' id='"+ result[i].l_comName +"'>"; 원래꺼
 						str+= "<input type='checkbox' value='"+ result[i].l_comName +"' class='resultBtn' id='"+ result[i].l_comName +"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
 					}
-					str +="<td><input type='text' name='comName' class='inputTrigger'><button type='submit'>(으)로 상세검색</button></td>";
+					str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='submit'>(으)로 상세검색</button></td>";
 					comNameListDiv.html(str); // table에 tr td 넣기
 					
 				},

@@ -186,8 +186,8 @@ public class CrawlingTestFix3 {
 
 		            CompanyDTO dto = new CompanyDTO();	            
 		            dto.setC_comNo(c_comNo);
-		            dto.setC_comTitle(c_comTitle);
-		            dto.setC_comName(c_comName);
+		            dto.setC_comTitle(c_comTitle.trim());
+		            dto.setC_comName(c_comName.trim());
 		            dto.setC_type(c_type);
 		            dto.setC_storeCount(c_storeCount);
 		            dto.setC_memberFee(c_memberFee);
@@ -207,8 +207,8 @@ public class CrawlingTestFix3 {
 		            
 		            // 별점 테이블에 넣는 정보!!
 		            StarInfoDTO starDTO = new StarInfoDTO();
-		            starDTO.setS_comTitle(c_comTitle);
-		            starDTO.setS_comName(c_comName);
+		            starDTO.setS_comTitle(c_comTitle.trim());
+		            starDTO.setS_comName(c_comName.trim());
 		            
 		            mapper.inserStarInfo(starDTO);
 		            
@@ -255,7 +255,7 @@ public class CrawlingTestFix3 {
 		                LocalSalesDTO salesDTO = new LocalSalesDTO();
 		                
 		                salesDTO.setL_year(l_year);
-		                salesDTO.setL_comName(l_comName);
+		                salesDTO.setL_comName(l_comName.trim());
 		                salesDTO.setL_areaName(l_AreaName);
 		                salesDTO.setL_franchiseeEa(l_franchiseeEa);
 		                salesDTO.setL_avgSales(l_avgSales);
@@ -269,11 +269,11 @@ public class CrawlingTestFix3 {
 		            // 가맹점 및 직영점 현황 - 1번째란 
 		            for(int i = 2; i < zone.length+2; i++) {
 		            	// 지역이름
-		            	String f_areaName = c_comName;
+		            	String f_areaName = zone[i-2];
 		            	// 년도
 		            	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(2)")).getAttribute("textContent").trim();
 		            	// 상호명
-		            	String f_comName = zone[i-2];
+		            	String f_comName = c_comName;
 		            	// 대리점수 + 직영점수
 		            	int f_totalEa;
 		                if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -303,7 +303,7 @@ public class CrawlingTestFix3 {
 		            	FranchiseeStatusDTO statusDTO = new FranchiseeStatusDTO();
 		            	statusDTO.setF_areaName(f_areaName);
 		            	statusDTO.setF_year(f_year);
-		            	statusDTO.setF_comName(f_comName);
+		            	statusDTO.setF_comName(f_comName.trim());
 		            	statusDTO.setF_totalEa(f_totalEa);
 		            	statusDTO.setF_franchiseeEa(f_franchiseeEa);
 		            	statusDTO.setF_directEa(f_directEa);
@@ -315,11 +315,11 @@ public class CrawlingTestFix3 {
 		            // 가맹점 및 직영점 현황 - 2번째란 
 		            for(int i = 2; i < zone.length+2; i++) {
 		            	// 지역이름
-		            	String f_areaName = c_comName;
+		            	String f_areaName = zone[i-2];
 		            	// 년도
 		            	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(3)")).getAttribute("textContent").trim();
 		            	// 상호명
-		            	String f_comName = zone[i-2];
+		            	String f_comName =  c_comName;
 		            	// 대리점수 + 직영점수
 		            	int f_totalEa;
 		                if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -349,7 +349,7 @@ public class CrawlingTestFix3 {
 		            	FranchiseeStatusDTO statusDTO = new FranchiseeStatusDTO();
 		            	statusDTO.setF_areaName(f_areaName);
 		            	statusDTO.setF_year(f_year);
-		            	statusDTO.setF_comName(f_comName);
+		            	statusDTO.setF_comName(f_comName.trim());
 		            	statusDTO.setF_totalEa(f_totalEa);
 		            	statusDTO.setF_franchiseeEa(f_franchiseeEa);
 		            	statusDTO.setF_directEa(f_directEa);
@@ -361,11 +361,11 @@ public class CrawlingTestFix3 {
 		            // 가맹점 및 직영점 현황 - 3번째란 
 		            for(int i = 2; i < zone.length+2; i++) {
 		            	// 지역이름
-		            	String f_areaName = c_comName;
+		            	String f_areaName = zone[i-2]; 
 		            	// 년도
 		            	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(4)")).getAttribute("textContent").trim();
 		            	// 상호명
-		            	String f_comName = zone[i-2];
+		            	String f_comName =  c_comName;
 		            	// 대리점수 + 직영점수
 		            	int f_totalEa;
 		                if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -395,7 +395,7 @@ public class CrawlingTestFix3 {
 		            	FranchiseeStatusDTO statusDTO = new FranchiseeStatusDTO();
 		            	statusDTO.setF_areaName(f_areaName);
 		            	statusDTO.setF_year(f_year);
-		            	statusDTO.setF_comName(f_comName);
+		            	statusDTO.setF_comName(f_comName.trim());
 		            	statusDTO.setF_totalEa(f_totalEa);
 		            	statusDTO.setF_franchiseeEa(f_franchiseeEa);
 		            	statusDTO.setF_directEa(f_directEa);
@@ -523,7 +523,7 @@ public class CrawlingTestFix3 {
 	            CompanyDTO dto = new CompanyDTO();
 	            dto.setC_comNo(c_comNo);
 	            dto.setC_comTitle(c_comTitle);
-	            dto.setC_comName(c_comName);
+	            dto.setC_comName(c_comName.trim());
 	            dto.setC_type(c_type);
 	            dto.setC_storeCount(c_storeCount);
 	            dto.setC_memberFee(c_memberFee);
@@ -540,6 +540,13 @@ public class CrawlingTestFix3 {
 	            
 	            
 	            mapper.insert(dto); // testCompany 테이블에 인서트 (회사정보)
+	            // 별점 테이블에 넣는 정보!!
+	            StarInfoDTO starDTO = new StarInfoDTO();
+	            starDTO.setS_comTitle(c_comTitle.trim());
+	            starDTO.setS_comName(c_comName.trim());
+	            
+	            mapper.inserStarInfo(starDTO);
+	            
 	            
 	            
 	            // 공통 항목 year , zone / 배열로 넣어야하는 항목 zone / for문으로 넣어야하는 항목 franchiseeEa,aveSales,areaAveSales
@@ -584,7 +591,7 @@ public class CrawlingTestFix3 {
 	                LocalSalesDTO salesDTO = new LocalSalesDTO();
 	                
 	                salesDTO.setL_year(l_year);
-	                salesDTO.setL_comName(l_comName);
+	                salesDTO.setL_comName(l_comName.trim());
 	                salesDTO.setL_areaName(l_AreaName);
 	                salesDTO.setL_franchiseeEa(l_franchiseeEa);
 	                salesDTO.setL_avgSales(l_avgSales);
@@ -598,11 +605,11 @@ public class CrawlingTestFix3 {
 	            // 가맹점 및 직영점 현황 - 1번째란 
 	            for(int i = 2; i < zone.length+2; i++) {
 	            	// 지역이름
-	            	String f_areaName = c_comName;
+	            	String f_areaName = zone[i-2];
 	            	// 년도
 	            	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(2)")).getAttribute("textContent").trim();
 	            	// 상호명
-	            	String f_comName = zone[i-2];
+	            	String f_comName = c_comName;
 	            	// 대리점수 + 직영점수
 	            	int f_totalEa;
 	                if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -632,7 +639,7 @@ public class CrawlingTestFix3 {
 	            	FranchiseeStatusDTO statusDTO = new FranchiseeStatusDTO();
 	            	statusDTO.setF_areaName(f_areaName);
 	            	statusDTO.setF_year(f_year);
-	            	statusDTO.setF_comName(f_comName);
+	            	statusDTO.setF_comName(f_comName.trim());
 	            	statusDTO.setF_totalEa(f_totalEa);
 	            	statusDTO.setF_franchiseeEa(f_franchiseeEa);
 	            	statusDTO.setF_directEa(f_directEa);
@@ -644,11 +651,11 @@ public class CrawlingTestFix3 {
 	            // 가맹점 및 직영점 현황 - 2번째란 
 	            for(int i = 2; i < zone.length+2; i++) {
 	            	// 지역이름
-	            	String f_areaName = c_comName;
+	            	String f_areaName = zone[i-2];
 	            	// 년도
 	            	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(3)")).getAttribute("textContent").trim();
 	            	// 상호명
-	            	String f_comName = zone[i-2];
+	            	String f_comName = c_comName;
 	            	// 대리점수 + 직영점수
 	            	int f_totalEa;
 	                if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -678,7 +685,7 @@ public class CrawlingTestFix3 {
 	            	FranchiseeStatusDTO statusDTO = new FranchiseeStatusDTO();
 	            	statusDTO.setF_areaName(f_areaName);
 	            	statusDTO.setF_year(f_year);
-	            	statusDTO.setF_comName(f_comName);
+	            	statusDTO.setF_comName(f_comName.trim());
 	            	statusDTO.setF_totalEa(f_totalEa);
 	            	statusDTO.setF_franchiseeEa(f_franchiseeEa);
 	            	statusDTO.setF_directEa(f_directEa);
@@ -690,11 +697,11 @@ public class CrawlingTestFix3 {
 	            // 가맹점 및 직영점 현황 - 3번째란 
 	            for(int i = 2; i < zone.length+2; i++) {
 	            	// 지역이름
-	            	String f_areaName = c_comName;
+	            	String f_areaName = zone[i-2];
 	            	// 년도
 	            	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(4)")).getAttribute("textContent").trim();
 	            	// 상호명
-	            	String f_comName = zone[i-2];
+	            	String f_comName =  c_comName;
 	            	// 대리점수 + 직영점수
 	            	int f_totalEa;
 	                if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -724,7 +731,7 @@ public class CrawlingTestFix3 {
 	            	FranchiseeStatusDTO statusDTO = new FranchiseeStatusDTO();
 	            	statusDTO.setF_areaName(f_areaName);
 	            	statusDTO.setF_year(f_year);
-	            	statusDTO.setF_comName(f_comName);
+	            	statusDTO.setF_comName(f_comName.trim());
 	            	statusDTO.setF_totalEa(f_totalEa);
 	            	statusDTO.setF_franchiseeEa(f_franchiseeEa);
 	            	statusDTO.setF_directEa(f_directEa);

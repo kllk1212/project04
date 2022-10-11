@@ -14,6 +14,7 @@ import com.crawling.domain.CompanyDTO;
 import com.crawling.domain.FranchiseeStatusDTO;
 import com.crawling.domain.LocalSalesDTO;
 import com.projectJ.domain.StarInfoDTO;
+import com.projectJ.persistence.AdminMapper;
 
 import lombok.extern.log4j.Log4j;
 
@@ -35,7 +36,7 @@ public class CrawlingTestFix1 {
         
 		
 		try {
-			url="https://franchise.ftc.go.kr/mnu/00013/program/userRqst/view.do?firMstSn=437092";
+			url="https://franchise.ftc.go.kr/mnu/00013/program/userRqst/view.do?firMstSn=441960";
 			System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
 			ChromeOptions options = new ChromeOptions();
 			
@@ -209,11 +210,11 @@ public class CrawlingTestFix1 {
             // 가맹점 및 직영점 현황 - 1번째란 
             for(int i = 2; i < zone.length+2; i++) {
             	// 지역이름
-            	String f_areaName = c_comName;
+            	String f_areaName = zone[i-2];
             	// 년도
             	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(2)")).getAttribute("textContent").trim();
             	// 상호명
-            	String f_comName = zone[i-2];
+            	String f_comName = c_comName;
             	// 대리점수 + 직영점수
             	int f_totalEa;
                 if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -255,11 +256,11 @@ public class CrawlingTestFix1 {
             // 가맹점 및 직영점 현황 - 2번째란 
             for(int i = 2; i < zone.length+2; i++) {
             	// 지역이름
-            	String f_areaName = c_comName;
+            	String f_areaName =  zone[i-2];
             	// 년도
             	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(3)")).getAttribute("textContent").trim();
             	// 상호명
-            	String f_comName = zone[i-2];
+            	String f_comName =  c_comName;
             	// 대리점수 + 직영점수
             	int f_totalEa;
                 if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -301,11 +302,11 @@ public class CrawlingTestFix1 {
             // 가맹점 및 직영점 현황 - 3번째란 
             for(int i = 2; i < zone.length+2; i++) {
             	// 지역이름
-            	String f_areaName = c_comName;
+            	String f_areaName = zone[i-2];
             	// 년도
             	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(4)")).getAttribute("textContent").trim();
             	// 상호명
-            	String f_comName = zone[i-2];
+            	String f_comName = c_comName;
             	// 대리점수 + 직영점수
             	int f_totalEa;
                 if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -344,44 +345,20 @@ public class CrawlingTestFix1 {
             	
             	mapper.insertFranchiseeStatus(statusDTO);
             }
-
-            /*
-            String area = "서울";           
-            String totalCount = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child(2) > td:nth-child(8)")).getAttribute("textContent").trim(); 			// 총 점포수
-            String franchiseeEa = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child(2) > td:nth-child(9)")).getAttribute("textContent").trim();		// 대리점 수
-            String directEa  = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child(2) > td:nth-child(10)")).getAttribute("textContent").trim();			// 직영점 수
-           
-            String area1 = "부산";           
-            String totalCount1 = driver.findElement(By.cssSelector("")).getAttribute("textContent").trim(); 			// 총 점포수
-            String franchiseeEa1 = driver.findElement(By.cssSelector("")).getAttribute("textContent").trim();		// 대리점 수
-            String directEa1  = driver.findElement(By.cssSelector("")).getAttribute("textContent").trim();			// 직영점 수
+            mapper.deleteEnterCompanyInfo();
+            mapper.deleteEnterFranchiseeStatus();
+            mapper.deleteEnterStarinfo();
+            mapper.deleteEnterTapLocalSales();
             
+            mapper.deleteSpaceCompanyInfo();
+            mapper.deleteSpaceFranchiseeStatus();
+            mapper.deleteSpaceStarinfo();
+            mapper.deleteSpaceStarinfo();
             
-            String area18 = "제주"; 
-            
-            String totalCount18 = driver.findElement(By.cssSelector("")).getAttribute("textContent").trim(); 			// 총 점포수
-            String franchiseeEa18 = driver.findElement(By.cssSelector("")).getAttribute("textContent").trim();		// 대리점 수
-            String directEa18  = driver.findElement(By.cssSelector("")).getAttribute("textContent").trim();			// 직영점 수
-            */
-            
-            
-            // 
-            
-            /*
-            String zone1 = "서울";
-            String franchiseeEa1  = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(8) > tbody > tr:nth-child(2) > td:nth-child(2)")).getAttribute("textContent").trim();
-            String aveSales1  = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(8) > tbody > tr:nth-child(2) > td:nth-child(3)")).getAttribute("textContent").trim();
-            String areaAveSales1  = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(8) > tbody > tr:nth-child(2) > td:nth-child(4)")).getAttribute("textContent").trim();
-            
-            String zone2 = "부산";
-            String franchiseeEa2  = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(8) > tbody > tr:nth-child(3) > td:nth-child(2)")).getAttribute("textContent").trim();
-            String aveSales2  = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(8) > tbody > tr:nth-child(3) > td:nth-child(3)")).getAttribute("textContent").trim();
-            String areaAveSales2  = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(8) > tbody > tr:nth-child(3) > td:nth-child(4)")).getAttribute("textContent").trim();
-			*/
-            
-            
-            
-
+            mapper.deleteTapCompanyInfo();
+            mapper.deleteTapFranchiseeStatus();
+            mapper.deleteTapLocalSales();
+            mapper.deleteTapStarinfo();
             
 		} catch (Exception e) {
 			e.printStackTrace();

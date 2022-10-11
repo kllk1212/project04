@@ -5,7 +5,8 @@
   
   
 <mapper namespace="com.projectJ.persistence.AdminMapper">
-
+	
+   <!-- 크롤링한 정보 각 테이블에 나누어 담기  4개 start -->
    <insert id="insertCompanyInfo">
       insert into companyInfo(c_comNo, c_comTitle ,c_comName,c_type,c_storeCount,c_memberFee,c_eduFee,c_deposit,c_etcFee,c_totalFee,c_tAvgSales,c_tSquareSales,c_comBoss,c_comBm,c_comAddr,c_comNum) 
       values(#{c_comNo },#{c_comTitle}, #{c_comName },#{ c_type},#{c_storeCount },#{c_memberFee },#{ c_eduFee},#{c_deposit },#{c_etcFee },#{c_totalFee },#{c_tAvgSales },#{c_tSquareSales },#{c_comBoss},#{c_comBm},#{c_comAddr},#{c_comNum})
@@ -18,15 +19,55 @@
    <insert id="insertFranchiseeStatus">
       insert into franchiseeStatus(f_areaName,f_year,f_comName,f_totalEa,f_franchiseeEa,f_directEa,f_type) values(#{f_areaName },#{f_year},#{ f_comName},#{f_totalEa },#{f_franchiseeEa },#{f_directEa },#{f_type})
    </insert>
-
+	<insert id="inserStarInfo">
+		insert into starInfo(s_comTitle,s_comName) values(#{s_comTitle},#{s_comName})
+	</insert>
+	<!-- 크롤링한 정보 4개 테이블에 나누어 담기 end -->
+	
+	<!-- 크롤링 데이터 검색하여 중복 확인 -->
 	<select id="check" resultType="int">
 		select count(*) from companyInfo where c_comName like '%'||#{comName}||'%'
 	</select>
 
-	<insert id="inserStarInfo">
-		insert into starInfo(s_comTitle,s_comName) values(#{s_comTitle},#{s_comName})
-	</insert>
 
+	<!-- 탭/띄어쓰기/줄바꿈 삭제 12개 기능 -->
+	<update id="deleteTapCompanyInfo">
+		update companyInfo set c_comName = replace(replace(c_comName,chr(10),''),chr(13),'')
+	</update>
+	<update id="deleteTapLocalSales">
+		update localSales set l_comname = replace(replace(l_comname,chr(10),''),chr(13),'')
+	</update>
+	<update id="deleteTapFranchiseeStatus">
+		update franchiseeStatus set f_comname = replace(replace(f_comname,chr(10),''),chr(13),'')
+	</update>
+	<update id="deleteTapStarinfo">
+		update starinfo set s_comname = replace(replace(s_comname,chr(10),''),chr(13),'')
+	</update>
 
+	<update id="deleteEnterCompanyInfo">
+		update companyInfo set c_comName = replace(c_comName,chr(9),'')
+	</update>
+	<update id="deleteEnterTapLocalSales">
+		update localSales set l_comname = replace(l_comname,chr(9),'')
+	</update>
+	<update id="deleteEnterFranchiseeStatus">
+		update franchiseeStatus set f_comname = replace(f_comname,chr(9),'')
+	</update>
+	<update id="deleteEnterStarinfo">
+		update starinfo set s_comname = replace(s_comname,chr(9),'')
+	</update>
+	<update id="deleteSpaceCompanyInfo">
+		update companyInfo set c_comName = replace(c_comName,' ','')
+	</update>
+	<update id="deleteSpaceTapLocalSales">
+		update localSales set l_comname = replace(l_comName,' ','')
+	</update>
+	<update id="deleteSpaceFranchiseeStatus">
+		update franchiseeStatus set f_comname = replace(f_comname,' ','')
+	</update>
+	<update id="deleteSpaceStarinfo">
+		update starinfo set s_comname = replace(s_comName,' ','')
+	</update>
+	<!-- 탭/띄어쓰기/줄바꿈 삭제 12개 기능 end-->
 
 </mapper>

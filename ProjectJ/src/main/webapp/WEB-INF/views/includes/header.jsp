@@ -54,8 +54,8 @@
                     <div class="header_left">
                         <div class="header_logo">
                             <a href="../main/main">
-                                <img src="../img/common/logo.png" alt="창업나무" class="vP">
-                                <img src="../img/common/logoH_tree.png" alt="창업나무" class="vT">
+                                <img src="../resources/skin/img/common/logo.png" alt="창업나무" class="vP">
+                                <img src="../resources/skin//img/common/logoH_tree.png" alt="창업나무" class="vT">
                             </a>
                         </div>
                         <nav class="nav">
@@ -72,7 +72,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a href="../franchise/incomeCalcMain">예상매출 계산기</a></li>
+                                <li><a href="../franchise/incomeCalcMain">순이익 계산기</a></li>
                                 <li><a href="../main/siteInfo">사이트 소개</a></li>
                                 <li><a href="">QnA</a></li>
                             </ul>

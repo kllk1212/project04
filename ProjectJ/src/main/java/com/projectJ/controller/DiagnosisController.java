@@ -22,6 +22,10 @@ public class DiagnosisController {
 	public void diagnosisMainGet() {
 		log.info("diagnosisMainGet 진입 ***********");
 	}
+	@GetMapping("diagnosisMainTest")
+	public void diagnosisMainTest() {
+		log.info("diagnosisMainGet 진입 ***********");
+	}
 	@GetMapping("diagnosisResult")
 	public void diagnosisResultGet(@RequestParam("comName") String comName) {
 		log.info("diagnosisResultGet 진입 ***********");

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -81,19 +82,16 @@ public class SearchController {
 		
 		log.info("************type  : " + type); 
 		log.info("************areaName  : " + areaName); 
-		log.info("************constraint 매출 1 , 점포수 2 , 가맹비낮은순 3  : " + constraint);
+		log.info("************constraint 매출 1 , 점포수 2 : " + constraint);
 		
 		if(constraint == 1) {
 			List<LocalSalesDTO> result = serviceDia.searchResultAjaxSales(type,areaName); // 매출
 			return new ResponseEntity<List<LocalSalesDTO>>(result,HttpStatus.OK);
 		//log.info("리스트 **********"+result);
-		}else if(constraint == 2) {
-			List<LocalSalesDTO> result = serviceDia.searchResultAjaxSales(type,areaName); // 점포수
+		}else {
+			List<LocalSalesDTO> result = serviceDia.searchResultAjaxEa(type,areaName); // 점포수
 			return new ResponseEntity<List<LocalSalesDTO>>(result,HttpStatus.OK);
 			
-		}else{
-			List<LocalSalesDTO> result = serviceDia.searchResultAjaxSales(type,areaName); // 가맹비낮은순
-			return new ResponseEntity<List<LocalSalesDTO>>(result,HttpStatus.OK);
 		}
 	}
 	

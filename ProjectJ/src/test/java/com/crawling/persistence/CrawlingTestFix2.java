@@ -225,11 +225,11 @@ public class CrawlingTestFix2 {
 	            // 가맹점 및 직영점 현황 - 1번째란 
 	            for(int i = 2; i < zone.length+2; i++) {
 	            	// 지역이름
-	            	String f_areaName = c_comName;
+	            	String f_areaName = zone[i-2];
 	            	// 년도
 	            	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(2)")).getAttribute("textContent").trim();
 	            	// 상호명
-	            	String f_comName = zone[i-2];
+	            	String f_comName = c_comName;
 	            	// 대리점수 + 직영점수
 	            	int f_totalEa;
 	                if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -271,11 +271,11 @@ public class CrawlingTestFix2 {
 	            // 가맹점 및 직영점 현황 - 2번째란 
 	            for(int i = 2; i < zone.length+2; i++) {
 	            	// 지역이름
-	            	String f_areaName = c_comName;
+	            	String f_areaName = zone[i-2];
 	            	// 년도
 	            	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(3)")).getAttribute("textContent").trim();
-	            	// 상호명
-	            	String f_comName = zone[i-2];
+	            	// 상호명 
+	            	String f_comName = c_comName; 
 	            	// 대리점수 + 직영점수
 	            	int f_totalEa;
 	                if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
@@ -317,11 +317,11 @@ public class CrawlingTestFix2 {
 	            // 가맹점 및 직영점 현황 - 3번째란 
 	            for(int i = 2; i < zone.length+2; i++) {
 	            	// 지역이름
-	            	String f_areaName = c_comName;
+	            	String f_areaName = zone[i-2];
 	            	// 년도
 	            	String f_year = driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > thead > tr:nth-child(1) > th:nth-child(4)")).getAttribute("textContent").trim();
 	            	// 상호명
-	            	String f_comName = zone[i-2];
+	            	String f_comName = c_comName;
 	            	// 대리점수 + 직영점수
 	            	int f_totalEa;
 	                if(driver.findElement(By.cssSelector("#frm > div:nth-child(13) > div > table:nth-child(4) > tbody > tr:nth-child("+i+") > td:nth-child(2)")).getAttribute("textContent").trim().equals("")) {
