@@ -2,6 +2,7 @@ package com.projectJ.service;
 
 import java.util.List;
 
+import com.projectJ.domain.IncomeCalcDataDTO;
 import com.projectJ.domain.LocalSalesDTO;
 import com.projectJ.domain.PagingVO;
 import com.projectJ.domain.StarInfoDTO;
@@ -33,7 +34,7 @@ public interface FranchiseService {
 
 	public List<StarInfoDTO> searchResultAjax(String comName);  // ajax용
 	
-	
+	public IncomeCalcDataDTO getIncomeCalcDB(String type);	// 업종(치킨) 주면 계산기데이터 DB에서 원가율 같은거 가져오기
 	
 	
 }

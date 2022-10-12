@@ -2,6 +2,7 @@ package com.projectJ.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,10 +23,19 @@ public class DiagnosisController {
 	public void diagnosisMainGet() {
 		log.info("diagnosisMainGet 진입 ***********");
 	}
+	@GetMapping("diagnosisMainTest")
+	public void diagnosisMainTest() {
+		log.info("diagnosisMainGet 진입 ***********");
+	}
 	@GetMapping("diagnosisResult")
-	public void diagnosisResultGet(@RequestParam("comName") String comName) {
+	public void diagnosisResultGet(@RequestParam("comName") String comName,@RequestParam("areaName") String areaName,Model model) {
 		log.info("diagnosisResultGet 진입 ***********");
 		log.info("**********************************comName : "+comName);
+		log.info("**********************************areaName : "+areaName);
+		model.addAttribute("areaName", areaName);
+		model.addAttribute("comName", comName);
+		
+		
 	}
 
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ======================= */
 /* header */
 /* ======================= */
@@ -36,8 +37,6 @@
   align-items: center;
 }
 .header_right button {
-  width: 20rem;
-  height: 5rem;
   border-radius: 2.5rem;
   border: none;
   font-size: 1.8rem;
@@ -123,6 +122,42 @@
   padding-right: 8px;
 }
 
+/* print */
+.mini-footer {
+  display: none;
+}
+
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+@media print {
+  #header, #footer {
+    display: none;
+  }
+  .mini-footer {
+    display: block;
+  }
+  .page-break {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  .btn_area {
+    display: none;
+  }
+  .btn_area button {
+    display: none;
+  }
+  .mt-A {
+    margin-top: 1;
+  }
+  body {
+    font-size: 1.4rem;
+  }
+  .calcMain .outerWrap {
+    font-size: 1.4rem;
+  }
+}
 /* ======================= */
 /* main
 /* ======================= */
@@ -143,9 +178,6 @@
 /* ======================= */
 .s-search {
   padding-bottom: 4rem;
-}
-.s-search > div {
-  max-width: 500px;
 }
 .s-search .countBox {
   margin: 0 auto;
@@ -315,7 +347,6 @@
 
 .joinTxt button {
   margin-left: 1.5rem;
-  width: 10rem;
 }
 
 .s-signupComplete {
@@ -356,6 +387,8 @@
 
 #resultForm input[type=number] {
   position: relative;
+  padding-right: 55px;
+  text-align: right;
 }
 #resultForm .unit-money {
   position: absolute;
@@ -363,6 +396,170 @@
   top: 50%;
   right: 12px;
   color: #999;
+  transform: translateY(-50%);
+}
+.calcMain #resultForm .unit-money {
+  top: calc(50% + 1px);
+}
+
+.calcMain .s-search {
+  padding-top: 4rem !important;
+  margin-top: 4rem;
+  border: 2px solid #eee;
+  border-radius: 30px;
+}
+.calcMain .s-search #search {
+  width: 78%;
+}
+.calcMain .s-search #searchBtn {
+  width: 20%;
+}
+.calcMain .commentBox {
+  padding-bottom: 2rem;
+  color: #999;
+}
+.calcMain .commentBox p:before {
+  content: "✓ ";
+  display: inline-block;
+  margin-right: 7px;
+  color: var(--red);
+  font-weight: bold;
+}
+.calcMain .commentBox p + p {
+  padding-top: 1rem;
+}
+.calcMain .imgBox {
+  filter: hue-rotate(205deg);
+}
+.calcMain .searchBox {
+  padding-top: 0;
+}
+.calcMain #comNameList {
+  display: none;
+  width: 100%;
+  max-width: 500px;
+  font-size: 2rem;
+}
+.calcMain td {
+  width: 100%;
+  padding-bottom: 1rem;
+}
+.calcMain td label {
+  display: flex;
+  justify-content: space-between;
+}
+.calcMain td label > span {
+  width: 80%;
+}
+.calcMain td label > div {
+  padding-right: 10px;
+  text-align: right;
+}
+.calcMain tr:last-of-type td {
+  padding-bottom: 0;
+}
+.calcMain .listCount td {
+  padding-bottom: 2rem;
+}
+.calcMain .outerWrap {
+  display: none;
+  font-size: 1.8rem;
+  word-break: keep-all;
+}
+.calcMain .outerWrap > div {
+  display: flex;
+  justify-content: space-between;
+}
+.calcMain .outerWrap form {
+  margin: 0 auto;
+  width: 49%;
+}
+.calcMain .outerWrap .form_inwrap {
+  padding: 4rem 2rem 3rem;
+  border: 2px solid #eee;
+  border-radius: 30px;
+}
+.calcMain .outerWrap h3 {
+  font-size: 2.4rem;
+  max-width: 65%;
+}
+.calcMain .outerWrap h3 span {
+  font-size: 3rem;
+}
+.calcMain #getResultSalesForm .list_name {
+  align-items: center;
+  white-space: nowrap;
+}
+.calcMain #getResultSalesForm .selbox {
+  margin: 1.5rem 0 2rem;
+  min-width: 17rem;
+}
+.calcMain #resultForm li {
+  display: flex;
+  flex-direction: column;
+}
+.calcMain #resultForm li + li {
+  padding-top: 4rem;
+}
+.calcMain #resultForm .res {
+  padding: 2rem;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+}
+.calcMain #resultForm .res .list_name {
+  align-content: center;
+}
+.calcMain #resultForm .res .list_val {
+  display: flex;
+  align-items: end;
+  width: 50%;
+}
+.calcMain #resultForm .res input {
+  background-color: transparent;
+  border: none;
+  color: var(--red);
+  font-size: 3rem;
+  cursor: default;
+  padding-right: 25px;
+}
+.calcMain #resultForm .res input:hover, .calcMain #resultForm .res input:focus {
+  border: none !important;
+  outline: none !important;
+  background-color: inherit !important;
+}
+.calcMain #resultForm .res span {
+  color: var(--red);
+  position: relative;
+  top: 0;
+}
+.calcMain #resultForm .btn_area button:nth-of-type(1) {
+  color: var(--black);
+  border: 2px solid #777;
+  background-color: var(--white);
+  margin-right: 5px;
+}
+.calcMain .list_name {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+.calcMain .list_name h3, .calcMain .list_name p {
+  padding-bottom: 2rem;
+}
+.calcMain .list_name p {
+  color: #777;
+}
+.calcMain .list_val {
+  position: relative;
+}
+
+.layer_pop_calcMain {
+  width: 500px;
+  height: 220px;
+  font-weight: bold;
+  font-size: 2.4rem;
 }
 
 /*# sourceMappingURL=style.css.map */

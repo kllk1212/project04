@@ -9,6 +9,9 @@
 <select id="searchResultAjaxSales" resultType="com.projectJ.domain.LocalSalesDTO">
 	select * from localSales where l_type=#{type} and l_areaName=#{areaName} order by l_avgsales desc
 </select>
+<select id="searchResultAjaxEa" resultType="com.projectJ.domain.LocalSalesDTO">
+	select * from localSales where l_type=#{type} and l_areaName=#{areaName} order by l_franchiseeEa desc
+</select>
 
 
 

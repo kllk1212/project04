@@ -19,4 +19,9 @@ public class DiagnosisServiceImpl implements DiagnosisService{
 		return mapper.searchResultAjaxSales(type,areaName);
 	}
 
+	@Override
+	public List<LocalSalesDTO> searchResultAjaxEa(String type, String areaName) {
+		return mapper.searchResultAjaxEa(type,areaName);
+	}
+
 }

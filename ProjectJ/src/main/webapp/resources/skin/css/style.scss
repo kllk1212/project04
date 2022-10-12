@@ -1,3 +1,13 @@
+@mixin designBorderbox{
+    border: 2px solid #eee;
+    border-radius: 30px;
+}
+@mixin btnDeisgnN{
+    color: var(--black);
+    border: 2px solid #777;
+    background-color: var(--white);
+}
+
 /* ======================= */
 /* header */
 /* ======================= */
@@ -38,8 +48,8 @@
         align-items: center;
 
         button {
-            width: 20rem;
-            height: 5rem;
+            // width: 20rem;
+            // height: 5rem;
             border-radius: 2.5rem;
             border: none;
             font-size: 1.8rem;
@@ -149,6 +159,24 @@
     width: 40px;
     padding-right: 8px;
 }
+
+/* print */
+.mini-footer{display: none;}
+@page {size: A4 landscape; margin:0;}
+@media print{
+    #header, #footer{display: none;}
+    .mini-footer{display: block;}
+    .page-break { page-break-inside:avoid; page-break-after:auto }
+    .btn_area{display: none;}
+    .btn_area button{display: none;}
+    .mt-A{margin-top: 1;}
+    body{
+        font-size: 1.4rem;
+    }
+    .calcMain .outerWrap{
+        font-size: 1.4rem;
+    }
+}
 /* ======================= */
 /* main
 /* ======================= */
@@ -167,14 +195,15 @@
 /* ======================= */
 /* review common : Search input box section */
 /* ======================= */
+
 .s-search {
     // padding-top: 8rem;
     padding-bottom: 4rem;
     // background-color: #efefef;
 
-    > div {
-        max-width: 500px;
-    }
+    // > div {
+    //     max-width: 500px;
+    // }
 
     .countBox {
         margin: 0 auto;
@@ -365,7 +394,6 @@
 .joinTxt{
     button{
         margin-left: 1.5rem;
-        width: 10rem;
     }
 }
 
@@ -415,6 +443,8 @@
 #resultForm{
     input[type="number"]{
         position: relative;
+        padding-right: 55px;
+        text-align: right;
     }
 
     .unit-money{
@@ -423,5 +453,188 @@
         top: 50%;
         right: 12px;
         color: #999;
+        transform: translateY(-50%);
+
+        .calcMain &{
+            top: calc(50% + 1px);
+        }
+    }
+}
+
+.calcMain{
+    // 그래프 이미지 검색박스
+    .s-search{
+        // min-height: 472px;
+        padding-top: 4rem !important;
+        margin-top: 4rem;
+        @include designBorderbox;
+        #search{
+            width: 78%;
+        }
+        #searchBtn{
+            width: 20%;
+        }
+    }
+    .commentBox{
+        padding-bottom: 2rem;
+        color: #999;
+        p{
+            &:before{
+                content: "✓ ";
+                display: inline-block;
+                margin-right: 7px;
+                color: var(--red);
+                font-weight: bold;
+            }
+            &+p{
+                padding-top: 1rem;
+            }
+        }
+    }
+    .imgBox{
+        filter: hue-rotate(205deg);
+    }
+    .searchBox{
+        padding-top: 0;
+    }
+    #comNameList{
+        display: none;
+        width: 100%;
+        max-width: 500px;
+        font-size: 2rem;
+    }
+    td{
+        width: 100%;
+        padding-bottom: 1rem;
+        label{
+
+            display: flex;
+            justify-content: space-between;
+
+            >span{
+                width: 80%;
+            }
+            >div{
+                padding-right: 10px;
+                text-align: right;
+            }
+        }
+    }
+    tr:last-of-type td{
+        padding-bottom: 0;
+    }
+    .listCount td{
+        padding-bottom: 2rem;
+    }
+
+    // 정보 입력 라인박스
+    .outerWrap{
+        display: none;
+        font-size: 1.8rem;
+        word-break: keep-all;
+        >div{
+            display: flex;
+            justify-content: space-between;
+        }
+        form{
+            margin: 0 auto;
+            width: 49%;
+        }
+        .form_inwrap{
+            padding: 4rem 2rem 3rem;
+            @include designBorderbox;
+        }
+        h3{
+            font-size: 2.4rem;
+            max-width: 65%;
+            span{
+                font-size: 3rem;
+            }
+        }
+    }
+    #getResultSalesForm{
+        .list_name{
+            align-items: center;
+            white-space: nowrap;
+        }
+        .selbox{
+            margin: 1.5rem 0 2rem;
+            min-width: 17rem;
+        }
+    }
+    #resultForm{
+        li{
+            display: flex;
+            flex-direction: column;
+            &+li{
+                padding-top: 4rem;
+            }
+        }
+
+        .res{
+            padding: 2rem;
+            background-color: #f1f1f1;
+            border-radius: 20px;
+            .list_name{
+                align-content: center;
+            }
+            .list_val{
+                display: flex;
+                align-items: end;
+                width: 50%;
+            }
+            input{ //#realResult
+                background-color: transparent;
+                border: none;
+                color: var(--red);
+                font-size: 3rem;
+                cursor: default;
+                padding-right: 25px;
+                &:hover,
+                &:focus{
+                    border: none !important;
+                    outline: none !important;
+                    background-color: inherit !important;
+                }
+            }
+
+            span{
+                color: var(--red);
+                position: relative;
+                top: 0;
+            }
+        }
+
+        .btn_area button:nth-of-type(1){
+            @include btnDeisgnN;
+            margin-right: 5px;
+        }
+    }
+
+    .list_name{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        h3,p{
+            padding-bottom: 2rem;
+        }
+        p{
+            color: #777;
+        }
+    }
+    .list_val{
+        position: relative;
+        //prt
+    }
+}
+
+.layer_pop{
+    &_calcMain {
+        width: 500px;
+        height: 220px;
+        font-weight: bold;
+        font-size: 2.4rem;
     }
 }

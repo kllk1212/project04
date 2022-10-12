@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.projectJ.domain.IncomeCalcDataDTO;
 import com.projectJ.domain.LocalSalesDTO;
 import com.projectJ.domain.PagingVO;
 import com.projectJ.domain.StarInfoDTO;
@@ -35,5 +36,6 @@ public interface FranchiseMapper {
 	
 	public LocalSalesDTO getCalcDB(@Param("comName") String comName,@Param("areaName") String areaName); // 계산기 결과 가져오기
 	
+	public IncomeCalcDataDTO getIncomeCalcDB(String type);	// 업종(치킨) 주면 계산기데이터 DB에서 원가율 같은거 가져오기
 	
 }

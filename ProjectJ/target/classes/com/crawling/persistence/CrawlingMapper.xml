@@ -20,7 +20,45 @@
 	<insert id="inserStarInfo">
 		insert into starInfo(s_comTitle,s_comName) values(#{s_comTitle},#{s_comName})
 	</insert>
+	<!-- 탭/띄어쓰기/줄바꿈 삭제 12개 기능 -->
+	<update id="deleteTapCompanyInfo">
+		update companyInfo set c_comName = replace(replace(c_comName,chr(10),''),chr(13),'')
+	</update>
+	<update id="deleteTapLocalSales">
+		update localSales set l_comname = replace(replace(l_comname,chr(10),''),chr(13),'')
+	</update>
+	<update id="deleteTapFranchiseeStatus">
+		update franchiseeStatus set f_comname = replace(replace(f_comname,chr(10),''),chr(13),'')
+	</update>
+	<update id="deleteTapStarinfo">
+		update starinfo set s_comname = replace(replace(s_comname,chr(10),''),chr(13),'')
+	</update>
 
+	<update id="deleteEnterCompanyInfo">
+		update companyInfo set c_comName = replace(c_comName,chr(9),'')
+	</update>
+	<update id="deleteEnterTapLocalSales">
+		update localSales set l_comname = replace(l_comname,chr(9),'')
+	</update>
+	<update id="deleteEnterFranchiseeStatus">
+		update franchiseeStatus set f_comname = replace(f_comname,chr(9),'')
+	</update>
+	<update id="deleteEnterStarinfo">
+		update starinfo set s_comname = replace(s_comname,chr(9),'')
+	</update>
+	<update id="deleteSpaceCompanyInfo">
+		update companyInfo set c_comName = replace(c_comName,' ','')
+	</update>
+	<update id="deleteSpaceTapLocalSales">
+		update localSales set l_comname = replace(l_comName,' ','')
+	</update>
+	<update id="deleteSpaceFranchiseeStatus">
+		update franchiseeStatus set f_comname = replace(f_comname,' ','')
+	</update>
+	<update id="deleteSpaceStarinfo">
+		update starinfo set s_comname = replace(s_comName,' ','')
+	</update>
+	<!-- 탭/띄어쓰기/줄바꿈 삭제 12개 기능 end-->
 
 
 </mapper>
