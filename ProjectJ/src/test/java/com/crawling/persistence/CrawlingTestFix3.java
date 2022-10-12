@@ -44,7 +44,7 @@ public class CrawlingTestFix3 {
 		try {
 			// 업종코드 한식324 A1 / 분식69 B1 / 중식28 C1 / 일식45 D1 / 서양식30 E1 / 기타외국식30 F1 / 패스트푸드18 G1 / 치킨72 H1 /
 			// 피자26 I1 / 제과제빵27 J1 / 아이스크림7 K1(10페이지가안되니 오류!) / 커피82 L1 / 음료12 M1 / 주점46 N1
-			String food = "I1"; //
+			String food = "L1"; //
 			
 			String pageNum = "https://franchise.ftc.go.kr/mnu/00013/program/userRqst/list.do?searchCondition=&searchKeyword=&column=brd&selUpjong=21&selIndus="+food+"&pageUnit=10&pageIndex=1";
 			Connection pageNumConn = Jsoup.connect(pageNum);

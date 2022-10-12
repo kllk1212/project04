@@ -45,7 +45,7 @@
 						    <option value="치킨">치킨</option>
 						    <option value="피자">피자</option>
 						    <option value="커피">커피</option>
-						    <option value="음료">음료</option>
+						    <option value="주점">주점</option>
 
 						</select>
 					</td>
@@ -147,7 +147,7 @@
 						str+= "<label class='agree fx alc'>";	// 수정한거
 						str+= "<input type='checkbox' value='"+ result[i].l_comName +"' class='resultBtn' id='"+ result[i].l_comName +"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
 					}
-					str +="<td><input type='text' name='comName' class='inputTrigger'><button type='submit' id='detail'>(으)로 상세검색</button></td>";
+					str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunction();'>(으)로 상세검색</button></td>";
 					comNameListDiv.html(str); // table에 tr td 넣기
 					
 				},
@@ -183,7 +183,8 @@
 							str+= "<label class='agree fx alc je' id='"+ result[i].s_comName +"'>";
 							str+= "<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
 						}
-							str +="<td><input type='text' name='comName' class='inputTrigger'><button type='submit' id='detail'>(으)로 상세검색</button></td>";
+							//str +="<td><input type='text' name='comName' class='inputTrigger'><button type='button' id='detail'>(으)로 상세검색</button></td>";
+							str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunction();'>(으)로 상세검색</button></td>";
 						comNameListDiv.html(str); // table에 tr td 넣기
 
 					},
@@ -194,14 +195,7 @@
 		                comNameListDiv.html(str); // table에 tr td 넣기
 					}
 				}); //ajax
-		});// $("#normalSearch") 
-		/*
-		$("#detail").on("click",function(e){
-			let areaName = $("#areaName").val();
-			let comName = $(".inputTrigger").val();
-			window.location='../diagnosis/diagnosisResult?comName='+result+'&areaName='+areaName; // 클릭시 페이지이동
-		});*/
-		
+		});// $("#normalSearch") 		
 	});//$(document). 시작부분
 	function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트 
 	    document.querySelectorAll(`input[type=checkbox]`)
@@ -215,6 +209,13 @@
 			$('input[name=comName').attr('value',result);
 			//window.location='../diagnosis/diagnosisResult?comName='+result+'&areaName='+areaName; // 체크박스 클릭시 바로 페이지이동
 		}
+	}
+	function targetFunction() {
+		let areaName = $("#areaName").val();
+		let comName = $(".inputTrigger").val();
+		console.log("areaName : " + areaName);
+		console.log("comName : " + comName);
+		window.location='../diagnosis/diagnosisResult?comName='+comName+'&areaName='+areaName;
 	}
 	</script>
 <!-- footer 복붙 -->        
