@@ -1,6 +1,9 @@
 package com.projectJ.persistence;
 
+import java.util.List;
+
 import com.projectJ.domain.CompanyDTO;
+import com.projectJ.domain.DbTypeDTO;
 import com.projectJ.domain.FranchiseeStatusDTO;
 import com.projectJ.domain.LocalSalesDTO;
 import com.projectJ.domain.StarInfoDTO;
@@ -34,6 +37,9 @@ public interface AdminMapper {
 	public void deleteSpaceTapLocalSales();	// 띄어쓰기 삭제
 	public void deleteSpaceFranchiseeStatus();	// 띄어쓰기 삭제
 	public void deleteSpaceStarinfo();	// 띄어쓰기 삭제
+	
+	
+	public List<DbTypeDTO> getType(DbTypeDTO dbTypeDTO);
 	
 	
 }

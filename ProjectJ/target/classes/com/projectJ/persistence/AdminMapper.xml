@@ -24,6 +24,13 @@
 	</insert>
 	<!-- 크롤링한 정보 4개 테이블에 나누어 담기 end -->
 	
+	
+	<!-- DB에 어떤 타입,갯수 추가되어있는지 가져오기  -->
+	<select id="getType" resultType="com.projectJ.domain.DbTypeDTO">
+		select distinct count(c_type) over(PARTITION by c_type) ea, c_type type from companyInfo
+	</select>
+	
+	
 	<!-- 크롤링 데이터 검색하여 중복 확인 -->
 	<select id="check" resultType="int">
 		select count(*) from companyInfo where c_comName like '%'||#{comName}||'%'
