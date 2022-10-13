@@ -178,6 +178,21 @@
     }
 }
 /* ======================= */
+/* main
+/* ======================= */
+.s-mainBtn{
+    background: aliceblue;
+    .mainBtn{
+        width: 49%;
+        // height: 300px;
+        border: 1px ridge #d0d0d0;
+        border-radius: 80px;
+        img{
+            width: 200px;
+        }
+    }
+}
+/* ======================= */
 /* review common : Search input box section */
 /* ======================= */
 

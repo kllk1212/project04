@@ -159,6 +159,21 @@
   }
 }
 /* ======================= */
+/* main
+/* ======================= */
+.s-mainBtn {
+  background: aliceblue;
+}
+.s-mainBtn .mainBtn {
+  width: 49%;
+  border: 1px ridge #d0d0d0;
+  border-radius: 80px;
+}
+.s-mainBtn .mainBtn img {
+  width: 200px;
+}
+
+/* ======================= */
 /* review common : Search input box section */
 /* ======================= */
 .s-search {
