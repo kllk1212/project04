@@ -6,7 +6,7 @@
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp" %>
 
-	<h1 id="titleConstraint"> 프랜차이즈 찾기 <button id="returnSearchBtn">조건검색</button><button id="normalSearchBtn">일반검색</button>  </h1>
+	<h1 id="titleConstraint"> 프랜차이즈 찾기 <button class="turnBtn leeActive" id="returnSearchBtn">조건검색</button><button class="turnBtn leeActive" id="normalSearchBtn">일반검색</button>  </h1>
 	</br></br></br>
 	<div class="searchBox center-m" id="normalDiv">
 	    <input placeholder="기업명을 입력해주세요" type="text" name="comName" value="" id="search">
@@ -100,10 +100,23 @@
 	
 	<script>
 	$(document).ready(function(){
-		//$("#returnSearchBtn").hide(); 	// 돌아갈래요 버튼 첨엔 안보임
+		
+		// 첨에 들어오면 조건검색버튼 파랑색 , 일반검색버튼 회색
+		$("#normalSearchBtn").removeClass("turnBtn leeActive");
+		$("#normalSearchBtn").addClass("turnBtn");
+		
+		//returnSearchBtn - 조건검색 버튼 
+		
+
+		
+		
 		$("#normalDiv").hide();		// 그냥 검색하는인풋태그div 숨김
-		// 일반 검색할래요 클릭시 
+		// 일반 검색 클릭시 
 		$("#normalSearchBtn").on("click",function(e){
+			$("#normalSearchBtn").removeClass("turnBtn");
+			$("#normalSearchBtn").addClass("turnBtn leeActive");
+			$("#returnSearchBtn").removeClass("turnBtn leeActive");
+			$("#returnSearchBtn").addClass("turnBtn");
 			$("#constraintDiv").hide();	// 조건검색창 숨기기
 			$("#comNameList").hide();	// 조건검색 결과창 숨기기
 			//$("#returnSearchBtn").show();	// 돌아갈래요 버튼 보이기
@@ -111,6 +124,10 @@
 		});
 		// 조건검색 버튼 클릭시
 		$("#returnSearchBtn").on("click",function(e){
+			$("#returnSearchBtn").removeClass("turnBtn");
+			$("#normalSearchBtn").addClass("turnBtn leeActive");
+			$("#normalSearchBtn").removeClass("turnBtn leeActive");
+			$("#normalSearchBtn").addClass("turnBtn");
 			$("#constraintDiv").show(); // 조건검색창 보이기
 			$("#comNameList").hide(); 	// 조건검색 결과창 보이기
 			//$("#normalSearchBtn").show();	// 일반검색 버튼 보이기

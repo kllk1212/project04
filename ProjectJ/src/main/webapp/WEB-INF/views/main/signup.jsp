@@ -41,7 +41,7 @@
 <div id="contents" class="contents signup page center-f"
 	data-id="signup">
 	<section class="section s-signup">
-		<form id="signupForm" action="/main/signupComplete" method="post">
+		<form id="signupForm" action="/main/signup" method="post">
 			<h2>회원가입</h2>
 			<table>
 				<tr>
@@ -69,7 +69,7 @@
 					<th class="dn">sms수신여부</th>
 					<td><label for="m_ping" class="agree fx alc"> <b>*
 								유용한 창업정보를 sms로 받겠습니다</b> <input type="checkbox" id="m_ping"
-							name="m_ping"> <span class="chkbox"></span>
+							name="m_ping" value="1"> <span class="chkbox"></span>
 					</label></td>
 				</tr>
 			</table>

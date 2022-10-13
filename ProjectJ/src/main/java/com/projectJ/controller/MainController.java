@@ -97,6 +97,7 @@ public class MainController {
 	@PostMapping("signup") 			// 회원가입 정보 입력 후 
 	public String signupPost(UserInfoDTO userDTO) {
 		log.info("*********signupPost 진입");
+		log.info("회원가입 정보 : " + userDTO);
 		service.insertUserData(userDTO);
 		
 		return "redirect:/main/signupComplete";
@@ -105,7 +106,7 @@ public class MainController {
 	
 	
 	
-	@PostMapping("signupComplete")
+	@GetMapping("signupComplete")
 	public void signupCompleteGet() {
 		log.info("signupComplete ***** 진입");
 	}
