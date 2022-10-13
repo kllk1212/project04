@@ -211,17 +211,24 @@
 
     }
 
-    #comSel {
-        width: 23%;
+
+    .commentBox{
+        padding-bottom: 2rem;
+        color: #999;
+        p{
+            &:before{
+                content: "✓ ";
+                display: inline-block;
+                margin-right: 7px;
+                color: var(--red);
+                font-weight: bold;
+            }
+            &+p{
+                padding-top: 1rem;
+            }
+        }
     }
 
-    #comName {
-        width: 55%;
-    }
-
-    #search {
-        width: 20%;
-    }
 }
 /* ======================= */
 /* reviewMain */
@@ -458,22 +465,6 @@
             width: 20%;
         }
     }
-    .commentBox{
-        padding-bottom: 2rem;
-        color: #999;
-        p{
-            &:before{
-                content: "✓ ";
-                display: inline-block;
-                margin-right: 7px;
-                color: var(--red);
-                font-weight: bold;
-            }
-            &+p{
-                padding-top: 1rem;
-            }
-        }
-    }
     .imgBox{
         filter: hue-rotate(205deg);
     }
@@ -613,6 +604,83 @@
     }
 }
 
+/* ======================= */
+/* diagnosis */
+/* ======================= */
+// diagnosisMain
+.diagnosis{
+    .layout_wrap_in{
+        @include designBorderbox;
+        margin-top: 4rem;
+        padding-top: 4rem;
+        >div, section{
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        section{
+            padding-top: 2rem !important;
+        }
+    }
+    .searchBox{
+    }
+}
+#returnSearchBtn{
+    background: gray;
+}
+#titleConstraint button{
+    font-size: 1.6rem;
+}
+
+#normalDiv{
+    display: none;
+}
+
+.optlist{
+    &_item{
+
+    }
+    &_type{
+        li{
+            width: 55px;
+            height: 55px;
+            border: 1px solid #eee;
+            border-radius: 50%;
+            background-image: url('../img/diagnosis/theme.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            &:nth-of-type(1){
+                background-position: 0 0;
+            }
+            &:nth-of-type(2){
+                background-position: -55px 0;
+            }
+            &:nth-of-type(3){
+                background-position: -105px 0;
+            }
+            &:nth-of-type(4){
+                background-position: -158.5px 0;
+            }
+        }
+    }
+    &_area{
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li{
+            width: 15%;
+            padding: 2px 5px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            text-align: center;
+            margin-right: 3px;
+            margin-top: 5px;
+        }
+    }
+}
+/* ======================= */
+/* layer POP */
+/* ======================= */
 .layer_pop{
     &_calcMain {
         width: 500px;
@@ -622,7 +690,9 @@
     }
 }
 
+/* ======================= */
 /* print */
+/* ======================= */
 .mini-footer{display: none;}
 @page {size: A4 landscape; margin:0;}
 @media print{

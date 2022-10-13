@@ -155,14 +155,19 @@
 .s-search .searchBox {
   padding-top: 3rem;
 }
-.s-search #comSel {
-  width: 23%;
+.s-search .commentBox {
+  padding-bottom: 2rem;
+  color: #999;
 }
-.s-search #comName {
-  width: 55%;
+.s-search .commentBox p:before {
+  content: "✓ ";
+  display: inline-block;
+  margin-right: 7px;
+  color: var(--red);
+  font-weight: bold;
 }
-.s-search #search {
-  width: 20%;
+.s-search .commentBox p + p {
+  padding-top: 1rem;
 }
 
 /* ======================= */
@@ -378,20 +383,6 @@
 .calcMain .s-search #searchBtn {
   width: 20%;
 }
-.calcMain .commentBox {
-  padding-bottom: 2rem;
-  color: #999;
-}
-.calcMain .commentBox p:before {
-  content: "✓ ";
-  display: inline-block;
-  margin-right: 7px;
-  color: var(--red);
-  font-weight: bold;
-}
-.calcMain .commentBox p + p {
-  padding-top: 1rem;
-}
 .calcMain .imgBox {
   filter: hue-rotate(205deg);
 }
@@ -519,6 +510,72 @@
   position: relative;
 }
 
+/* ======================= */
+/* diagnosis */
+/* ======================= */
+.diagnosis .layout_wrap_in {
+  border: 2px solid #eee;
+  border-radius: 30px;
+  margin-top: 4rem;
+  padding-top: 4rem;
+}
+.diagnosis .layout_wrap_in > div, .diagnosis .layout_wrap_in section {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.diagnosis .layout_wrap_in section {
+  padding-top: 2rem !important;
+}
+#returnSearchBtn {
+  background: gray;
+}
+
+#titleConstraint button {
+  font-size: 1.6rem;
+}
+
+#normalDiv {
+  display: none;
+}
+
+.optlist_type li {
+  width: 55px;
+  height: 55px;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  background-image: url("../img/diagnosis/theme.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.optlist_type li:nth-of-type(1) {
+  background-position: 0 0;
+}
+.optlist_type li:nth-of-type(2) {
+  background-position: -55px 0;
+}
+.optlist_type li:nth-of-type(3) {
+  background-position: -105px 0;
+}
+.optlist_type li:nth-of-type(4) {
+  background-position: -158.5px 0;
+}
+.optlist_area ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.optlist_area li {
+  width: 15%;
+  padding: 2px 5px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  text-align: center;
+  margin-right: 3px;
+  margin-top: 5px;
+}
+
+/* ======================= */
+/* layer POP */
+/* ======================= */
 .layer_pop_calcMain {
   width: 500px;
   height: 220px;
@@ -526,7 +583,9 @@
   font-size: 2.4rem;
 }
 
+/* ======================= */
 /* print */
+/* ======================= */
 .mini-footer {
   display: none;
 }
