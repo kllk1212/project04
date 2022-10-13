@@ -213,7 +213,21 @@ form > button{
 .login form > button {
     margin-top: 4rem;
 }
+/* select + input(search) + button */
+.searchArr select{ width: 23%;}
+.searchArr input{ width: 55%;}
+.searchArr button{ width: 20%;}
+/* #comSel {
+    width: 23%;
+}
 
+#comName {
+    width: 55%;
+}
+
+#search {
+    width: 20%;
+} */
 /* review */
 .s-search > div {
     max-width: 500px;

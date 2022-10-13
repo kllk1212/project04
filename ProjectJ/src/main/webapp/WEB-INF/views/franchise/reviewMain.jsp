@@ -21,7 +21,7 @@
 				</div>
 			</div>
 			<div class="searchBox">
-				<form action="/franchise/reviewSearch" method="get" class="fx jsb alc">
+				<form action="/franchise/reviewSearch" method="get" class="fx jsb alc searchArr">
 					<select id="comSel" class="comSel designSel" name="comSel">
 						<option value="all" selected>전체</option>
 						<option value="chicken">치킨</option>
