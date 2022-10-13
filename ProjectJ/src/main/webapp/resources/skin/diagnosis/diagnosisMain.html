@@ -93,15 +93,16 @@
 
 
                 <h2 class="pt-B tc">프랜차이즈 찾기</h2>
+
+                <!-- button area -->
+                <div id="titleConstraint">
+                    <button id="returnSearchBtn">조건검색</button>
+                    <button id="normalSearchBtn">일반검색</button>
+                </div>
+
                 <div class="layout_wrap pt-B">
 
                     <div class="layout_wrap_in">
-
-                        <!-- button area -->
-                        <div id="titleConstraint">
-                            <button id="returnSearchBtn">조건검색</button>
-                            <button id="normalSearchBtn">일반검색</button>
-                        </div>
 
                         <!-- search: normal (일반검색)-->
                         <section id="normalDiv" class="section searchBox s-search">
@@ -141,34 +142,38 @@
                         </section>
 
                         <!-- search: constraint (조건검색)-->
-                        <section id="constraintDiv" class="section searchBox"><!-- Constraint 제약이라는 뜻이라함  -->
+                        <section id="constraintDiv" class="section searchBox s-search"><!-- Constraint 제약이라는 뜻이라함  -->
 
                             <form method="get">
-                                <div class="guide center-m pt-A">
+                                <div class="guide center-m Pt0">
                                     <div class="commentBox">
-                                        <p>정확한 기업명을 입력해주세요.</p>
-                                        <p>선택한 기업명의 <i class="fc-red">지역별 데이터</i>를 볼 수 있어요.</p>
+                                        <p>각 옵션별 항목을 선택해주세요.</p>
+                                        <p>옵션에 맞는 <i class="fc-red">상위 5개 기업</i>의 <i class="fc-red">조건별 데이터</i>를 볼 수 있어요.</p>
                                     </div>
-                                    <div class="imgBox">
+                                    <!-- <div class="imgBox">
                                         <img src="../img/diagnosis/global_map.gif" alt="">
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <ul id="optlist" class="optlist">
                                     <!-- 첫번째 옵션: type(테마) -->
                                     <li class="optlist_item optlist_type">
                                         <h3>테마</h3>
                                         <ul class="selboxTrigger fx">
-                                            <li>
-                                                <span class="bld">치킨</span>
+                                            <li class="on">
+                                                <div class="imgBox"></div>
+                                                <span class="">치킨</span>
                                             </li>
                                             <li>
-                                                <span class="bld">피자</span>
+                                                <div class="imgBox"></div>
+                                                <span class="">피자</span>
                                             </li>
                                             <li>
-                                                <span class="bld">커피</span>
+                                                <div class="imgBox"></div>
+                                                <span class="">주점</span>
                                             </li>
                                             <li>
-                                                <span class="bld">주점</span>
+                                                <div class="imgBox"></div>
+                                                <span class="">커피</span>
                                             </li>
                                         </ul>
                                         <select id="type" name="type" class="selbox hidden">
@@ -179,26 +184,26 @@
                                         </select>
                                     </li>
                                     <!-- 두번째 옵션: areaName(지역) -->
-                                    <li class="optlist_item optlist_area">
+                                    <li class="optlist_item optlist_area pt-A">
                                         <h3>지역</h3>
                                         <ul class="selboxTrigger">
-                                            <li>서울</li>
-                                            <li>부산</li>
-                                            <li>대구</li>
-                                            <li>인천</li>
-                                            <li>광주</li>
-                                            <li>대전</li>
-                                            <li>울산</li>
-                                            <li>세종</li>
-                                            <li>경기</li>
-                                            <li>강원</li>
-                                            <li>충북</li>
-                                            <li>충남</li>
-                                            <li>전북</li>
-                                            <li>전남</li>
-                                            <li>경북</li>
-                                            <li>경남</li>
-                                            <li>제주</li>
+                                            <li class="on"><span>서울</span></li>
+                                            <li><span>부산</span></li>
+                                            <li><span>대구</span></li>
+                                            <li><span>인천</span></li>
+                                            <li><span>광주</span></li>
+                                            <li><span>대전</span></li>
+                                            <li><span>울산</span></li>
+                                            <li><span>세종</span></li>
+                                            <li><span>경기</span></li>
+                                            <li><span>강원</span></li>
+                                            <li><span>충북</span></li>
+                                            <li><span>충남</span></li>
+                                            <li><span>전북</span></li>
+                                            <li><span>전남</span></li>
+                                            <li><span>경북</span></li>
+                                            <li><span>경남</span></li>
+                                            <li><span>제주</span></li>
                                         </ul>
                                         <select id="areaName" name="areaName" class="selbox hidden">
                                             <option value="" disabled>지역선택</option>
@@ -222,10 +227,11 @@
                                         </select>
                                     </li>
                                     <!-- 세번째 옵션: order(정렬) -->
-                                    <li class="optlist_item">
+                                    <li class="optlist_item optlist_order pt-A">
+                                        <h3>정렬</h3>
                                         <ul class="selboxTrigger">
-                                            <li>매출높은순</li>
-                                            <li>점포많은순</li>
+                                            <li class="on"><span>매출높은순</span></li>
+                                            <li><span>점포많은순</span></li>
                                         </ul>
                                         <select id="constraint" name="constraint"  class="selbox hidden">
                                             <option value="1">매출높은순</option>
@@ -233,7 +239,9 @@
                                         </select>
                                     </li>
                                 </ul>
-                                <button type="button" id="searchBtn">선택완료</button>
+                                <div class="center-f pt-B">
+                                    <button type="button" id="searchBtn">선택완료</button>
+                                </div>
                             </form>
                         </section>
 
@@ -348,8 +356,14 @@
                         }); //ajax
                 });// $("#normalSearch")
 
+                // 각 select option 대신 새로 만든 요소를 클릭해도 옵션이 선택되는 것처럼 동작
                 $('.selboxTrigger li').on('click',function(){
-                    $(this).closest('.optlist_item').find('.selbox').val($(this).text());
+                    // select option 변경
+                    $(this).closest('.optlist_item').find('.selbox').val($(this).find('span').text());
+                    // 클릭한 요소로 border-color 변경
+                    $(this).removeClass('on');
+                    $(this).siblings('li').removeClass('on');
+                    $(this).addClass('on');
                 });
 
             });//$(document). 시작부분

@@ -50,7 +50,7 @@
         button {
             // width: 20rem;
             // height: 5rem;
-            border-radius: 2.5rem;
+            border-radius: 10px;
             border: none;
             font-size: 1.8rem;
             // background-color: var(--white);
@@ -611,70 +611,129 @@
 .diagnosis{
     .layout_wrap_in{
         @include designBorderbox;
-        margin-top: 4rem;
+        margin-top: 2rem;
         padding-top: 4rem;
         >div, section{
             max-width: 500px;
             margin: 0 auto;
         }
         section{
-            padding-top: 2rem !important;
+            padding-top: 1rem !important;
         }
     }
-    .searchBox{
+    #searchBtn{
+        font-size: 1.6rem;
     }
 }
 // #returnSearchBtn{
 //     background: gray;
 // }
-#titleConstraint button{
-    font-size: 1.6rem;
+#titleConstraint{
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 2rem auto 0;
+    button{
+        font-size: 1.6rem;
+        width: 49%;
+    }
 }
 
 #normalDiv{
-    display: none;
+    display: none;//처음세팅
+}
+#constraintDiv{
+    .guide{
+        padding-top: 2rem;
+    }
 }
 
 .optlist{
-    &_item{
-
+    --listW: 24.33%;
+    h3, ul{
+        padding-top: 1rem;
     }
+    .selboxTrigger li{
+        cursor: pointer;
+        &.on{
+            border-color: var(--blue);
+            font-weight: bold;
+            box-shadow: 0 0 2px;
+        }
+    }
+    &_item{
+    }
+    // 테마
     &_type{
         li{
-            width: 55px;
-            height: 55px;
-            border: 1px solid #eee;
-            border-radius: 50%;
-            background-image: url('../img/diagnosis/theme.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            &:nth-of-type(1){
-                background-position: 0 0;
+            // width: 55px;
+            // height: 55px;
+            width: var(--listW);
+            text-align: center;
+            border: 3px solid #eee;
+            border-radius: 10px;
+            padding: 5px 0 8px;
+            &+li{
+                margin-left: 1%;
             }
-            &:nth-of-type(2){
-                background-position: -55px 0;
+            .imgBox{
+                width: 55px;
+                height: 55px;
+                margin: 0 auto;
+                background-image: url('../img/diagnosis/theme.png');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
-            &:nth-of-type(3){
-                background-position: -105px 0;
+            span{
+                display: inline-block;
+                padding-top: 5px;
             }
-            &:nth-of-type(4){
-                background-position: -158.5px 0;
+            @for $i from 0 through 3 {
+                &:nth-of-type(#{$i+1}) .imgBox{
+                    background-position: calc(#{$i} * -55px) 0;
+                }
+                // &:nth-of-type(1) .imgBox{
+                //     background-position: 0 0;
+                // }
+                // &:nth-of-type(2) .imgBox{
+                //     background-position: -55px 0;
+                // }
+                // &:nth-of-type(3) .imgBox{
+                //     background-position: -110px 0;
+                // }
+                // &:nth-of-type(4) .imgBox{
+                //     background-position: -165px 0;
+                // }
             }
         }
     }
-    &_area{
+
+    // 지역, 정렬 공통
+    &_area,
+    &_order{
         ul{
             display: flex;
             flex-wrap: wrap;
         }
         li{
-            width: 15%;
-            padding: 2px 5px;
-            border: 1px solid #eee;
+            padding: 8px 5px;
+            border: 3px solid #eee;
             border-radius: 10px;
             text-align: center;
             margin-right: 3px;
             margin-top: 5px;
+        }
+    }
+    //지역
+    &_area{
+        li{
+            width: 16.06%;
+        }
+    }
+    // 정렬
+    &_order{
+        li{
+            width: var(--listW);
         }
     }
 }

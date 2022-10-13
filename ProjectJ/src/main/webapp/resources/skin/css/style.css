@@ -37,7 +37,7 @@
   align-items: center;
 }
 .header_right button {
-  border-radius: 2.5rem;
+  border-radius: 10px;
   border: none;
   font-size: 1.8rem;
 }
@@ -516,7 +516,7 @@
 .diagnosis .layout_wrap_in {
   border: 2px solid #eee;
   border-radius: 30px;
-  margin-top: 4rem;
+  margin-top: 2rem;
   padding-top: 4rem;
 }
 .diagnosis .layout_wrap_in > div, .diagnosis .layout_wrap_in section {
@@ -524,49 +524,96 @@
   margin: 0 auto;
 }
 .diagnosis .layout_wrap_in section {
-  padding-top: 2rem !important;
+  padding-top: 1rem !important;
+}
+.diagnosis #searchBtn {
+  font-size: 1.6rem;
+}
+
+#titleConstraint {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  margin: 2rem auto 0;
 }
 #titleConstraint button {
   font-size: 1.6rem;
+  width: 49%;
 }
 
 #normalDiv {
   display: none;
 }
 
+#constraintDiv .guide {
+  padding-top: 2rem;
+}
+
+.optlist {
+  --listW: 24.33%;
+}
+.optlist h3, .optlist ul {
+  padding-top: 1rem;
+}
+.optlist .selboxTrigger li {
+  cursor: pointer;
+}
+.optlist .selboxTrigger li.on {
+  border-color: var(--blue);
+  font-weight: bold;
+  box-shadow: 0 0 2px;
+}
 .optlist_type li {
+  width: var(--listW);
+  text-align: center;
+  border: 3px solid #eee;
+  border-radius: 10px;
+  padding: 5px 0 8px;
+}
+.optlist_type li + li {
+  margin-left: 1%;
+}
+.optlist_type li .imgBox {
   width: 55px;
   height: 55px;
-  border: 1px solid #eee;
-  border-radius: 50%;
+  margin: 0 auto;
   background-image: url("../img/diagnosis/theme.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
-.optlist_type li:nth-of-type(1) {
-  background-position: 0 0;
+.optlist_type li span {
+  display: inline-block;
+  padding-top: 5px;
 }
-.optlist_type li:nth-of-type(2) {
-  background-position: -55px 0;
+.optlist_type li:nth-of-type(1) .imgBox {
+  background-position: calc(0 * -55px) 0;
 }
-.optlist_type li:nth-of-type(3) {
-  background-position: -105px 0;
+.optlist_type li:nth-of-type(2) .imgBox {
+  background-position: calc(1 * -55px) 0;
 }
-.optlist_type li:nth-of-type(4) {
-  background-position: -158.5px 0;
+.optlist_type li:nth-of-type(3) .imgBox {
+  background-position: calc(2 * -55px) 0;
 }
-.optlist_area ul {
+.optlist_type li:nth-of-type(4) .imgBox {
+  background-position: calc(3 * -55px) 0;
+}
+.optlist_area ul, .optlist_order ul {
   display: flex;
   flex-wrap: wrap;
 }
-.optlist_area li {
-  width: 15%;
-  padding: 2px 5px;
-  border: 1px solid #eee;
+.optlist_area li, .optlist_order li {
+  padding: 8px 5px;
+  border: 3px solid #eee;
   border-radius: 10px;
   text-align: center;
   margin-right: 3px;
   margin-top: 5px;
+}
+.optlist_area li {
+  width: 16.06%;
+}
+.optlist_order li {
+  width: var(--listW);
 }
 
 /* ======================= */
