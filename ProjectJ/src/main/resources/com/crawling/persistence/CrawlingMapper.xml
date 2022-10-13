@@ -20,6 +20,25 @@
 	<insert id="inserStarInfo">
 		insert into starInfo(s_comTitle,s_comName) values(#{s_comTitle},#{s_comName})
 	</insert>
+	<!-- 테스트 테이블 4개  -->
+	<insert id="insertTest">
+		insert into companyInfo(c_comNo, c_comTitle ,c_comName,c_type,c_storeCount,c_memberFee,c_eduFee,c_deposit,c_etcFee,c_totalFee,c_tAvgSales,c_tSquareSales,c_comBoss,c_comBm,c_comAddr,c_comNum) 
+		values(#{c_comNo },#{c_comTitle}, #{c_comName },#{ c_type},#{c_storeCount },#{c_memberFee },#{ c_eduFee},#{c_deposit },#{c_etcFee },#{c_totalFee },#{c_tAvgSales },#{c_tSquareSales },#{c_comBoss},#{c_comBm},#{c_comAddr},#{c_comNum})
+	</insert>
+
+	<insert id="insertLocalSalesTest">
+		insert into localSales(l_year, l_comName,l_areaName,l_franchiseeEa,l_avgSales,l_areaAvgSales,l_type) values(#{l_year },#{ l_comName},#{l_areaName },#{l_franchiseeEa },#{l_avgSales},#{l_areaAvgSales },#{l_type})
+	</insert>
+	
+	<insert id="insertFranchiseeStatusTest">
+		insert into franchiseeStatus(f_areaName,f_year,f_comName,f_totalEa,f_franchiseeEa,f_directEa,f_type) values(#{f_areaName },#{f_year},#{ f_comName},#{f_totalEa },#{f_franchiseeEa },#{f_directEa },#{f_type})
+	</insert>
+	
+	<insert id="inserStarInfoTest">
+		insert into starInfo(s_comTitle,s_comName) values(#{s_comTitle},#{s_comName})
+	</insert>
+	<!-- 테스트 테이블 4개   끝-->
+	
 	<!-- 탭/띄어쓰기/줄바꿈 삭제 12개 기능 -->
 	<update id="deleteTapCompanyInfo">
 		update companyInfo set c_comName = replace(replace(c_comName,chr(10),''),chr(13),'')

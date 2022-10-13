@@ -6,7 +6,7 @@
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp" %>
 
-	<h1 id="titleConstraint"> 프랜차이즈 찾기<button id="normalSearchBtn">그냥 검색할래요</button> <button id="returnSearchBtn">돌아갈래요</button> </h1>
+	<h1 id="titleConstraint"> 프랜차이즈 찾기 <button id="returnSearchBtn">조건검색</button><button id="normalSearchBtn">일반검색</button>  </h1>
 	</br></br></br>
 	<div class="searchBox center-m" id="normalDiv">
 	    <input placeholder="기업명을 입력해주세요" type="text" name="comName" value="" id="search">
@@ -100,23 +100,21 @@
 	
 	<script>
 	$(document).ready(function(){
-		$("#returnSearchBtn").hide(); 	// 돌아갈래요 버튼 첨엔 안보임
+		//$("#returnSearchBtn").hide(); 	// 돌아갈래요 버튼 첨엔 안보임
 		$("#normalDiv").hide();		// 그냥 검색하는인풋태그div 숨김
-		// 그냥 검색할래요 클릭시 
+		// 일반 검색할래요 클릭시 
 		$("#normalSearchBtn").on("click",function(e){
 			$("#constraintDiv").hide();	// 조건검색창 숨기기
 			$("#comNameList").hide();	// 조건검색 결과창 숨기기
-			$("#normalSearchBtn").hide();	// 그냥 검색할래요 버튼 숨기기
-			$("#returnSearchBtn").show();	// 돌아갈래요 버튼 보이기
-			$("#normalDiv").show();		//그냥 검색할래요인풋태그div 보이게
+			//$("#returnSearchBtn").show();	// 돌아갈래요 버튼 보이기
+			$("#normalDiv").show();		//일반검색 인풋태그div 보이게
 		});
-		// 돌아갈래요 버튼 클릭시
+		// 조건검색 버튼 클릭시
 		$("#returnSearchBtn").on("click",function(e){
 			$("#constraintDiv").show(); // 조건검색창 보이기
 			$("#comNameList").hide(); 	// 조건검색 결과창 보이기
-			$("#normalSearchBtn").show();	// 그냥 검색할래요 버튼 보이기
-			$("#returnSearchBtn").hide();	// 돌아갈래요 버튼 숨기기
-			$("#normalDiv").hide();		//그냥 검색할래요인풋태그div 숨김
+			//$("#normalSearchBtn").show();	// 일반검색 버튼 보이기
+			$("#normalDiv").hide();		//일반검색 인풋태그div 숨김
 		});
 		
 		// 검색 버튼 클릭시

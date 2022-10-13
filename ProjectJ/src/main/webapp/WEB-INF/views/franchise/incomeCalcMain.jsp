@@ -8,7 +8,11 @@
 
     <script>
 	$(document).ready(function() {
-
+		//시작하자마자 조건,일반검색으로 검색해서 계산기에 올경우 input 태그에 comName 넣어주기
+		let startComName = "${param.comName}";
+		console.log("검색 타고 온 경우 회사명 : " + startComName);
+		$("#search").val(startComName);
+		
 		$("#searchBtn").on("click",function(e){
 
         // 처음 가이드멘트랑 이미지 숨기기
