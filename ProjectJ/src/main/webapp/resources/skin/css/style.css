@@ -526,10 +526,6 @@
 .diagnosis .layout_wrap_in section {
   padding-top: 2rem !important;
 }
-#returnSearchBtn {
-  background: gray;
-}
-
 #titleConstraint button {
   font-size: 1.6rem;
 }
