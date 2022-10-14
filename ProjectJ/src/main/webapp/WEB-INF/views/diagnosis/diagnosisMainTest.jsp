@@ -101,7 +101,7 @@
                                     <!-- 두번째 옵션: areaName(지역) -->
                                     <li class="optlist_item optlist_area pt-A">
                                         <h3>지역</h3>
-                                        <ul class="selboxTrigger" id=area>
+                                        <ul class="selboxTrigger" id="area">
                                             <li class="on"><span>서울</span></li>
                                             <li><span>부산</span></li>
                                             <li><span>대구</span></li>
@@ -228,7 +228,7 @@
                                 str+= "<label class='agree fx alc'>";	// 수정한거
                                 str+= "<input type='checkbox' value='"+ result[i].l_comName +"' class='resultBtn' id='"+ result[i].l_comName +"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
                             }
-                            str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunction();'>(으)로 상세검색</button></td>";
+                            str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunctionCon();'>(으)로 상세검색</button></td>";
                             comNameListDiv.html(str); // table에 tr td 넣기
 
                         },
@@ -265,7 +265,7 @@
                                     str+= "<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
                                 }
                                     //str +="<td><input type='text' name='comName' class='inputTrigger'><button type='button' id='detail'>(으)로 상세검색</button></td>";
-                                    str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunction();'>(으)로 상세검색</button></td>";
+                                    str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunctionNomal();'>(으)로 상세검색</button></td>";
                                 comNameListDiv.html(str); // table에 tr td 넣기
 
                             },
@@ -351,7 +351,9 @@
                     //window.location='../diagnosis/diagnosisResult?comName='+result+'&areaName='+areaName; // 체크박스 클릭시 바로 페이지이동
                 }
             }
-            function targetFunction() {
+            
+            
+            function targetFunctionCon() {
                 let areaName = $("#areaName").val(); // 
                 
                 let conResult = $("#areaNameCon").val(); // 조건검색 헀을 경우 지역명  
@@ -361,7 +363,24 @@
                 console.log("일반검색 : " + nomalResult);
                 
                 let comName = $(".inputTrigger").val();
-                window.location='../diagnosis/test?comName='+comName+'&areaNameCon='+conResult+'&areaNameNomal='+nomalResult;
+                window.location='../diagnosis/diagnosisResult?comName='+comName+'&areaName='+conResult;
+                /*
+                console.log("areaName : " + areaName);
+                console.log("comName : " + comName);
+                */
+            }
+            
+            function targetFunctionNomal() {
+                let areaName = $("#areaName").val(); // 
+                
+                let conResult = $("#areaNameCon").val(); // 조건검색 헀을 경우 지역명  
+                let nomalResult = $("#areaNameNomal").val(); // 일반검색 헀을 경우 지역명
+                
+                console.log("조건검색 : " + conResult);
+                console.log("일반검색 : " + nomalResult);
+                
+                let comName = $(".inputTrigger").val();
+                window.location='../diagnosis/diagnosisResult?comName='+comName+'&areaName='+nomalResult;
                 /*
                 console.log("areaName : " + areaName);
                 console.log("comName : " + comName);

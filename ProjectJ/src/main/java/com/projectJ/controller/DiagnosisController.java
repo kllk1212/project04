@@ -67,11 +67,8 @@ public class DiagnosisController {
 		*/
 
 	}
-	@GetMapping("test")
-	public void testGet(@RequestParam("comName") String comName ,@RequestParam("areaNameCon") String areaNameCon, @RequestParam("areaNameNomal") String areaNameNomal,Model model ) {
-		log.info("********************************************* 회사명 : "+ comName);
-		log.info("*********************************************일반검색시 지역명 : "+ areaNameNomal);
-		log.info("*********************************************조건검색시 지역명 : "+ areaNameCon);
+	@GetMapping("searchPro")
+	public void testGet() {
 		
 		
 		
