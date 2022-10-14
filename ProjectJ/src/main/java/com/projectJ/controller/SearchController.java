@@ -78,13 +78,13 @@ public class SearchController {
 	@RequestMapping(value = "/searchDataConstraint",method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody // 조건검색 할때씀!!
 	public ResponseEntity<List<LocalSalesDTO>> searchDataConstraint(@RequestParam("type") String type,@RequestParam("areaName") String areaName
-			,@RequestParam("constraint") int constraint) throws Exception{
+			,@RequestParam("constraint") String constraint) throws Exception{
 		
 		log.info("************type  : " + type); 
 		log.info("************areaName  : " + areaName); 
 		log.info("************constraint 매출 1 , 점포수 2 : " + constraint);
 		
-		if(constraint == 1) {
+		if(constraint.equals("매출높은순")) {
 			List<LocalSalesDTO> result = serviceDia.searchResultAjaxSales(type,areaName); // 매출
 			return new ResponseEntity<List<LocalSalesDTO>>(result,HttpStatus.OK);
 		//log.info("리스트 **********"+result);
