@@ -3,11 +3,32 @@ $(function(){
     // ============ Header ========================================
     // ============================================================
 
+    // 메뉴 마우스 오버시 디자인 나타나기
+    $('.gnb > li').hover(function(){
+        $(this).addClass('active');
+    },function(){
+        $(this).removeClass('active');
+    });
     // 하위메뉴 있는 메뉴에 마우스 오버시 하위 메뉴 나타나기
     $('.depth').hover(function(){
         $(this).find('div').fadeIn();
     },function(){
         $(this).find('div').fadeOut();
+    });
+
+    var pageName = $(".page").attr("data-id");
+
+    $("#gnb a").each(function(i, e) {
+
+        var gnbSplit = $(this).attr("href").split("/");
+        var slice = gnbSplit.slice(1);
+        var gnbDeco = String(slice);
+
+        if(pageName=='siteInfo'){
+            $("a[href='../main/siteInfo']").closest("li").addClass("active");
+        }else if ((pageName == gnbDeco) == true) {
+            $(this).closest("li").addClass("active");
+        }
     });
 
     // ============================================================

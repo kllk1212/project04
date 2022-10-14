@@ -80,9 +80,12 @@
         padding: 1rem 1.2rem;
         white-space: nowrap;
 
-        &:hover > a::after {
+        &.active > a::after {
             width: 100%;
         }
+        // &:hover > a::after {
+        //     width: 100%;
+        // }
 
         > a::after {
             content: "";

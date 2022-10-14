@@ -55,7 +55,7 @@
   padding: 1rem 1.2rem;
   white-space: nowrap;
 }
-.gnb > li:hover > a::after {
+.gnb > li.active > a::after {
   width: 100%;
 }
 .gnb > li > a::after {

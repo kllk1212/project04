@@ -12,7 +12,7 @@
 		let startComName = "${param.comName}";
 		console.log("검색 타고 온 경우 회사명 : " + startComName);
 		$("#search").val(startComName);
-		
+
 		$("#searchBtn").on("click",function(e){
 
         // 처음 가이드멘트랑 이미지 숨기기
@@ -98,11 +98,11 @@
 		});  // $("#getBtn")
 
         layer();
-		
-		$(".resultInput").keyup(function(){// #resultUl 안에 있느 input 가격 값이 바뀔경우 자동으로 순이익 다시 계산하게 하기 
-			console.log("되나?");	
+
+		$(".resultInput").keyup(function(){// #resultUl 안에 있느 input 가격 값이 바뀔경우 자동으로 순이익 다시 계산하게 하기
+			console.log("되나?");
 			let aa = $("#resultSales").val();
-			let a = $("#payRatio").val();	
+			let a = $("#payRatio").val();
 			let b = $("#workPayMonth").val();
 			let c = $("#monthlyRent").val();
 			let d = $("#etcPay").val();
@@ -113,10 +113,10 @@
 			console.log(c);
 			console.log(d);
 			console.log(e);
-		
+
 			$("#realResult").val(aa - a - b - c- d- e);
-		}); 
-		
+		});
+
 	}); // $(document).
 
 	function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트
@@ -169,7 +169,7 @@
     // if()
 
 	</script>
-    <div id="contents" class="contents calc calcMain page page-break" data-id="calc">
+    <div id="contents" class="contents calc calcMain page page-break" data-id="franchise">
 
         <h2 class="pt-B tc">월 순이익 계산기</h2>
         <div class="layout_wrap pt-B">
