@@ -193,13 +193,13 @@
   background-color: #fff;
   box-shadow: inset 0 0 3px #d0d0d0;
 }
-.s-swiper .swiper-button-prev,
-.s-swiper .swiper-button-next {
+.s-swiper .swiper-button-next,
+.s-swiper .swiper-button-prev {
   color: var(--blue);
   transition: color 0.2s ease-in-out;
 }
-.s-swiper .swiper-button-prev:hover,
-.s-swiper .swiper-button-next:hover {
+.s-swiper .swiper-button-next:hover,
+.s-swiper .swiper-button-prev:hover {
   color: var(--sky);
 }
 .s-swiper .swiper-button-prev {
@@ -247,7 +247,8 @@
 .s-reviewSearch table tr:nth-of-type(2) {
   border-top: none;
 }
-.s-reviewSearch table th, .s-reviewSearch table td {
+.s-reviewSearch table td,
+.s-reviewSearch table th {
   padding: 10px;
 }
 .s-reviewSearch table th {
@@ -477,7 +478,7 @@
   cursor: default;
   padding-right: 25px;
 }
-.calcMain #resultForm .res input:hover, .calcMain #resultForm .res input:focus {
+.calcMain #resultForm .res input:focus, .calcMain #resultForm .res input:hover {
   border: none !important;
   outline: none !important;
   background-color: inherit !important;
@@ -500,7 +501,8 @@
   flex-wrap: wrap;
   flex-grow: 1;
 }
-.calcMain .list_name h3, .calcMain .list_name p {
+.calcMain .list_name h3,
+.calcMain .list_name p {
   padding-bottom: 2rem;
 }
 .calcMain .list_name p {
@@ -519,7 +521,8 @@
   margin-top: 2rem;
   padding-top: 4rem;
 }
-.diagnosis .layout_wrap_in > div, .diagnosis .layout_wrap_in section {
+.diagnosis .layout_wrap_in > div,
+.diagnosis .layout_wrap_in section {
   max-width: 500px;
   margin: 0 auto;
 }
@@ -552,7 +555,8 @@
 .optlist {
   --listW: 24.33%;
 }
-.optlist h3, .optlist ul {
+.optlist h3,
+.optlist ul {
   padding-top: 1rem;
 }
 .optlist .selboxTrigger li {
@@ -617,6 +621,40 @@
 }
 
 /* ======================= */
+/* diagnosis result */
+/* ======================= */
+#chart {
+  position: relative;
+  width: 500px;
+  height: 200px;
+}
+
+@-webkit-keyframes bargrowth {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 100%;
+  }
+}
+@keyframes bargrowth {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 100%;
+  }
+}
+.bar {
+  -webkit-animation: bargrowth 1000ms ease;
+  animation: bargrowth 1000ms ease;
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  background: var(--blue);
+}
+
+/* ======================= */
 /* layer POP */
 /* ======================= */
 .layer_pop_calcMain {
@@ -638,7 +676,8 @@
   margin: 0;
 }
 @media print {
-  #header, #footer {
+  #footer,
+#header {
     display: none;
   }
   .mini-footer {

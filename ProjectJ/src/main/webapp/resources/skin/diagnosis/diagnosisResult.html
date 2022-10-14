@@ -89,8 +89,18 @@
                 </div>
             </header>
             <!-- //header -->
+            <div id="contents" class="contents diagnosis diagnosisMain page page-break" data-id="diagnosis">
 
-<h1>검색 결과 페이지</h1>
+
+                <!-- 검색 결과 페이지 -->
+                <div class="diagnosis_header">
+                    <h2 class="tc">${cDTO.c_comName } | 서울</h2>
+                </div>
+
+                <div class="layout_wrap pt-B">
+
+	            </div>
+	        </div>
 	<div>
 	<h2>디비에 있는 ${comName}(해당프차)의 모든 정보 </h2>
 		<table>
@@ -144,39 +154,18 @@
 				</td>
 			</tr>
 		</table>
+
 	</div>
+    <div id="chart"></div>
 	<div>
 		<button type="button" onclick="location.href='/diagnosis/diagnosisMain';"> 다시 검색하기</button>
 		<button type="button" onclick="location.href='/franchise/incomeCalcMain?comName=${comName}';"> ${comName}(으)로 예상순이익 계산해보기</button>
 	</div>
-    <style>
-        #chart{
-      position:relative;
-      margin-top:40px;
-      width:500px;
-      height:200px;
-    }
-    @-webkit-keyframes bargrowth{
-      0%   {max-height: 0%;}
-      100%  {max-height: 100%;}
-    }
-    @keyframes bargrowth{
-      0%   {max-height: 0%;}
-      100%  {max-height: 100%;}
-    }
-    .bar{
-      -webkit-animation: bargrowth 1000ms ease;
-      animation: bargrowth 1000ms ease;
-      position:absolute;
-      bottom:0;
-      display:inline-block;
-      background: var(--blue);
-    }
-    </style>
     <script>
         $(function(){
 
-            var values = [${cDTO.c_tAvgSales/100},${avgSales},${avgSalesAll}];
+            var values = [300, 200, 500];
+            // var values = [${cDTO.c_tAvgSales/100},${avgSales},${avgSalesAll}];
 
             drawChart(values,"#chart",10)
 
