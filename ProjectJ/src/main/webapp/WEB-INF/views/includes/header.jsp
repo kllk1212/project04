@@ -62,7 +62,8 @@
                             <ul id="gnb" class="gnb">
                                 <li><a href="../main/main">홈</a></li>
                                 <li class="depth">
-                                    <a href="">프렌차이즈 정보</a>
+                                    <a href="../diagnosis/diagnosisMain">프렌차이즈 정보</a>
+                                    <!-- 
                                     <div>
                                         <ul class="fx">
                                             <li><a href="../franchise/reviewMain">기업평점/리뷰</a></li>
@@ -71,10 +72,10 @@
                                             <li><a href="../diagnosis/diagnosisMain">조건검색</a></li>
                                         </ul>
                                     </div>
+                                     -->
                                 </li>
                                 <li><a href="../franchise/incomeCalcMain">순이익 계산기</a></li>
-                                <li><a href="../main/siteInfo">사이트 소개</a></li>
-                                <li><a href="">QnA</a></li>
+                                <!-- <li><a href="../main/siteInfo">사이트 소개</a></li> -->
                             </ul>
                         </nav>
                     </div>

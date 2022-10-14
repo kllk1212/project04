@@ -18,17 +18,20 @@ $(function(){
 
     var pageName = $(".page").attr("data-id");
 
+	//console.log(pageName);
     $("#gnb a").each(function(i, e) {
 
         var gnbSplit = $(this).attr("href").split("/");
-        var slice = gnbSplit.slice(1);
+        var slice = gnbSplit.slice(1,2);
         var gnbDeco = String(slice);
-
-        if(pageName=='siteInfo'){
-            $("a[href='../main/siteInfo']").closest("li").addClass("active");
-        }else if ((pageName == gnbDeco) == true) {
-            $(this).closest("li").addClass("active");
-        }
+        
+        //console.log(slice);
+ 		 $(this).closest("li").addClass("active");
+        //if(pageName=='siteInfo'){
+        //    $("a[href='../main/siteInfo']").closest("li").addClass("active");
+        //}else if ((pageName == gnbDeco) == true) {
+        //    $(this).closest("li").addClass("active");
+        //}
     });
 
     // ============================================================
