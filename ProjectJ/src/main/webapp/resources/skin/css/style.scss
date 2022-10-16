@@ -207,22 +207,23 @@
         // }
     }
 
-    .commentBox {
-        padding-bottom: 2rem;
-        color: #999;
+}
 
-        p {
-            &:before {
-                content: "✓ ";
-                display: inline-block;
-                margin-right: 7px;
-                color: var(--red);
-                font-weight: bold;
-            }
+.commentBox {
+    padding-bottom: 2rem;
+    color: #999;
 
-            &+p {
-                padding-top: 1rem;
-            }
+    p {
+        &:before {
+            content: "✓ ";
+            display: inline-block;
+            margin-right: 7px;
+            color: var(--red);
+            font-weight: bold;
+        }
+
+        &+p {
+            padding-top: 1rem;
         }
     }
 }
@@ -687,7 +688,7 @@
 //     background: gray;
 // }
 
-#titleConstraint {
+.diagnosis .h-btn {
     display: flex;
     justify-content: space-between;
     max-width: 500px;

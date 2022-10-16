@@ -11,7 +11,7 @@
                 <h2 class="pt-B tc">프랜차이즈 찾기</h2>
 
                 <!-- button area -->
-                <div id="titleConstraint">
+                <div id="titleConstraint" class="h-btn">
                     <button id="returnSearchBtn">조건검색</button>
                     <button id="normalSearchBtn">일반검색</button>
                 </div>
@@ -178,7 +178,7 @@
         		$("#normalSearchBtn").removeClass("turnBtn leeActive");
         		$("#normalSearchBtn").addClass("turnBtn");
                 $("#normalDiv").hide();		// 그냥 검색하는인풋태그div 숨김
-                
+
                 // 일반 검색할래요 클릭시
                 $("#normalSearchBtn").on("click",function(e){
         			$("#normalSearchBtn").removeClass("turnBtn");
@@ -308,8 +308,8 @@
                     console.log(typeText);
                     let type = $("#type").val();
                     console.log("type : " + type)
-                    
-                });                
+
+                });
                 $('#area li').on('click',function(){
                     // select option 변경
                     $(this).closest('.optlist_item').find('.selbox').val($(this).find('span').text());
@@ -321,8 +321,8 @@
                     console.log(areaText);
                     let areaNameCon = $("#areaNameCon").val();
                     console.log(areaNameCon);
-                    
-                });                
+
+                });
                 $('#order li').on('click',function(){
                     // select option 변경
                     $(this).closest('.optlist_item').find('.selbox').val($(this).find('span').text());
@@ -333,9 +333,9 @@
                     //console.log(orderText);
                     let order = $("#constraint").val();
                     console.log("조건검색  1 or 2: " + order);
-                    
-                });                
-                
+
+                });
+
 
             });//$(document). 시작부분
             function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트
@@ -351,17 +351,17 @@
                     //window.location='../diagnosis/diagnosisResult?comName='+result+'&areaName='+areaName; // 체크박스 클릭시 바로 페이지이동
                 }
             }
-            
-            
+
+
             function targetFunctionCon() {
-                let areaName = $("#areaName").val(); // 
-                
-                let conResult = $("#areaNameCon").val(); // 조건검색 헀을 경우 지역명  
+                let areaName = $("#areaName").val(); //
+
+                let conResult = $("#areaNameCon").val(); // 조건검색 헀을 경우 지역명
                 let nomalResult = $("#areaNameNomal").val(); // 일반검색 헀을 경우 지역명
-                
+
                 console.log("조건검색 : " + conResult);
                 console.log("일반검색 : " + nomalResult);
-                
+
                 let comName = $(".inputTrigger").val();
                 window.location='../diagnosis/diagnosisResult?comName='+comName+'&areaName='+conResult;
                 /*
@@ -369,16 +369,16 @@
                 console.log("comName : " + comName);
                 */
             }
-            
+
             function targetFunctionNomal() {
-                let areaName = $("#areaName").val(); // 
-                
-                let conResult = $("#areaNameCon").val(); // 조건검색 헀을 경우 지역명  
+                let areaName = $("#areaName").val(); //
+
+                let conResult = $("#areaNameCon").val(); // 조건검색 헀을 경우 지역명
                 let nomalResult = $("#areaNameNomal").val(); // 일반검색 헀을 경우 지역명
-                
+
                 console.log("조건검색 : " + conResult);
                 console.log("일반검색 : " + nomalResult);
-                
+
                 let comName = $(".inputTrigger").val();
                 window.location='../diagnosis/diagnosisResult?comName='+comName+'&areaName='+nomalResult;
                 /*
@@ -388,5 +388,5 @@
             }
             </script>
 
-<!-- footer 복붙 -->        
+<!-- footer 복붙 -->
 <%@ include file="../includes/footer.jsp" %>
