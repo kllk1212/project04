@@ -91,18 +91,86 @@
             <!-- //header -->
             <div id="contents" class="contents diagnosis diagnosisMain page page-break" data-id="diagnosis">
 
-
                 <!-- 검색 결과 페이지 -->
-                <div class="diagnosis_header">
-                    <h2 class="tc">${cDTO.c_comName } | 서울</h2>
-                </div>
-
                 <div class="layout_wrap pt-B">
-
+                    <div class="diagnosis_header tc center-m">
+                        <h2 class="pt-B">프랜차이즈 검색결과</h2>
+                        <!-- <span class="line"></span> -->
+                        <div class="center-f fdc">
+                            선택한 프렌차이즈는
+                            <p><i class="fc-red">서울</i>지역 <i class="fc-red">도미노피자</i>&nbsp;입니다</p>
+                        </div>
+                    </div>
+                    <!-- <span class="line"></span> -->
+                    <!-- <div>선택한 프렌차이즈는 ${comName} 입니다</div> -->
+                    <!-- 브랜드 정보 / 가맹현황 / 기업 정보 : 노출 선택 탭 -->
+                    <div class="tab">
+                        <div class="tab_inwrap">
+                            <ul class="tab_btn center-f">
+                                <li class="on">매출 비교 그래프</li>
+                                <li>브랜드 정보</li>
+                                <li>가맹 현황</li>
+                                <li>기업 정보</li>
+                            </ul>
+                        </div>
+                        <div class="tab_inwrap">
+                            <div class="tab_cont pt-A pb-A">
+                                <!-- chart tab (매출 비교 값 그래프) -->
+                                    <div class="tab_chart center-m">
+                                        <div class="tab_chart_inwrap fx fdc">
+                                            <div id="chart" class="chart"></div>
+                                            <ul class="category_num">
+                                                <li>
+                                                    <!-- <span>${cDTO.c_tAvgSales/100}만원</span> -->
+                                                    <span>300</span>
+                                                </li>
+                                                <li>
+                                                    <!-- <span>${avgSales}만원</span> -->
+                                                    <span>700</span>
+                                                </li>
+                                                <li>
+                                                    <!-- <span>${avgSalesAll}만원</span> -->
+                                                    <span>500</span>
+                                                </li>
+                                            </ul>
+                                            <span class="line"></span>
+                                            <p>(단위: 만원)</p>
+                                        </div>
+                                        <div class="category_list">
+                                            <div>
+                                                <!-- <p> ${comName} 매장들의  평균 매출액</p> -->
+                                                <p>도미노피자 매장들의 평균 매출액</p>
+                                            </div>
+                                            <div>
+                                                <!-- <p>${areaName}지역의 ${cDTO.c_type } 업종 프랜차이즈 평균 매출<p> -->
+                                                <p>서울 지역의 피자 업종 프랜차이즈 평균 매출<p>
+                                            </div>
+                                            <div>
+                                                <!-- <p>전국 ${cDTO.c_type } 업종 프랜차이즈 평균 매출</p> -->
+                                                <p>전국 피자 업종 프랜차이즈 평균 매출</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- brand info tab(브랜드 정보)-->
+                                    <div class="tab_brand">
+                                        브랜드 정보
+                                        <!-- [서울] ${cDTO.c_comName } -->
+                                    </div>
+                                    <!-- franchise info tab (가맹 현황) -->
+                                    <div class="tab_fc">
+                                        가맹 현황
+                                    </div>
+                                    <!-- company info tab (기업 정보) -->
+                                    <div class="tab_com">
+                                        기업 정보
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 	            </div>
 	        </div>
 	<div>
-	<h2>디비에 있는 ${comName}(해당프차)의 모든 정보 </h2>
 		<table>
 			<tr><td> 상호명 : ${cDTO.c_comTitle } </td></tr>
 			<tr><td> 영업표지명 : ${cDTO.c_comName } </td></tr>
@@ -164,15 +232,20 @@
     <script>
         $(function(){
 
-            var values = [300, 200, 500];
+            var values = [300, 700, 500];
+            // var values1 = [300, 500];
+            // var values2 = [300, 200];
             // var values = [${cDTO.c_tAvgSales/100},${avgSales},${avgSalesAll}];
-
             drawChart(values,"#chart",10)
+
+            // drawChart(values1,"#chart_1",10)
+            // drawChart(values2,"#chart_2",10)
 
             function drawChart(data,selector,padding){
               var max = Math.max.apply(Math, data);
             	var chart = document.querySelector(selector);
-            	var barwidth = ((chart.offsetWidth-(values.length-1)*padding-(data.length)*10)/data.length);
+            	// var barwidth = ((chart.offsetWidth-(values.length-1)*padding-(data.length)*10)/data.length);
+            	var barwidth = ((chart.offsetWidth-1*padding-(data.length)*10)/data.length);
             	var sum = data.reduce(function(pv, cv) { return pv + cv; }, 0);
             	var left = 0;
             	for (var i in data){
@@ -185,6 +258,15 @@
             	  left += (barwidth+padding+10);
             	}
             }
+
+            $('.tab_btn li').on('click',function(){
+                let idx = $(this).index('.tab_btn li')
+                // console.log($(this).index('.tab_btn li'));
+                $('.tab_btn li').removeClass('on');
+                $(this).addClass('on');
+                $('.tab_cont > div').hide();
+                $('.tab_cont > div').eq(idx).fadeIn();
+            })
         });
     </script>
     <!-- ======================================== -->
