@@ -24,14 +24,15 @@ $(function(){
         var gnbSplit = $(this).attr("href").split("/");
         var slice = gnbSplit.slice(1,2);
         var gnbDeco = String(slice);
-        
-        //console.log(slice);
- 		 $(this).closest("li").addClass("active");
-        //if(pageName=='siteInfo'){
-        //    $("a[href='../main/siteInfo']").closest("li").addClass("active");
-        //}else if ((pageName == gnbDeco) == true) {
-        //    $(this).closest("li").addClass("active");
-        //}
+
+        // 헤더 밑줄확인~
+        console.log(slice);
+        console.log(pageName);
+        console.log(gnbDeco);
+        if(slice == gnbDeco){
+            $(this).closest("li").addClass("active");
+        }
+
     });
 
     // ============================================================
