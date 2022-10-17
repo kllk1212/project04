@@ -391,6 +391,13 @@
             // 도넛 차트 2번
             makeChart(15.32, doughnut2, '#0A174E');
 
+            const replay = () => {
+                // 도넛 차트 1번
+                makeChart(9.18, doughnut1, 'var(--blue)');
+                // 도넛 차트 2번
+                makeChart(15.32, doughnut2, '#0A174E');
+            }
+
             /// =======================================  ///
             // 가맹현황 테이블에 있는 값 콤마 찍기 / 화폐 단위 자동 추가
             /// =======================================  ///
@@ -411,6 +418,8 @@
                 $(this).addClass('on');
                 $('.tab_cont > div').hide();
                 $('.tab_cont > div').eq(idx).fadeIn();
+
+                replay();
             });
 
         });
