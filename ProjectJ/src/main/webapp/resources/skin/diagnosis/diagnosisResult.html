@@ -93,145 +93,250 @@
 
                 <!-- 검색 결과 페이지 -->
                 <div class="layout_wrap pt-B">
-                    <div class="diagnosis_header tc center-m">
-                        <h2 class="pt-B">프랜차이즈 검색결과</h2>
-                        <!-- <span class="line"></span> -->
-                        <div class="center-f fdc">
-                            선택한 프렌차이즈는
-                            <p><i class="fc-red">서울</i>지역 <i class="fc-red">도미노피자</i>&nbsp;입니다</p>
-                        </div>
-                    </div>
+                    <h2 class="pt-B tc">프랜차이즈 검색결과</h2>
                     <!-- <span class="line"></span> -->
                     <!-- <div>선택한 프렌차이즈는 ${comName} 입니다</div> -->
                     <!-- 브랜드 정보 / 가맹현황 / 기업 정보 : 노출 선택 탭 -->
                     <div class="tab">
-                        <div class="tab_inwrap">
-                            <ul class="tab_btn center-f">
-                                <li class="on">매출 비교 그래프</li>
-                                <li>브랜드 정보</li>
-                                <li>가맹 현황</li>
-                                <li>기업 정보</li>
-                            </ul>
-                        </div>
-                        <div class="tab_inwrap">
-                            <div class="tab_cont pt-A pb-A">
-                                <!-- chart tab (매출 비교 값 그래프) -->
-                                    <div class="tab_chart center-m">
-                                        <div class="tab_chart_inwrap fx fdc">
-                                            <div id="chart" class="chart"></div>
-                                            <ul class="category_num">
-                                                <li>
-                                                    <!-- <span>${cDTO.c_tAvgSales/100}만원</span> -->
-                                                    <span>300</span>
-                                                </li>
-                                                <li>
-                                                    <!-- <span>${avgSales}만원</span> -->
-                                                    <span>700</span>
-                                                </li>
-                                                <li>
-                                                    <!-- <span>${avgSalesAll}만원</span> -->
-                                                    <span>500</span>
-                                                </li>
-                                            </ul>
-                                            <span class="line"></span>
-                                            <p>(단위: 만원)</p>
-                                        </div>
-                                        <div class="category_list">
-                                            <div>
-                                                <!-- <p> ${comName} 매장들의  평균 매출액</p> -->
-                                                <p>도미노피자 매장들의 평균 매출액</p>
-                                            </div>
-                                            <div>
-                                                <!-- <p>${areaName}지역의 ${cDTO.c_type } 업종 프랜차이즈 평균 매출<p> -->
-                                                <p>서울 지역의 피자 업종 프랜차이즈 평균 매출<p>
-                                            </div>
-                                            <div>
-                                                <!-- <p>전국 ${cDTO.c_type } 업종 프랜차이즈 평균 매출</p> -->
-                                                <p>전국 피자 업종 프랜차이즈 평균 매출</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- brand info tab(브랜드 정보)-->
-                                    <div class="tab_brand">
-                                        브랜드 정보
-                                        <!-- [서울] ${cDTO.c_comName } -->
-                                    </div>
-                                    <!-- franchise info tab (가맹 현황) -->
-                                    <div class="tab_fc">
-                                        가맹 현황
-                                    </div>
-                                    <!-- company info tab (기업 정보) -->
-                                    <div class="tab_com">
-                                        기업 정보
-                                    </div>
+                        <!-- ## tab header ##-->
+                        <div class="tab_header tc center-m">
+                            <!-- <span class="line"></span> -->
+                            <div class="inwrap">
+                                <div class="tl">
+                                    선택한 프렌차이즈는 <br>
+                                    <p><i class="fc-red">서울</i>지역 <i class="fc-red">네네치킨</i>&nbsp;입니다</p>
+                                </div>
+                                <div>
+                                    <ul class="tab_btn center-f">
+                                        <li class="on">매출 비교 그래프</li>
+                                        <li>가맹 현황</li>
+                                        <li>브랜드 정보</li>
+                                        <!-- <li>기업 정보</li> -->
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                        <span class="line mt-A mb-A"></span>
+                        <!-- ## tab content ##-->
+                        <!-- <div> -->
+                        <div class="tab_cont pt-A pb-A">
+
+                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                            <!-- chart tab (매출 비교 값 그래프) -->
+                            <div class="tab_chart center-m">
+                                <div class="tab_chart_inwrap fx fdc">
+                                    <div id="chart" class="chart"></div>
+                                    <ul class="category_num">
+                                        <li>
+                                            <!-- <span>${cDTO.c_tAvgSales/100}만원</span> -->
+                                            <span>300</span>
+                                        </li>
+                                        <li>
+                                            <!-- <span>${avgSales}만원</span> -->
+                                            <span>700</span>
+                                        </li>
+                                        <li>
+                                            <!-- <span>${avgSalesAll}만원</span> -->
+                                            <span>500</span>
+                                        </li>
+                                    </ul>
+                                    <span class="line"></span>
+                                    <p>(단위: 만원)</p>
+                                </div>
+                                <div class="category_list">
+                                    <div>
+                                        <!-- <p> ${comName} 매장들의  평균 매출액</p> -->
+                                        <p>네네치킨 매장들의 평균 매출액</p>
+                                    </div>
+                                    <div>
+                                        <!-- <p>${areaName}지역의 ${cDTO.c_type } 업종 프랜차이즈 평균 매출<p> -->
+                                        <p>서울 지역의 치킨 업종 프랜차이즈 평균 매출<p>
+                                    </div>
+                                    <div>
+                                        <!-- <p>전국 ${cDTO.c_type } 업종 프랜차이즈 평균 매출</p> -->
+                                        <p>전국 치킨 업종 프랜차이즈 평균 매출</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                            <!-- franchise info tab (가맹 현황) -->
+                            <div class="tab_fc">
+                                <div class="fx jsb">
+                                    <div class="tab_inwrap">
+                                        <table>
+                                            <!-- <tr>
+                                                <th>가맹 총부담금</th>
+                                                <td>${cDTO.c_totalFee*1000}원 </td>
+                                            </tr>
+                                            <tr>
+                                                <th>평균 매출액</th>
+                                                <td>${cDTO.c_tAvgSales*100}원 </td>
+                                            </tr>
+                                            <tr>
+                                                <th>1평당 평균매출액</th>
+                                                <td>${cDTO.c_tSquareSales*100}원 </td>
+                                            </tr>-->
+                                            <tr>
+                                                <th>가맹 총부담금</th>
+                                                <td>61110000</td>
+                                            </tr>
+                                            <tr>
+                                                <th>평균 매출액</th>
+                                                <td>19834100</td>
+                                            </tr>
+                                            <tr>
+                                                <th>1평당 평균매출액</th>
+                                                <td>1646200</td>
+                                            </tr>
+                                         </table>
+                                    </div>
+                                    <div class="tab_inwrap commentBox">
+
+                                        <!-- ${areaName}지역의 ${cDTO.c_type } 업종 프랜차이즈 매장수 는  ${allFchaEA }개 입니다
+                                         ${ areaName}지역의 ${comName}점포수는 ${fDTO[0].f_franchiseeEa} 개 입니다. (${fDTO[0].f_year} 기준)  -->
+
+                                              <!-- ${ areaName}지역의 ${comName}점포수는 ${fDTO[0].f_franchiseeEa} 개 입니다.  -->
+                                              <!-- ${ areaName}지역에는 전국 ${fDTO[0].f_franchiseeEa / cDTO.c_storeCount }%의 ${comName}이 (가)있습니다.  -->
+                                              <!-- 이 데이터는 (${fDTO[0].f_year} 년 기준입니다.  -->
+
+                                                  <!-- 3번째줄 -->
+                                                  <!-- 산텍지역 선택 브랜드 매장수 / 선택지역 해당업종 브랜드 매장수 -->
+                                                  <!-- 168/1830 -->
+                                                  <!-- <span class="center">${${fDTO[0].f_franchiseeEa} /${allFchaEA }</span> -->
+
+                                                  <!-- 4번째줄 -->
+                                                  <!-- 브랜드정보에있는 네네치킨 점포수 최근 기준 개수 /총 점포수 -->
+                                                  <!-- 168/1096 -->
+                                                  <!-- <span class="center">${fDTO[0].f_franchiseeEa / cDTO.c_storeCount }</span> -->
+
+                                         <div class="inwrap">
+                                             <p>서울 지역의 치킨 업종 프랜차이즈 매장수 는 <span class="fc-red">1830개</span> 입니다.</p>
+                                             <p>서울 지역의 네네치킨 점포수는 <span class="fc-red">168개</span> 입니다.</p>
+                                             <p>네네치킨은 서울 지역 치킨 업종 프렌차이즈 중 <span class="fc-red">9.18%</span>입니다.</p>
+                                             <p>서울 지역에는 전국 네네치킨 중 <span class="fc-red">15.32%</span>가 있습니다.</p>
+                                             <p>이 데이터는 <span class="fc-red">2020년 기준</span>입니다.</p>
+                                         </div>
+                                         <div class="inwrap fx">
+                                            <div class="doughnut doughnut1">
+                                                <span class="center">9.18%</span>
+                                            </div>
+                                             <div class="doughnut doughnut2">
+                                                 <span class="center">15.32%</span>
+                                             </div>
+                                         </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                            <!-- brand/company info tab(브랜드 및 회사 정보)-->
+                            <div class="tab_brand">
+                                <div class="fx jsb">
+                                    <div class="tab_inwrap">
+                                        <h3>브랜드 정보</h3>
+                                        <table>
+                                			<!-- <tr>
+                                                <th>영업표지명<br>(브랜드명)</th>
+                                                <td>${cDTO.c_comName } </td>
+                                            </tr>
+                                			<tr>
+                                                <th>회사분류</th>
+                                                <td>${cDTO.c_type } </td>
+                                            </tr>
+                                			<tr>
+                                                <th>총 점포수</th>
+                                                <td>${cDTO.c_storeCount } </td>
+                                            </tr> -->
+                                			<tr>
+                                                <th>영업표지명<br>(브랜드명)</th>
+                                                <td>네네치킨</td>
+                                            </tr>
+                                			<tr>
+                                                <!-- 업종분류?? -->
+                                                <th>회사분류</th>
+                                                <td>치킨</td>
+                                            </tr>
+                                			<tr>
+                                                <th>총 점포수</th>
+                                                <td>1096</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tab_inwrap">
+                                        <h3>기업 정보</h3>
+                                        <table>
+                                    		<!-- <tr>
+                                                <th>상호명</th>
+                                                <td>${cDTO.c_comTitle } </td>
+                                            </tr>
+                                			<tr>
+                                                <th>회사대표</th>
+                                                <td>${cDTO.c_comBoss } </td>
+                                            </tr>
+                                			<tr>
+                                                <th>사업자유형</th>
+                                                <td>${cDTO.c_comBm } </td>
+                                            </tr>
+                                			<tr>
+                                                <th>회사주소</th>
+                                                <td>${cDTO.c_comAddr } </td>
+                                            </tr>
+                                			<tr>
+                                                <th>대표번호</th>
+                                                <td>${cDTO.c_comNum } </td>
+                                            </tr> -->
+                                    		<tr>
+                                                <th>상호명</th>
+                                                <td>(주)혜인식품</td>
+                                            </tr>
+                                			<tr>
+                                                <th>회사대표</th>
+                                                <td>현광식</td>
+                                            </tr>
+                                			<tr>
+                                                <th>사업자유형</th>
+                                                <td>법인</td>
+                                            </tr>
+                                			<tr>
+                                                <th>회사주소</th>
+                                                <td>우 01415 서울특별시 도봉구 노해로 391 네네빌딩</td>
+                                            </tr>
+                                			<tr>
+                                                <th>대표번호</th>
+                                                <td>02 - 930 -6665</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- company info tab (기업 정보) -->
+                            <!-- <div class="tab_com">
+                            </div> -->
+                        </div>
+                        <!-- </div> -->
+                        <span class="line mt-A mb-A"></span>
+                        <!-- ## tab footer ##-->
+                        <div class="tab_footer center-f">
+                            <div class="inwrap btn_area">
+                        		<!-- <button type="button" onclick="location.href='/diagnosis/diagnosisMain';"> 다시 검색하기</button> -->
+                                <!-- <button type="button" onclick="location.href='/franchise/incomeCalcMain?comName=${comName}';"> ${comName}(으)로 예상순이익 계산해보기</button> -->
+                        		<button type="button" onclick="location.href='/diagnosis/diagnosisMain';"> 다른 브랜드 검색하기</button>
+                                <button type="button" onclick="location.href='/franchise/incomeCalcMain?comName=네네치킨';"> 네네치킨(으)로 예상순이익 계산해보기</button>
+                            </div>
+                        </div>
+
                     </div>
-	            </div>
-	        </div>
-	<div>
-		<table>
-			<tr><td> 상호명 : ${cDTO.c_comTitle } </td></tr>
-			<tr><td> 영업표지명 : ${cDTO.c_comName } </td></tr>
-			<tr><td> 회사분류 : ${cDTO.c_type } </td></tr>
-			<tr><td> 총 점포수 : ${cDTO.c_storeCount } </td></tr>
-			<tr><td> 가맹총부담금 : ${cDTO.c_totalFee*1000}원 </td></tr>
-			<tr><td> 평균 매출액 : ${cDTO.c_tAvgSales*100}원 </td></tr>
-			<tr><td> 1평당 평균 매출액 : ${cDTO.c_tSquareSales*100}원 </td></tr>
-			<tr><td> 회사 대표 : ${cDTO.c_comBoss } </td></tr>
-			<tr><td> 사업자유형 : ${cDTO.c_comBm } </td></tr>
-			<tr><td> 회사 주소 : ${cDTO.c_comAddr } </td></tr>
-			<tr><td> 대표 번호 : ${cDTO.c_comNum } </td></tr>
 
-			<!-- 자바에서 넘어온 List데이터 for문으로 넣어둔것 거의 3번 돌아감  -->
-			<c:forEach var="fDTO" items="${fDTO}" varStatus="status">
-				<tr><td> 지역 : ${fDTO.f_areaName } / 년도 : ${fDTO.f_year} / 대리점수 : ${fDTO.f_franchiseeEa} / 직영점수 : ${fDTO.f_directEa}</td></tr>
-			</c:forEach>
-		</table>
-	</div>
+                </div>
+            </div>
 
-
-
-
-	<div>
-		<table>
-			<tr>
-				<td>
-					${areaName}지역의 ${cDTO.c_type } 업종 프랜차이즈 매장수 는  ${allFchaEA }개 입니다.
-				</td>
-			</tr>
-			<tr>
-				<td>
-					 ${ areaName}지역의 ${comName}점포수는 ${fDTO[0].f_franchiseeEa} 개 입니다. (${fDTO[0].f_year} 기준)
-				</td>
-			</tr>
-			<tr>
-				<td>
-					 ${comName} 매장들의  평균 매출액은 ${cDTO.c_tAvgSales/100}만원 입니다.
-				</td>
-			</tr>
-			<tr>
-				<td>
-					${areaName}지역의 ${cDTO.c_type } 업종 프랜차이즈 평균 매출은 ${avgSales}만원 입니다.
-				</td>
-			</tr>
-			<tr>
-				<td>
-					전국 기준  ${cDTO.c_type } 업종 프랜차이즈 평균 매출은 ${avgSalesAll}만원 입니다.
-				</td>
-			</tr>
-		</table>
-
-	</div>
-    <div id="chart"></div>
-	<div>
-		<button type="button" onclick="location.href='/diagnosis/diagnosisMain';"> 다시 검색하기</button>
-		<button type="button" onclick="location.href='/franchise/incomeCalcMain?comName=${comName}';"> ${comName}(으)로 예상순이익 계산해보기</button>
-	</div>
     <script>
         $(function(){
-
+            /// =======================================  ///
+            // 매출 비교 그래프 차트 그리기
+            /// =======================================  ///
             var values = [300, 700, 500];
             // var values1 = [300, 500];
             // var values2 = [300, 200];
@@ -259,6 +364,46 @@
             	}
             }
 
+            /// =======================================  ///
+            // 가맹현황 원형차트 그리기
+            /// =======================================  ///
+            const doughnut1 = document.querySelector('.doughnut1');
+            const doughnut2 = document.querySelector('.doughnut2');
+
+            const makeChart = (percent, classname, color) => {
+              let i = 1;
+              let doughnutFn = setInterval(function() {
+                if (i < percent) {
+                  colorFn(i, classname, color);
+                  i++;
+                } else {
+                  clearInterval(doughnutFn);
+                }
+              }, 10);
+            }
+
+            const colorFn = (i, classname, color) => {
+              classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #dedede " + i + "% 100%)";
+            }
+
+            // 도넛 차트 1번
+            makeChart(9.18, doughnut1, 'var(--blue)');
+            // 도넛 차트 2번
+            makeChart(15.32, doughnut2, '#0A174E');
+
+            /// =======================================  ///
+            // 가맹현황 테이블에 있는 값 콤마 찍기 / 화폐 단위 자동 추가
+            /// =======================================  ///
+            $('.tab_fc td').each(function(i,e){
+                num = $(this).text();
+                num = parseInt(num).toLocaleString('ko-KR');
+                console.log(num);
+                $(this).text(num+'원');
+            });
+
+            /// =======================================  ///
+            // 탭 클릭 시 컨텐츠 전환
+            /// =======================================  ///
             $('.tab_btn li').on('click',function(){
                 let idx = $(this).index('.tab_btn li')
                 // console.log($(this).index('.tab_btn li'));
@@ -266,7 +411,8 @@
                 $(this).addClass('on');
                 $('.tab_cont > div').hide();
                 $('.tab_cont > div').eq(idx).fadeIn();
-            })
+            });
+
         });
     </script>
     <!-- ======================================== -->

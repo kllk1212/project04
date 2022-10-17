@@ -479,7 +479,19 @@
         }
     }
 }
-
+/* ======================= */
+/* incomeCalcMain diagnosisMain common */
+/* ======================= */
+.btn_area button:nth-of-type(1) {
+    .calc &,
+    .diagnosis &{
+        @include btnDeisgnN;
+        margin-right: 5px;
+    }
+}
+/* ======================= */
+/* incomeCalcMain  */
+/* ======================= */
 .calcMain {
     // 그래프 이미지 검색박스
     .s-search {
@@ -560,7 +572,7 @@
         }
 
         h3 {
-            font-size: 2.4rem;
+            // font-size: 2.4rem;
             max-width: 65%;
 
             span {
@@ -628,11 +640,6 @@
                 position: relative;
                 top: 0;
             }
-        }
-
-        .btn_area button:nth-of-type(1) {
-            @include btnDeisgnN;
-            margin-right: 5px;
         }
     }
 
@@ -810,26 +817,39 @@
 /* diagnosis result */
 /* ======================= */
 .diagnosis{
-    --bar-bg1: #999;
+    --bar-bg1: var(--blue);
     --bar-bg2: var(--sky);
-    --bar-bg3: var(--blue);
-
+    --bar-bg3: #999;
     &_header{
-        >div{
-            max-width: 500px;
-            // height: 5rem;
-            padding: 10px 0;
-            font-size: 2.2rem;
-            line-height: 1.6;
-            font-weight: bold;
-            // @include designBorderbox;
-            // background: aliceblue;
-            background-color: #f1f1f1;
-            border-radius: 10px;
-            margin: 2rem auto 1rem;
+        button{
+            position: absolute;
+            right: 0;
         }
     }
     .tab{
+        margin-top: 2rem;
+        border: 2px solid #eee;
+        border-radius: 20px;
+        padding: 4rem 2rem 3rem;
+        &_header{
+            .inwrap{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 2.4rem;
+                font-weight: bold;
+                margin: 2rem auto 1rem;
+            }
+            .tl{
+                line-height: 1.5;
+            }
+            .fc-red{
+                font-size: 3rem;
+            }
+            button{
+                background-color: var(--sky);
+            }
+        }
         &_btn{
             li{
                 display: flex;
@@ -840,6 +860,7 @@
                 color: var(--black);
                 text-align: center;
                 font-weight: bold;
+                font-size: 2.2rem;
                 border: 2px solid #777;
                 background-color: var(--white);
                 border-radius: 10px;
@@ -855,16 +876,16 @@
             }
         }
         &_cont{
-            margin-top: 2rem;
-            border: 2px solid #eee;
-            border-radius: 20px;
+            // margin-top: 2rem;
+            // border: 2px solid #eee;
+            // border-radius: 20px;
         }
         &_brand,
         &_com,
         &_fc{
             display: none;
         }
-        &_chart{
+        &_chart{//매출 비교 그래프
             display: flex;
             justify-content: center;
             align-items: center;
@@ -946,6 +967,46 @@
                 margin-left: 50px;
             }
         }
+        &_fc{
+            .commentBox{
+                font-size: 2rem;
+                color: var(--black);
+                p+p{
+                    padding-top: 2rem;
+                }
+            }
+            .inwrap+ .inwrap{
+                padding-top: 4rem;
+            }
+        }
+        &_inwrap{//브랜드 정보
+            width: 47%;
+            h3{
+                padding-bottom: 2rem;
+            }
+            table{
+                width: 100%;
+                text-align: left;
+                font-size: 2.2rem;
+                border: 1px solid #dedede;
+                tr{
+                    height: 7rem;
+                    &+tr{
+                        border-top: 1px solid #dedede;
+                    }
+                }
+
+                th{
+                    width: 40%;
+                    background-color: #f0f0f0;
+                    padding: 0 2rem;
+                }
+                td{
+                    width: 60%;
+                    padding: 0 2rem;
+                }
+            }
+        }
     }
 
     .bar {
@@ -984,6 +1045,8 @@
 //     //     transform: translateX(-50%);
 //     // }
 // }
+
+
 @-webkit-keyframes bargrowth {
     0% {
         max-height: 0;
@@ -1002,7 +1065,36 @@
         max-height: 100%;
     }
 }
+.doughnut {
+  margin: 0 auto;
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  transition: 0.3s;
 
+  span.center {
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 8rem;
+    font-size: 2rem;
+    transform: translate(-50%, -50%); //가운데 위
+  }
+
+  button {
+    width: 80px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
 /* ======================= */
 /* layer POP */
 /* ======================= */

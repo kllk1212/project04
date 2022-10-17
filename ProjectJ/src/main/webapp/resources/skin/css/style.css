@@ -373,6 +373,19 @@
   top: calc(50% + 1px);
 }
 
+/* ======================= */
+/* incomeCalcMain diagnosisMain common */
+/* ======================= */
+.calc .btn_area button:nth-of-type(1), .diagnosis .btn_area button:nth-of-type(1) {
+  color: var(--black);
+  border: 2px solid #777;
+  background-color: var(--white);
+  margin-right: 5px;
+}
+
+/* ======================= */
+/* incomeCalcMain  */
+/* ======================= */
 .calcMain .s-search {
   padding-top: 4rem !important;
   margin-top: 4rem;
@@ -437,7 +450,6 @@
   border-radius: 30px;
 }
 .calcMain .outerWrap h3 {
-  font-size: 2.4rem;
   max-width: 65%;
 }
 .calcMain .outerWrap h3 span {
@@ -488,12 +500,6 @@
   color: var(--red);
   position: relative;
   top: 0;
-}
-.calcMain #resultForm .btn_area button:nth-of-type(1) {
-  color: var(--black);
-  border: 2px solid #777;
-  background-color: var(--white);
-  margin-right: 5px;
 }
 .calcMain .list_name {
   display: flex;
@@ -625,19 +631,36 @@
 /* diagnosis result */
 /* ======================= */
 .diagnosis {
-  --bar-bg1: #999;
+  --bar-bg1: var(--blue);
   --bar-bg2: var(--sky);
-  --bar-bg3: var(--blue);
+  --bar-bg3: #999;
 }
-.diagnosis_header > div {
-  max-width: 500px;
-  padding: 10px 0;
-  font-size: 2.2rem;
-  line-height: 1.6;
+.diagnosis_header button {
+  position: absolute;
+  right: 0;
+}
+.diagnosis .tab {
+  margin-top: 2rem;
+  border: 2px solid #eee;
+  border-radius: 20px;
+  padding: 4rem 2rem 3rem;
+}
+.diagnosis .tab_header .inwrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.4rem;
   font-weight: bold;
-  background-color: #f1f1f1;
-  border-radius: 10px;
   margin: 2rem auto 1rem;
+}
+.diagnosis .tab_header .tl {
+  line-height: 1.5;
+}
+.diagnosis .tab_header .fc-red {
+  font-size: 3rem;
+}
+.diagnosis .tab_header button {
+  background-color: var(--sky);
 }
 .diagnosis .tab_btn li {
   display: flex;
@@ -648,6 +671,7 @@
   color: var(--black);
   text-align: center;
   font-weight: bold;
+  font-size: 2.2rem;
   border: 2px solid #777;
   background-color: var(--white);
   border-radius: 10px;
@@ -660,11 +684,6 @@
 }
 .diagnosis .tab_btn li + li {
   margin-left: 15px;
-}
-.diagnosis .tab_cont {
-  margin-top: 2rem;
-  border: 2px solid #eee;
-  border-radius: 20px;
 }
 .diagnosis .tab_brand, .diagnosis .tab_com, .diagnosis .tab_fc {
   display: none;
@@ -744,6 +763,43 @@
 .diagnosis .tab_chart > div + div {
   margin-left: 50px;
 }
+.diagnosis .tab_fc .commentBox {
+  font-size: 2rem;
+  color: var(--black);
+}
+.diagnosis .tab_fc .commentBox p + p {
+  padding-top: 2rem;
+}
+.diagnosis .tab_fc .inwrap + .inwrap {
+  padding-top: 4rem;
+}
+.diagnosis .tab_inwrap {
+  width: 47%;
+}
+.diagnosis .tab_inwrap h3 {
+  padding-bottom: 2rem;
+}
+.diagnosis .tab_inwrap table {
+  width: 100%;
+  text-align: left;
+  font-size: 2.2rem;
+  border: 1px solid #dedede;
+}
+.diagnosis .tab_inwrap table tr {
+  height: 7rem;
+}
+.diagnosis .tab_inwrap table tr + tr {
+  border-top: 1px solid #dedede;
+}
+.diagnosis .tab_inwrap table th {
+  width: 40%;
+  background-color: #f0f0f0;
+  padding: 0 2rem;
+}
+.diagnosis .tab_inwrap table td {
+  width: 60%;
+  padding: 0 2rem;
+}
 .diagnosis .bar {
   -webkit-animation: bargrowth 1000ms ease;
   animation: bargrowth 1000ms ease;
@@ -777,6 +833,35 @@
     max-height: 100%;
   }
 }
+.doughnut {
+  margin: 0 auto;
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.doughnut span.center {
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 8rem;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+}
+.doughnut button {
+  width: 80px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
 /* ======================= */
 /* layer POP */
 /* ======================= */
