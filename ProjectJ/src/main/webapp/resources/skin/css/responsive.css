@@ -36,6 +36,9 @@
   .gnb li.depth > div {
     line-height: 48px;
   }
+  .s-main .layout_wrap {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=responsive.css.map */

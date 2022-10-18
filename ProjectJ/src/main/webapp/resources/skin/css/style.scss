@@ -161,20 +161,38 @@
 /* ======================= */
 /* main
 /* ======================= */
-.s-mainBtn {
-    background: aliceblue;
-
-    .mainBtn {
-        width: 49%;
-        // height: 300px;
-        border: 1px ridge #d0d0d0;
-        border-radius: 80px;
-
-        img {
-            width: 200px;
+.s-main{
+    padding-top: 10rem !important;
+    word-break: keep-all;
+    .title,
+    .disc{
+        padding-left: 50px;
+    }
+    button{
+        margin-left: 50px;
+    }
+    .title{
+        font-size: 3.2rem;
+        line-height: 1.5;
+    }
+    .disc{
+        padding-top: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.3;
+        p{
+            display: flex;
         }
     }
+    .imgAni{
+        max-width: 750px;
+        overflow: hidden;
+        img{
+            margin-top: -10%;
+        }
+    }
+
 }
+
 /* ======================= */
 /* review common : Search input box section */
 /* ======================= */
