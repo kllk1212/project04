@@ -145,7 +145,7 @@
                                          	 <p>${areaName} 지역의 ${cDTO.c_type } 업종 프랜차이즈 매장수 는 <span class="fc-red">${allFchaEA }개</span> 입니다.</p>
                                              <p>전국의 ${comName} 매장수 는 <span class="fc-red">총 ${cDTO.c_storeCount }개</span> 입니다.</p>
                                              <p>${areaName} 지역의 ${cDTO.c_comName } 점포수는 <span class="fc-red">${fDTO[0].f_franchiseeEa }개</span> 입니다.</p>
-                                             <p>${cDTO.c_comName }은(는) ${areaName} 지역 치킨 업종 프렌차이즈 중 <span class="fc-red"><fmt:formatNumber type="number"  pattern="0.00" value="${ ((num2*100) - ((num2*100)%1)) * (1/100)   } " />%</span>를 차지합니다.</p>
+                                             <p>${cDTO.c_comName }은(는) ${areaName} 지역 ${cDTO.c_type } 업종 프렌차이즈 중 <span class="fc-red"><fmt:formatNumber type="number"  pattern="0.00" value="${ ((num2*100) - ((num2*100)%1)) * (1/100)   } " />%</span>를 차지합니다.</p>
                                              <p>${areaName} 지역에는 전국 ${cDTO.c_comName } 매장 중 <span class="fc-red"><fmt:formatNumber type="number"  pattern="0.00" value="${ ((num*100) - ((num*100)%1)) * (1/100)   } " />%</span>가 있습니다.</p>
                                              <p>이 데이터는 <span class="fc-red">2020년 기준</span>입니다.</p>
                                          </div>
@@ -183,7 +183,7 @@
                                 			<tr>
                                                 <th>영업표지명<br>(브랜드명)</th>
 												<td>
-												    <a style="text-decoration : underline;" href='https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=${cDTO.c_comName }' target='_blank'>${cDTO.c_comName }</a>
+												    <a style="text-decoration : underline;" href='https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=${cDTO.c_comName }' target='_blank'><span class="fc-red">${cDTO.c_comName }</span></a>
 												</td>
                                             </tr>
                                 			<tr>
@@ -202,7 +202,9 @@
                                         <table>
                                     		<tr>
                                                 <th>상호명</th>
-                                                <td>${cDTO.c_comTitle }</td>
+                                                <td>
+                                                	<a style="text-decoration : underline;" href='https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=${cDTO.c_comTitle }' target='_blank'><span class="fc-red">${cDTO.c_comTitle }</span></a>
+                                                </td>
                                             </tr>
                                 			<tr>
                                                 <th>회사대표</th>
