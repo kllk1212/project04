@@ -26,9 +26,9 @@ $(function(){
         var gnbDeco = String(slice);
 
         // 헤더 밑줄확인~
-        console.log(slice);
-        console.log(pageName);
-        console.log(gnbDeco);
+        // console.log(slice);
+        // console.log(pageName);
+        // console.log(gnbDeco);
         if(slice == gnbDeco){
             $(this).closest("li").addClass("active");
         }

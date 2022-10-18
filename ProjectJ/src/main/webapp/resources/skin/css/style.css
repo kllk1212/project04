@@ -158,7 +158,6 @@
 
 .commentBox {
   padding-bottom: 2rem;
-  color: #999;
 }
 .commentBox p:before {
   content: "✓ ";
@@ -512,9 +511,6 @@
 .calcMain .list_name p {
   padding-bottom: 2rem;
 }
-.calcMain .list_name p {
-  color: #777;
-}
 .calcMain .list_val {
   position: relative;
 }
@@ -685,8 +681,18 @@
 .diagnosis .tab_btn li + li {
   margin-left: 15px;
 }
-.diagnosis .tab_brand, .diagnosis .tab_com, .diagnosis .tab_fc {
+.diagnosis .tab_brand, .diagnosis .tab_fc {
   display: none;
+}
+.diagnosis .tab_chart table tr, .diagnosis .tab_fc table tr {
+  display: flex;
+  flex-direction: column;
+  height: auto !important;
+}
+.diagnosis .tab_chart table th, .diagnosis .tab_chart table td, .diagnosis .tab_fc table th, .diagnosis .tab_fc table td {
+  width: auto !important;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .diagnosis .tab_chart {
   display: flex;
@@ -696,15 +702,13 @@
 .diagnosis .tab_chart_inwrap {
   position: relative;
   width: 400px;
+  margin: 0 auto;
 }
-.diagnosis .tab_chart_inwrap > p {
-  font-size: 2.4rem;
-  position: absolute;
-  bottom: 0;
+.diagnosis .tab_chart .unit {
+  font-size: 1.8rem;
   color: #999;
   z-index: 2;
-  right: 0;
-  transform: translateX(115%);
+  text-align: right;
 }
 .diagnosis .tab_chart .chart {
   position: relative;
@@ -723,6 +727,7 @@
   font-size: 3rem;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   text-align: center;
   width: 100%;
   font-weight: bold;
@@ -732,8 +737,14 @@
 .diagnosis .tab_chart .category_num li {
   width: calc((100% - 40px) / 3);
 }
+.diagnosis .tab_chart .category_num p {
+  font-size: 2.2rem;
+  word-break: break-word;
+  width: 80%;
+  margin: 0 auto;
+}
 .diagnosis .tab_chart .category_list {
-  margin-left: 2rem;
+  margin-top: 2rem;
   border: 2px solid #666;
   border-radius: 10px;
   padding: 2rem 0;
@@ -798,11 +809,13 @@
 .diagnosis .tab_inwrap table th {
   width: 40%;
   background-color: #f0f0f0;
-  padding: 0 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .diagnosis .tab_inwrap table td {
   width: 60%;
-  padding: 0 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .diagnosis .bar {
   -webkit-animation: bargrowth 1000ms ease;
