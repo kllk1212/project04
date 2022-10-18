@@ -230,7 +230,6 @@
                             }
                             str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunctionCon();'>(으)로 상세검색</button></td>";
                             comNameListDiv.html(str); // table에 tr td 넣기
-
                         },
                         error: function(e) {
                             console.log("요청 에러......");
@@ -265,7 +264,7 @@
                                     str+= "<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
                                 }
                                     //str +="<td><input type='text' name='comName' class='inputTrigger'><button type='button' id='detail'>(으)로 상세검색</button></td>";
-                                    str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunctionNomal();'>(으)로 상세검색</button></td>";
+                                    str +="<td><input type='text' name='comName' class='inputTrigger' id='detailSearchBtn' readonly><button type='button' onclick='targetFunctionNomal();'>(으)로 상세검색</button></td>";
                                 comNameListDiv.html(str); // table에 tr td 넣기
 
                             },
@@ -336,7 +335,7 @@
 
                 });
 
-
+			
             });//$(document). 시작부분
             function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트
                 document.querySelectorAll(`input[type=checkbox]`)
@@ -354,7 +353,7 @@
 
 
             function targetFunctionCon() {
-                let areaName = $("#areaName").val(); //
+                let areaName = $("#area").val(); //
 
                 let conResult = $("#areaNameCon").val(); // 조건검색 헀을 경우 지역명
                 let nomalResult = $("#areaNameNomal").val(); // 일반검색 헀을 경우 지역명
@@ -363,7 +362,13 @@
                 console.log("일반검색 : " + nomalResult);
 
                 let comName = $(".inputTrigger").val();
-                window.location='../diagnosis/diagnosisResult?comName='+comName+'&areaName='+conResult;
+                console.log(comName);
+                if(comName==null|| comName === null || comName == '' || comName === ''){
+                	alert("체크박스를 선택해주세요");
+                }else{
+	                window.location='../diagnosis/diagnosisResultTest?comName='+comName+'&areaName='+conResult;
+                	
+                }
                 /*
                 console.log("areaName : " + areaName);
                 console.log("comName : " + comName);
@@ -371,7 +376,8 @@
             }
 
             function targetFunctionNomal() {
-                let areaName = $("#areaName").val(); //
+                let areaName = $("#areaNameNomal").val(); //
+                console.log("일반검색창" + "areaName");
 
                 let conResult = $("#areaNameCon").val(); // 조건검색 헀을 경우 지역명
                 let nomalResult = $("#areaNameNomal").val(); // 일반검색 헀을 경우 지역명
@@ -380,7 +386,13 @@
                 console.log("일반검색 : " + nomalResult);
 
                 let comName = $(".inputTrigger").val();
-                window.location='../diagnosis/diagnosisResult?comName='+comName+'&areaName='+nomalResult;
+                console.log(comName);
+                if(comName == null|| comName === null || comName == '' || comName === ''){
+                	alert("체크박스를 선택해주세요");
+                }else{
+	                window.location='../diagnosis/diagnosisResultTest?comName='+comName+'&areaName='+nomalResult;
+                	
+                }
                 /*
                 console.log("areaName : " + areaName);
                 console.log("comName : " + comName);

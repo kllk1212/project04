@@ -15,14 +15,14 @@
 
 	
 	<select id="companyInfoOne" resultType="com.projectJ.domain.CompanyDTO">
-		select * from companyInfo where c_comName=#{comName}
+		select * from companyInfo where c_comName=#{comName} and rownum =1
 	</select>
 	<select id="localSalesOne" resultType="com.projectJ.domain.LocalSalesDTO">
-		select * from localSales where l_comName=#{comName} and l_areaname=#{areaName}
+		select * from localSales where l_comName=#{comName} and l_areaname=#{areaName} and rownum =1
 	</select>
 
 	<select id="franchiseeStatusOne" resultType="com.projectJ.domain.FranchiseeStatusDTO">
-		select * from franchiseeStatus where f_comName=#{comName} and f_areaname=#{areaName}
+		select * from franchiseeStatus where f_comName=#{comName} and f_areaname=#{areaName} and rownum =1
 	</select>
 	
 	<select id="allFchaEA" resultType="int"> <!-- 2021년 기준 지역/테마 선택 후 동종업종 매장수 가져오기 -->

@@ -67,6 +67,39 @@ public class DiagnosisController {
 		*/
 
 	}
+	@GetMapping("diagnosisResultTest")
+	public void diagnosisResultTest(@RequestParam("comName") String comName,@RequestParam("areaName") String areaName,Model model) {
+		log.info("diagnosisResultGet 진입 ***********");
+		log.info("**********************************comName : "+comName);
+		log.info("**********************************areaName : "+areaName);
+		model.addAttribute("areaName", areaName);
+		model.addAttribute("comName", comName);
+		CompanyDTO cDTO = service.companyInfoOne(comName);
+		LocalSalesDTO lDTO = service.localSalesOne(comName,areaName);
+		List<FranchiseeStatusDTO> fDTO = service.franchiseeStatusOne(comName,areaName);
+		
+		// 동종업계 해당지역의 총 매장수
+		int allFchaEA = service.allFchaEA(cDTO.getC_type(),lDTO.getL_areaName()); 
+		model.addAttribute("allFchaEA", allFchaEA);
+		// 동종업계 해당지역의 평균 매출 !
+		int avgSales = service.avgSales(cDTO.getC_type(),lDTO.getL_areaName());
+		model.addAttribute("avgSales", avgSales);
+		// 동종업계 전국기준 평균 매출 !
+		int avgSalesAll = service.avgSalesAll(cDTO.getC_type());
+		model.addAttribute("avgSalesAll", avgSalesAll);
+		/* 별점 
+		StarInfoDTO siDTO = service.starInfoOne(comName);
+		StarUserDTO suDTO = service.starUserOne(comName);
+		 */
+		model.addAttribute("cDTO",cDTO);
+		model.addAttribute("lDTO",lDTO);
+		model.addAttribute("fDTO",fDTO);
+		/* 별점 
+		model.addAttribute("siDTO",siDTO);
+		model.addAttribute("suDTO",suDTO);
+		 */
+		
+	}
 	@GetMapping("searchPro")
 	public void testGet() {
 		

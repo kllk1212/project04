@@ -75,7 +75,7 @@
                                      -->
                                 </li>
                                 <li><a href="../franchise/incomeCalcMain">순이익 계산기</a></li>
-                                <!-- <li><a href="../main/siteInfo">사이트 소개</a></li> -->
+                                <li><a href="../main/siteInfo">사이트 소개</a></li>
                             </ul>
                         </nav>
                     </div>
