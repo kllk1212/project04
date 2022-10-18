@@ -132,16 +132,16 @@
                                                   <!-- 브랜드정보에있는 네네치킨 점포수 최근 기준 개수 /총 점포수 -->
                                                   <!-- 168/1096 -->
                                                   <!-- <span class="center">${fDTO[0].f_franchiseeEa / cDTO.c_storeCount }</span> -->
-											
+
                                          <div class="inwrap">
-                                         	 <!-- 노출되지않음 소수점 변환위해--> 
+                                         	 <!-- 노출되지않음 소수점 변환위해-->
                                          	 <!-- ${cDTO.c_storeCount }전국네네치킨매장수 // fDTO[0].f_franchiseeEa 지역의 네네치킨 매장수
                                          	 		allFchaEA // 동종업계 해당지역의 총 매장수
                                          	   -->
                                          	 <c:set var="num" value="${fDTO[0].f_franchiseeEa/cDTO.c_storeCount*100 }" /><!--서울네네치킨 / 전국네네치킨 % -->
                                          	 <c:set var="num2" value="${fDTO[0].f_franchiseeEa / allFchaEA*100}" /><!-- 지역네네치킨 / 지역치킨업종 -->
-                                         	 
-                                         	 
+
+
                                          	 <p>${areaName} 지역의 ${cDTO.c_type } 업종 프랜차이즈 매장수 는 <span class="fc-red">${allFchaEA }개</span> 입니다.</p>
                                              <p>전국의 ${comName} 매장수 는 <span class="fc-red">총 ${cDTO.c_storeCount }개</span> 입니다.</p>
                                              <p>${areaName} 지역의 ${cDTO.c_comName } 점포수는 <span class="fc-red">${fDTO[0].f_franchiseeEa }개</span> 입니다.</p>
@@ -149,12 +149,18 @@
                                              <p>${areaName} 지역에는 전국 ${cDTO.c_comName } 매장 중 <span class="fc-red"><fmt:formatNumber type="number"  pattern="0.00" value="${ ((num*100) - ((num*100)%1)) * (1/100)   } " />%</span>가 있습니다.</p>
                                              <p>이 데이터는 <span class="fc-red">2020년 기준</span>입니다.</p>
                                          </div>
-                                         <div class="inwrap fx">
-                                            <div class="doughnut doughnut1">
-                                                <span class="center"><fmt:formatNumber type="number"  pattern="0.00" value="${ ((num2*100) - ((num2*100)%1)) * (1/100)   } " />%</span>
+                                         <div class="inwrap fx jc">
+                                             <div class="doughnutBox fx fdc">
+                                                <div class="doughnut doughnut1">
+                                                    <span class="center"><fmt:formatNumber type="number"  pattern="0.00" value="${ ((num2*100) - ((num2*100)%1)) * (1/100)   } " />%</span>
+                                                </div>
+                                                <small class="tc">그래프 1</small>
                                             </div>
-                                             <div class="doughnut doughnut2">
-                                                 <span class="center"><fmt:formatNumber type="number"  pattern="0.00" value="${ ((num*100) - ((num*100)%1)) * (1/100)   } " />%</span>
+                                            <div class="doughnutBox fx fdc">
+                                                 <div class="doughnut doughnut2">
+                                                     <span class="center"><fmt:formatNumber type="number"  pattern="0.00" value="${ ((num*100) - ((num*100)%1)) * (1/100)   } " />%</span>
+                                                 </div>
+                                                 <small class="tc">그래프 2</small>
                                              </div>
                                          </div>
 
@@ -255,7 +261,7 @@
             /// =======================================  ///
             let fchaAvg = "${cDTO.c_tAvgSales/100}"; // 프랜차이즈 평균
             let areaAvg = "${avgSales}"; // 선택 프차,지역 평균
-            let allAvg = "${avgSalesAll}"; // 전국 업종 평균 
+            let allAvg = "${avgSalesAll}"; // 전국 업종 평균
             var values = [fchaAvg, areaAvg, allAvg];
             // var values1 = [300, 500];
             // var values2 = [300, 200];
@@ -345,5 +351,5 @@
 
         });
     </script>
-<!-- footer 복붙 -->        
+<!-- footer 복붙 -->
 <%@ include file="../includes/footer.jsp" %>

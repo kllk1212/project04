@@ -773,6 +773,10 @@
 .diagnosis .tab_fc .inwrap + .inwrap {
   padding-top: 4rem;
 }
+.diagnosis .tab_fc small {
+  display: inline-block;
+  padding-top: 2rem;
+}
 .diagnosis .tab_inwrap {
   width: 47%;
 }
@@ -833,6 +837,10 @@
     max-height: 100%;
   }
 }
+.doughnutBox + .doughnutBox {
+  padding-left: 2rem;
+}
+
 .doughnut {
   margin: 0 auto;
   position: relative;

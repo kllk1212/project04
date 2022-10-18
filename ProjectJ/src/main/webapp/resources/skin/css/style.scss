@@ -978,6 +978,11 @@
             .inwrap+ .inwrap{
                 padding-top: 4rem;
             }
+
+            small{
+                display: inline-block;
+                padding-top: 2rem;
+            }
         }
         &_inwrap{//브랜드 정보
             width: 47%;
@@ -1064,6 +1069,9 @@
     100% {
         max-height: 100%;
     }
+}
+.doughnutBox+.doughnutBox{
+    padding-left: 2rem;
 }
 .doughnut {
   margin: 0 auto;
