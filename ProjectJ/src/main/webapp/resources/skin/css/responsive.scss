@@ -36,4 +36,22 @@
     .s-main .layout_wrap{
         flex-direction: column;
     }
+    .s-siteinfo .layout_wrap{
+        flex-direction: column;
+        .inwrap{
+            width: 100%;
+            >div{
+                // width: 75%;
+                max-width: 550px;
+                margin: 0 auto;
+            }
+            p{
+                display: block;
+            }
+        }
+        .commentBox{
+            padding-top: 2rem;
+            padding-bottom: 0;
+        }
+    }
 }

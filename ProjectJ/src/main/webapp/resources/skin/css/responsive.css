@@ -39,6 +39,23 @@
   .s-main .layout_wrap {
     flex-direction: column;
   }
+  .s-siteinfo .layout_wrap {
+    flex-direction: column;
+  }
+  .s-siteinfo .layout_wrap .inwrap {
+    width: 100%;
+  }
+  .s-siteinfo .layout_wrap .inwrap > div {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  .s-siteinfo .layout_wrap .inwrap p {
+    display: block;
+  }
+  .s-siteinfo .layout_wrap .commentBox {
+    padding-top: 2rem;
+    padding-bottom: 0;
+  }
 }
 
 /*# sourceMappingURL=responsive.css.map */

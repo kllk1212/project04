@@ -157,6 +157,37 @@
 }
 
 /* ======================= */
+/* siteinfo */
+/* ======================= */
+.s-siteinfo h2 {
+  font-size: 3.2rem;
+  text-align: center;
+}
+.s-siteinfo .layout_wrap {
+  margin-top: 8rem;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  border: 2px solid #eee;
+  border-radius: 30px;
+}
+.s-siteinfo .inwrap {
+  width: 50%;
+  font-size: 2.8rem;
+}
+.s-siteinfo .inwrap img {
+  width: 80%;
+}
+.s-siteinfo .inwrap p {
+  display: flex;
+  word-break: break-all;
+}
+.s-siteinfo .inwrap > div:nth-of-type(2) {
+  font-size: 2.4rem;
+  padding: 2rem 1rem;
+  line-height: 1.4;
+}
+
+/* ======================= */
 /* review common : Search input box section */
 /* ======================= */
 .s-search {
