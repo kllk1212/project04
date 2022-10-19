@@ -6,6 +6,7 @@
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp" %>
 	
+	
 
 	<h1>랭킹페이지</h1>
 	
