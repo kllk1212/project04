@@ -1,2 +1,5 @@
 button.turnBtn{background-color:gray;}
 button.turnBtn.leeActive{background-color:var(--blue);}
+body {
+    font-weight: bold;
+}

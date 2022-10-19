@@ -13,7 +13,7 @@
 	    <h2><i class="fc-light">창업나무</i>&nbsp; 방문을 환영합니다.</h2>
 	    <div class="layout_wrap fx">
 	        <div class="inwrap tc">
-	            <img src="../img/common/logo.png">
+	            <img src="../resources/skin/img/common/logo.png">
 	        </div>
 	    	<div class="inwrap">
 	    		<div class="commentBox fwb">

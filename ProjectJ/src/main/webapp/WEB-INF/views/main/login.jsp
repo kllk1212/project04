@@ -24,7 +24,7 @@
 			</div>
 		</form>
 		<div class="joinTxt pt-A center-f">
-			<p>아직도 회원이 아니세요?</p>
+			<p><strong>아직도 회원이 아니세요?</strong></p>
 			<button type="button">
 				<a href="/main/signup">회원가입</a>
 			</button>

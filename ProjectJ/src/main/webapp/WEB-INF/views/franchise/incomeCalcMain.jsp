@@ -339,7 +339,7 @@
                                     <p><a class="type fc-red"></a> 업종 평균 관리비는 매출의 <i class="fc-red" id="etcPayI"></i>입니다.</p>
                                 </div>
                                 <div class="list_val">
-                                    <input type="number" name="etcPay" id="etcPay">
+                                    <input class="resultInput" type="number" name="etcPay" id="etcPay">
                                 </div>
                             </li>
                             <li>

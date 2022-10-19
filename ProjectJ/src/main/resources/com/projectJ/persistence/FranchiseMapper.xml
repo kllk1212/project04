@@ -12,10 +12,10 @@ select s_comName,trunc((s_5point*5+s_4point*4+s_3point*3+s_2point*2+s_1point*1)/
 from starinfo where s_comname like '%'||#{comName}||'%'
 </select>
 
+<!-- 회사명 입력시 비슷한 검색어 결과(회사명-starInfo테이블) 정보 가져오기 -->
 <select id="searchResultAjax" resultType="com.projectJ.domain.StarInfoDTO">
 	select * from starInfo where upper(s_comname) like upper('%'||#{comName}||'%') 
 </select>
-
 
 <select id="searchResult2" resultType="com.projectJ.domain.ReviewSearchDTO">
 	select s.s_comName, c.c_comimg,(s.s_5point*5+s.s_4point*4+s.s_3point*3+s.s_2point*2+s.s_1point*1)/(s.s_5point+s.s_4point+s.s_3point+s.s_2point+s.s_5point) 
