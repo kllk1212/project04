@@ -76,7 +76,7 @@
                                                     <!-- <span>${avgSales}만원</span> -->
                                                     <!-- <span style="font-size: 15pt">${areaName }평균</span></br>
                                                     <span>${avgSales}</span> -->
-                                                    <p>서울평균</p>
+                                                    <p>지역평균</p>
                                                     <span class="numTrans">${avgSales}</span>
                                                 </li>
                                                 <li>
@@ -164,7 +164,7 @@
                                             <p>${areaName} 지역에는 전국 ${cDTO.c_comName } 매장 중 <span class="fc-red">
                                                     <fmt:formatNumber type="number" pattern="0.00" value="${ ((num*100) - ((num*100)%1)) * (1/100)   } " />%
                                                 </span>가 있습니다.</p>
-                                            <p>이 데이터는 <span class="fc-red">2020년 기준</span>입니다.</p>
+                                            <p>이 데이터는 <span class="fc-red">${fDTO[0].f_year} 기준</span>입니다.</p>
                                         </div>
                                         <div class="inwrap fx jc">
                                             <div class="doughnutBox fx fdc">

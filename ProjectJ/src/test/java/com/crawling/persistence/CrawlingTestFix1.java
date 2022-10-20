@@ -36,7 +36,7 @@ public class CrawlingTestFix1 {
         
 		
 		try {
-			url="file:///C:/Users/tjoeun/Downloads/%EA%B0%80%EB%A7%B9%EC%82%AC%EC%97%85%EA%B1%B0%EB%9E%98%20_%20%EC%A0%95%EB%B3%B4%EA%B3%B5%EA%B0%9C%EC%84%9C%20_%20%EC%A0%95%EB%B3%B4%EA%B3%B5%EA%B0%9C%EC%84%9C%20%EC%97%B4%EB%9E%8C.html";
+			url="https://franchise.ftc.go.kr/mnu/00013/program/userRqst/view.do?firMstSn=430942";
 			System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
 			ChromeOptions options = new ChromeOptions();
 			

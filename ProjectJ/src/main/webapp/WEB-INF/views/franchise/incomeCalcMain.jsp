@@ -209,8 +209,8 @@
             <div class="layout_wrap">
                 <form id="getResultSalesForm">
                     <div class="form_inwrap">
-                        <div class="list_name alc" id="checkedComName">
-                            <h3>선택한 프렌차이즈는 <br><span class="fc-red"></span> 입니다</h3>
+                        <div class="list_name fdc" id="checkedComName">
+                            <h3>선택한 프렌차이즈는 <br><span class="fc-red"></span></h3>
                             <!-- <h3>선택한 프렌차이즈는 <br><span class="fc-red">"+result.length +"</span> 입니다</h3> -->
                             <button type="button" id="getBtn">매출가져오기</button>
                         </div>

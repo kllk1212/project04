@@ -26,25 +26,44 @@
 	기타외식 O1	갯수 = 1487	pageNum = 149 
 	(고깃집,횟집 등등)
  -->
+    <div  class="layout_wrap admin_section">
 	<div>
-		<h1>공정거래 위원회 정보공개서 DB로 가져오기</h1>
-		<div>
-			<table>
-				<tr>
-					<td> <h2>DB에 등록된 프랜차이즈 테마 및 갯수</h2> </td>
-				</tr>
-				<tr>
-					<td><h3>테마</h3></td> <td><h3>갯수</h3></td>
-				</tr>
-				<c:forEach var="typeList" items="${typeList}">
-				<tr>
-					<td> ${typeList.type}</td><td> ${typeList.ea}곳</td>
-				</tr>
-				</c:forEach>
-			</table>
+		<h1 class="pt-B tc">공정거래 위원회 정보공개서 DB로 가져오기</h1>
+		<div class="pt-A fx admin_1">
+		    <div class="inwrap first">
+			    <h2 class="tc">DB에 등록된 프랜차이즈 테마 및 갯수</h2>
+				<table class="theme">
+					<tr class="title">
+						<th><h3>테마</h3></th> <td><h3>갯수</h3></td>
+					</tr>
+					<c:forEach var="typeList" items="${typeList}">
+					<tr>
+						<th> ${typeList.type}</th><td> ${typeList.ea}곳</td>
+					</tr>
+					</c:forEach>
+				</table>
+			</div>
+			<div class="inwrap">
+				<h2 class="tc">DB 중복 검사</h2>
+				<div class="s-search">
+					<div class="searchBox center-m">
+					   <div class="fx">
+					    <input placeholder="기업명을 입력해주세요" type="text" name="comName" value="" id="search">
+					    <!-- <input placeholder="되도록 정확한 기업명을 입력해주세요" type="text" name="comName" value="${comName }" id="search"> -->
+					    <button id="searchBtn" type="submit">검색</button>
+					   </div>
+					<table id="comNameList" class="center-m mt-A">
+					 <!-- 검색한 결과값이 담길 테이블 -->
+					</table>	
+					</div>
+				</div>
+			</div>
 		</div>
+			
+	
+   	    <div class="line"></div>
 		<div>
-			<table>
+			<table class="crolling">
 			<tr>
 				<td> <h2> 테마 전체 크롤링</h2></td>
 			</tr>
@@ -95,9 +114,10 @@
 	</form>
 	</div>
 	<br/>
+	 <div class="line"></div>
 	<div>
 		<form action="dbPlusOne" method="get">
-			<table>
+			<table class="crolling">
 				<tr>
 					<td> <h2> 특정 브랜드 1곳만 크롤링</h2> </td>
 				</tr>
@@ -124,20 +144,7 @@
 			</table>
 		</form>
 	</div>
-	
-	
-	<h1>DB 중복 검사</h1>
-	
-<section class="section s-search">
-<div class="searchBox center-m">
-<input placeholder="기업명을 입력해주세요" type="text" name="comName" value="" id="search">
-<!-- <input placeholder="되도록 정확한 기업명을 입력해주세요" type="text" name="comName" value="${comName }" id="search"> -->
-<button id="searchBtn" type="submit">검색</button>
-<table id="comNameList" class="center-m mt-A">
- <!-- 검색한 결과값이 담길 테이블 -->
-</table>	
-</div>
-</section>    
+	</div>
 
 
 

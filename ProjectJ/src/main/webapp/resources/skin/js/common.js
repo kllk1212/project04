@@ -16,24 +16,6 @@ $(function(){
         $(this).find('div').fadeOut();
     });
 
-    var pageName = $(".page").attr("data-id");
-
-	//console.log(pageName);
-    $("#gnb a").each(function(i, e) {
-
-        var gnbSplit = $(this).attr("href").split("/");
-        var slice = gnbSplit.slice(1,2);
-        var gnbDeco = String(slice);
-
-        // 헤더 밑줄확인~
-        // console.log(slice);
-        // console.log(pageName);
-        // console.log(gnbDeco);
-        if(slice == gnbDeco){
-            $(this).closest("li").addClass("active");
-        }
-
-    });
 
     // ============================================================
     // ============ form ==========================================
