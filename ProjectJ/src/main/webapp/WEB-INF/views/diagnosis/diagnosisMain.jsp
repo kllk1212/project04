@@ -47,8 +47,8 @@
                             </div>
                             <div class="guide center-m pt-A">
                                 <div class="commentBox">
-                                    <p>정확한 기업명을 입력해주세요.</p>
-                                    <p>선택한 기업명의 <i class="fc-red">지역별 데이터</i>를 볼 수 있어요.</p>
+                                    <p><strong>정확한 기업명을 입력해주세요.</strong></p>
+                                    <p><strong>선택한 기업명의 <i class="fc-red">지역별 데이터</i>를 볼 수 있어요.</strong></p>
                                 </div>
                                 <div class="imgBox">
                                     <img src="../img/diagnosis/global_map.gif" alt="">
@@ -221,10 +221,10 @@
                             console.log(result.length);
                             let str= "";
                             //str += "<tr><td><a> 검색된 결과 수 : "+result.length +"</a></td></tr>";
-                            str += "<tr><td><a> 상위 프랜차이즈 5곳</a></td></tr>";
+                            str += "<tr><td><a style='font-size:25px'><strong> 상위 프랜차이즈 5곳</strong></a></td></tr>";
                             for(let i = 0; i < 5; i++){ //result.length 일단 5개까지만
 
-                                str+= "<tr><td>"+ result[i].l_comName +"</td><td>";
+                                str+= "<tr><td style='font-size:20px'><strong>"+ result[i].l_comName +"</strong></td><td>";
                                 str+= "<label class='agree fx alc'>";	// 수정한거
                                 str+= "<input type='checkbox' value='"+ result[i].l_comName +"' class='resultBtn' id='"+ result[i].l_comName +"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
                             }
@@ -259,7 +259,7 @@
                                 str += "<tr><td><span class='commentBox'> 검색된 결과 수 : "+result.length +"</span></td></tr>";
                                 for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
 
-                                    str+= "<tr><td>"+ result[i].s_comName +"</td><td>";
+                                    str+= "<tr><td><strong>"+ result[i].s_comName +"</strong></td><td>";
                                     str+= "<label class='agree fx alc je' id='"+ result[i].s_comName +"'>";
                                     str+= "<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
                                 }

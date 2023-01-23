@@ -209,8 +209,8 @@
             <div class="layout_wrap">
                 <form id="getResultSalesForm">
                     <div class="form_inwrap">
-                        <div class="list_name alc" id="checkedComName">
-                            <h3>선택한 프렌차이즈는 <br><span class="fc-red"></span> 입니다</h3>
+                        <div class="list_name fdc" id="checkedComName">
+                            <h3>선택한 프렌차이즈는 <br><span class="fc-red"></span></h3>
                             <!-- <h3>선택한 프렌차이즈는 <br><span class="fc-red">"+result.length +"</span> 입니다</h3> -->
                             <button type="button" id="getBtn">매출가져오기</button>
                         </div>
@@ -339,7 +339,7 @@
                                     <p><a class="type fc-red"></a> 업종 평균 관리비는 매출의 <i class="fc-red" id="etcPayI"></i>입니다.</p>
                                 </div>
                                 <div class="list_val">
-                                    <input type="number" name="etcPay" id="etcPay">
+                                    <input class="resultInput" type="number" name="etcPay" id="etcPay">
                                 </div>
                             </li>
                             <li>

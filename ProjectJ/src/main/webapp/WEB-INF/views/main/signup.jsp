@@ -45,7 +45,7 @@
 			<h2>회원가입</h2>
 			<table>
 				<tr>
-					<th class="fx alc jsb">아이디 <span id="idCheck"></span>
+					<th class="fx alc jsb">아이디 <strong><span id="idCheck"></span></strong>
 					</th>
 					<td><input type="text" name="m_id" id="m_id" required
 						placeholder="아이디를 입력해주세요"></td>

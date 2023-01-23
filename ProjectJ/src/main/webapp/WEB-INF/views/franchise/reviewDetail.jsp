@@ -7,6 +7,7 @@
 
 <script>
 	let msg = '${msg}';
+	
 	console.log(msg);
 </script>
 
