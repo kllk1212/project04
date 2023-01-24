@@ -83,13 +83,17 @@
                         </nav>
                     </div>
 
-                    <div class="header_right" id ="loginDiv">
-                        <button type="button" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
-                    </div>
+                    <div class="header_right">
 
-                    <div class="header_right" id ="logoutDiv">
-                        <button type="button" id ="logoutBtn">로그아웃</button>
-                        <button type="button" onclick="location.href='../main/mypage'">마이페이지</button>
+                        <div class="inwrap" id ="loginDiv">
+                            <button type="button" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
+                        </div>
+
+                        <div class="inwrap" id ="logoutDiv">
+                            <button type="button" id ="logoutBtn">로그아웃</button>
+                            <button type="button" onclick="location.href='../main/mypage'">마이페이지</button>
+                        </div>
+
                     </div>
 
                 </div>
@@ -101,10 +105,12 @@
             	console.log("token : " + token);
             	// 로그인상태 0
             	if(token == 0){
-            		$("#loginDiv").hide();
-            	}else{
-            		$("#loginDiv").show();
-            		$("#logoutDiv").hide();
+                    $('#logoutDiv').css('display','flex');
+            		// $("#loginDiv").hide();
+                }else{
+                    $('#loginDiv').css('display','flex');
+            	    // $("#loginDiv").show();
+            		// $("#logoutDiv").hide();
             	}
   			});
             </script>
